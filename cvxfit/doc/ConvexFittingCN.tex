@@ -1,0 +1,428 @@
+\documentclass[CJK,notheorems,compress,mathserif,table]{beamer}
+%\useoutertheme[height=0.1\textwidth,width=0.15\textwidth,hideothersubsections]{sidebar}
+\usecolortheme{whale}      % Outer color themes: whale, seahorse, dolphin
+\usecolortheme{orchid}     % Inner color themes: lily, orchid
+%\useinnertheme[shadow]{rounded}
+%\setbeamercolor{sidebar}{bg=blue!50} \setbeamercolor{background
+%canvas}{bg=blue!9}
+\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+%%------------------------常用宏包---------------------------------------------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{CJK}
+\usepackage{graphicx}
+%\DeclareGraphicsRule{*}{mps}{*}{}
+\usepackage{xmpmulti}
+\usepackage{algorithm,algorithmic}
+\usepackage{times}
+\usepackage{cite}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{wasysym}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{pgf}
+%\usepackage{colortbl,dcolumn}
+
+%\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+%\logo{\includegraphics[height=0.09\textwidth]{wuda.pdf}}
+
+%\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+%\raggedright
+
+%\def\hilite<#1>{%
+%\temporal<#1>{\color{blue!35}}{\color{magenta}}%
+%{\color{blue!75}}}
+
+%\newcolumntype{H}{>{\columncolor{blue!20}}c!{\vrule}}
+%\newcolumntype{H}{>{\columncolor{blue!20}}c}
+%==================================参考文献==============================================================
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %自定义命令\upcite, 使参考文献引用以上标出现
+%\bibliographystyle{plain}
+\newcommand{\domain}[1]{\mathbb{#1}}
+\renewcommand{\algorithmiccomment}[1]{ /* #1 */}
+
+\DeclareGraphicsRule{.gif}{eps}{.gif.bb}{`gif2eps #1}
+
+\begin{document}
+  \begin{CJK*}{GBK}{song}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{用B-Spline实现凸拟合}
+\subtitle{(项目提议)}
+\author{陆伟成%
+  \thanks{{\tiny 微电子系,
+      复旦大学.
+      Email: luk@fudan.edu.cn}},
+}
+
+\frame{\titlepage }
+
+\frame{\frametitle{议程}
+  \tableofcontents
+}
+
+\section{介绍}
+\frame{\frametitle{介绍}
+  \begin{itemize}
+    \item
+      问题: 找到能够拟合一组数据点的多项式/凸方程.
+    \item
+      要求:
+      \begin{itemize}
+        \item
+          平滑, 容易得到数值.
+      \end{itemize}
+    \item
+      目的:
+      \begin{itemize}
+        \item
+          几何编程 (GP): 模拟电路尺寸调节
+      \end{itemize}
+  \end{itemize}
+}
+
+\section{以前的成果}
+\frame{\frametitle{以前的成果}
+  \begin{itemize}
+    \item
+      正项式拟合
+    \item
+      Sum-of-squares 多项式拟合 (Magnani, Lall and Boyd, CDC-ECC'05)
+    \item
+      凸分段线性拟合 (Magnani and Boyd, Technical Report, 2006)
+    \item
+      ConvexFit (Roy and Chen, ICCAD'05)
+    \item
+      ConvexSmooth (Roy and Chen, ISQED'06)
+  \end{itemize}
+}
+
+\frame{\frametitle{正项式拟合}
+  \begin{itemize}
+    \item
+      当需要建立更复杂的正项式方程时有用。
+    \item
+      这个问题是困难的，因为：
+      \begin{itemize}
+        \item
+          这个问题没有已知的 Convex programming 方程。
+        \item
+          没有已知的一组正交正项式。
+        \item
+          在这个提案中将不被涉及。
+      \end{itemize}
+    \item
+      Prefer direct fitting to a convex function.
+  \end{itemize}
+}
+
+\frame{\frametitle{SOS 拟合 (CDC-ECC'05)}
+  \begin{itemize}
+    \item
+      设 $S$ 是具有 sum-of-squares (SOS) 形式的所有正项式的集合。
+    \item
+      拟合一组以这种形式给出的数据点可以用公式表示为半正定编程问题
+      (SDP)，因此可以被很有效的解决。
+    \item
+      困难:
+      \begin{itemize}
+        \item
+          不是 \emph{所有的} 凸方程都是最优的。
+        \item
+          缺乏局部控制性 (改变一个点会影响整个方程)
+        \item
+          如何决定项的数目？
+        \item
+          如何选择基本多项式？
+        \item
+          如何有效地求方程的值？
+      \end{itemize}
+  \end{itemize}
+}
+
+\frame{\frametitle{凸分段线性拟合}
+  \begin{itemize}
+    \item
+      想法: 利用 max-affine 方程 $f(x) = \max\{a_i^{T} x + b_i\}$
+      拟合数据点。
+    \item
+      局限于这种形式的最小二乘法拟合并不保证结果的凸性；
+      可能只得到局部最小结果。
+    \item
+      不平滑。
+  \end{itemize}
+}
+
+\frame{\frametitle{ConvexFit (ICCAD'05)}
+  \begin{itemize}
+    \item
+      想法： 最小限度的调整数据点以期它的近似 Hessian 矩阵是凸的
+      (???)。这个问题可以用公式表示为一个 SDP 问题。
+    \item
+      然后可以利用二次插值来使调整过的数据点平滑。
+    \item
+      缺点:
+      \begin{itemize}
+        \item
+          不能保证插值插入的点可以保持凸性。
+        \item
+          不能保证光滑。
+      \end{itemize}
+  \end{itemize}
+}
+
+\frame{\frametitle{ConvexSmooth (ISQED'06)}
+  \begin{itemize}
+    \item
+      想法： retain the smoothness and
+      convexity by adding extra interpolated
+      points to the ConvexFit minimization process.
+    \item
+      缺点:
+      \begin{itemize}
+        \item
+          非常慢。 可以比 ConvexFit 慢100倍。
+      \end{itemize}
+  \end{itemize}
+}
+
+
+\section{很少有人用的 Convex Fitting}
+\frame{\frametitle{Poor Man's Convex Fitting}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item
+        对于 1D 的情况，就利用凸包。\\
+        \begin{itemize}
+          \item
+            不平滑。\\
+          \item
+            拟合的不是很好，只是最低限度的。\\
+          \item
+            但是至少它是凸的。\\
+          \item
+            难于扩展到更高维。\\
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.6\textwidth}
+      \pgfputat{\pgfxy(0,-3.0)}{\pgfbox[left,base]{\includegraphics[width=\textwidth]{jpg2pdf1}}}
+    \end{column}
+  \end{columns}
+}
+
+\frame{\frametitle{用 B-spline 改进}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+    \begin{itemize}
+      \item
+        用凸包上的点作为控制点(control points)。
+      \item
+        可以通过调整结点(knots)的位置进一步的优化。 (不需考虑凸性)
+    \end{itemize}
+    \end{column}
+
+    \begin{column}{0.6\textwidth}
+    \pgfputat{\pgfxy(0,-3.0)}{\pgfbox[left,base]{\includegraphics[width=\textwidth]{jpg2pdf2}}}
+    \end{column}
+  \end{columns}
+}
+
+\frame{\frametitle{B-spline 的一些很好的性质 }
+  \begin{itemize}
+    \item
+      \alert{定理: 如果所有的控制点 (control points) 都在一个凸包上， 那么拟合的曲线也可以保证是凸的。}
+      (对于 tensor product B-spline 是否仍然适用？)
+    \item
+      定理: 如果所有控制点 (control points)
+      都是单调递增的，那么拟合的曲线也可以保证是单调递增的。
+    \item
+      通过一个已知的迭代方程可以很容易地得到方程的值。
+    \item
+      导数 (斜率) 很容易得到。
+    \item
+      局部控制性 (只影响邻近的区域)。
+    \item
+      平滑。
+    \item
+      Affine invariant.
+  \end{itemize}
+}
+
+
+\section{用 B-spline 曲线拟合}
+\frame{\frametitle{B-spline 做最小二乘法拟合}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{itemize}
+    \item
+      没有考虑凸性并且结点的位置是固定的。
+    \item
+      找到最佳的控制点是一个线性最小二乘法拟合的问题，并且可以很容易地用QR方法来解决（详见MATLAB
+      Spline Toolbox）。
+  \end{itemize}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+  \pgfputat{\pgfxy(0,-3.0)}{\pgfbox[left,base]{\includegraphics[width=1.2\textwidth]{jpg2pdf3}}}
+  \end{column}
+\end{columns}
+}
+
+\frame{\frametitle{Cvx LSF by PWL function}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{itemize}
+    \item
+      在所有二阶导数$\geqslant 0$的情况下，使方差最小。
+    \item
+      Recall that
+      \begin{align}
+      &f[x_0,x_1,x_2] \geq 0 \nonumber\\
+      &\Leftrightarrow f[x_0,x_1] \leq f[x_1,x_2] \nonumber\\
+      &\Leftrightarrow \frac{f(x_1)-f(x_0)}{x_1-x_0} \leq
+      \frac{f(x_2)-f(x_1)}{x_2-x_1}\nonumber
+      \end{align}
+    \item
+      这是一个有线性不等式限制的凸二次编程问题，可以很容易地解决。
+  \end{itemize}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+  \pgfputat{\pgfxy(0,-3.0)}{\pgfbox[left,base]{\includegraphics[width=1.2\textwidth]{jpg2pdf4}}}
+  \end{column}
+\end{columns}
+}
+
+\frame{\frametitle{LSF by B-spline}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{itemize}
+    \item
+      Recall that B-spline 是一个分段多项式。
+    \item
+      在所有控制点的二阶导数$\geqslant 0$的情况下，使方差最小。
+    \item
+      这还是一个可以很容易的解决有线性不等式限制的凸二次编程问题。
+  \end{itemize}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+  \pgfputat{\pgfxy(0,-3.0)}{\pgfbox[left,base]{\includegraphics[width=1.2\textwidth]{jpg2pdf5}}}
+  \end{column}
+\end{columns}
+}
+
+\frame{\frametitle{B-Spline 例子}
+  \begin{figure}[tb]
+    \centering
+    \scalebox{0.5}{\includegraphics{cvxfit1d}}\\
+    \caption{Example.}\label{fig:cvxfit1d}
+  \end{figure}
+}
+
+\frame{\frametitle{用 B-spline 拟合多变量数据点}
+  \begin{itemize}
+  \item
+    数据点是一个矩形栅格: Tensor product B-spline.
+  \item
+    线性不等式限制扩展为线性矩阵不等式(LMI)限制。
+  \item
+    这个问题就是所谓的半正定编程问题，可以被有效地解决。
+  \end{itemize}
+}
+
+\frame{\frametitle{B-Spline 最小方差拟合}
+  \begin{itemize}
+    \item
+      没有要求凸性的用 B-Spline 做最小方差拟合在MATLAB中已经有了。
+    \item
+      问题:
+      \begin{itemize}
+        \item
+          How to handle process variations? (AA?)
+        \item
+          如何用在现有的 GP 中?
+      \end{itemize}
+  \end{itemize}
+}
+
+\frame{\frametitle{2-D B-Spline 例子}
+  \begin{figure}[tb]
+    \centering
+    \scalebox{0.6}{\includegraphics{spline2d}}\\
+    \caption{Example.}\label{fig:spline2d}
+  \end{figure}
+}
+
+\frame{\frametitle{有凸性限制的 spline 例子}
+  \begin{figure}[tb]
+    \centering
+    \scalebox{0.6}{\includegraphics{franke}}\\
+    \caption{Example.}\label{fig:franke}
+  \end{figure}
+}
+
+\frame{\frametitle{有凸性限制的 spline 例子}
+  \begin{figure}[tb]
+    \centering
+    \scalebox{0.6}{\includegraphics{spcvx_y}}\\
+    \caption{Example.}\label{fig:spcvx_y}
+  \end{figure}
+}
+
+\frame{\frametitle{有凸性限制的 spline 例子}
+  \begin{figure}[tb]
+    \centering
+    \scalebox{0.6}{\includegraphics{spcvx_xy}}\\
+    \caption{Example.}\label{fig:spcvx_xy}
+  \end{figure}
+}
+
+\frame{\frametitle{总结}
+  \begin{center}
+    \begin{tabular}{c|l|l|l|l|l}
+      \hline
+      & \small{CvxPWL} & \small{CvxFit} & \small{CvxSmth} & \small{SOS} & \small{B-spline} \\
+      \hline
+      \small{Convex formulation} & *      & ****   & ****    & ***** & *****    \\
+      \hline
+      \small{Smoothness}     & *  & ** & **** & ***** & ***** \\
+      \hline
+      \small{Convex preserve} & ***** & ** & **** & ***** & ***** \\
+      \hline
+      \small{Ease of fitting} & * & ***** & * & *** & ***** \\
+      \hline
+      \small{Ease of evaluation} & ***** & *** & *** & * & ***** \\
+      \hline
+      \small{Local support} & ***** & ***** & ***** & * & ***** \\
+      \hline
+    \end{tabular}
+  \end{center}
+}
+
+\frame{\frametitle{提案}
+  \begin{itemize}
+    \item
+      初级程度: 试一个简单的问题，例如在MATLAB中拟合 $\tan^{-1}(x)$。
+    \item
+      中级程度: 将新方法用在我们运放电路尺寸调整的例子中。
+      \begin{itemize}
+        \item
+          例如，替换一个限制条件，如 phase margin constraint,
+          by Convex fitting, and re-run the ellipsoid method.
+      \end{itemize}
+    \item
+      高级阶段: 用 C++ 实现新的方法. 用新方法取代 ACCO 优化引擎(差分进化): ellipsoid+cvxfit+evolution
+    \item
+      专家级阶段: 鲁棒设计: ellipsoid+cvxfit+AA+evolution
+  \end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \end{CJK*}
+\end{document}

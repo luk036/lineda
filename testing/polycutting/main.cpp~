@@ -1,0 +1,108 @@
+#include <polygonn.hpp>
+#include <pointer.hpp>
+#include <rectlink.hpp>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
+#include <iostream>
+
+#include <rpolygon.hpp>
+#include <rectangle.hpp>
+#include <vector>
+#include <svgstream.hpp>
+
+using namespace recti;
+using namespace dsl;
+using namespace std;
+
+int main(int argc, const char* argv[])
+{
+  const size_t N = (argc <= 1)? 10 : atoi(argv[1]);
+  srand((unsigned)time(NULL));
+  RPolygon<int> P = RPolygon<int>::random(N);
+  svgstream test("polycutting.svg");
+  int d = 1;
+  if (d) {
+    P.normalize();
+  }
+  else {
+    cout << "error!" << endl;
+  }
+
+  test << P;
+  test << '\n';
+
+  
+  //xxx size_t i=0;
+  //xxx P.normalize();
+  //xxx 
+  //xxx typedef RPolygon<int>::pt_set_type pt_set_type;
+  //xxx typedef pt_set_type::const_iterator const_iterator;
+  //xxx const pt_set_type pt_set = P.get_pt_set();
+  //xxx const_iterator it = pt_set.begin();
+  //xxx 
+  //xxx //xxx do { // traverse circulant linked list
+  //xxx //xxx   if (it.next()->x() == it->x() && it.prev()->x() == it->x()) continue;
+  //xxx //xxx   if (it.next()->y() == it->y() && it.prev()->y() == it->y()) continue;
+  //xxx //xxx   ++i;
+  //xxx //xxx } while (++it != pt_set.begin());
+  //xxx 
+  //xxx const size_t M = pt_set.num_nodes();
+  //xxx vector<Pointer<int> > Pn(M, Pointer<int>(0,0,0,0));
+  //xxx 
+  //xxx i=0;
+  //xxx do { // traverse circulant linked list
+  //xxx   //xxx if (it.next()->x() == it->x() && it.prev()->x() == it->x()) continue;
+  //xxx   //xxx if (it.next()->y() == it->y() && it.prev()->y() == it->y()) continue;
+  //xxx   Pn[i] = Pointer<int>(it->x(), it->y(), 0, 0);
+  //xxx   Pn[i].next(&Pn[i+1]);
+  //xxx   Pn[i].prev(&Pn[i-1]);
+  //xxx   ++i;
+  //xxx } while (++it != pt_set.begin());
+  //xxx 
+  //xxx assert(i == M);
+  //xxx 
+  //xxx Pn[0].prev(&Pn[i-1]);
+  //xxx Pn[i-1].next(&Pn[0]);
+  //xxx 
+  //xxx Pointer<int>& a = Pn[0];
+  //xxx 
+  //xxx Polygonn<int>  p(&a,i,0);
+  //xxx 
+  //xxx Pointer<int>*  curr=&a;
+  //xxx curr = p.normalize(curr);
+  //xxx cout << "next step" << endl;
+  //xxx int o = p.area(&a);
+  //xxx  
+  //xxx p.cut(curr);
+  //xxx cout<<"_rectanglenum="<<p._rectanglenum<<endl; 
+  //xxx //xxx Pointer<int>* cr;    
+  //xxx for( int ii=0; ii < p._rectanglenum ;ii ++ )
+  //xxx   {
+  //xxx     Pointer<int>* node = p._rectanglegroup[ii];
+  //xxx     Pointer<int>* nextnode = node->_next;
+  //xxx     Pointer<int>* prevnode = node->_prev;
+  //xxx 
+  //xxx     int width = nextnode->_x - node->_x;
+  //xxx     int height = prevnode->_y - node->_y;
+  //xxx 
+  //xxx     double ratio = double(width)/height;
+  //xxx 
+  //xxx     // if (ratio >= 0.25 && ratio <= 4) {
+  //xxx       //xxx cout << cr->_x <<" "<<cr->_y<<endl;
+  //xxx       test << "<rect" 
+  //xxx 	     << " x=\"" << node->_x << "\""  
+  //xxx 	     << " y=\"" << node->_y << "\""
+  //xxx 	     << " width=\"" << width << "\""
+  //xxx 	     << " height=\"" << height << "\""
+  //xxx 	     << " style=\"stroke:black;fill:red;fill-opacity:0.3\""
+  //xxx 	     << "/>\n";
+  //xxx 	// }
+  //xxx   } 
+  //xxx 
+  //xxx cout << "area=" << o << endl;
+  //xxx p.cparea(o); 
+  
+  //xxx p.enlarge(2);
+}
+

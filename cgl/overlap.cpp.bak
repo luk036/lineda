@@ -1,0 +1,70 @@
+#include "overlap.hpp"
+#include <rectangle.hpp>
+#include <interval.hpp>
+#include <set>
+#include <vector>
+
+using namespace std;
+using recti::rectangle;
+using numeric::interval;
+
+namespace cgl {
+
+  /** ??? */
+  struct todoEvent
+  {
+    intvl_set<int> S; // for detecting interval overlapping
+
+    void operator()(point_event& ptE) 
+    {
+      if (ptE._is_start) { // is start point
+        const interval<int>& q = ptE._info->_data->y_bound();
+      	const std::pair<intvl_set<int>::const_iterator, bool> p = S.insert(q);
+        if (!p.second) throw *ptE._info;
+        ptE._info->_it = p.first;
+      }
+      else { // is end point
+        S.erase(ptE._info->_it);
+      }
+    }
+  };
+
+
+  /** Constructor */
+  overlap_sweeper::overlap_sweeper(const vector<rectangle>& rects) :
+    _event_infos(rects.size()),
+    _point_events(2*rects.size())
+  {
+    for (size_t i=0,j=0; i<rects.size(); ++i,j+=2) {
+      _event_infos[i]._data = &rects[i];
+      _point_events[j]._info = &_event_infos[i];
+      _point_events[j]._is_start = true;
+      _point_events[j]._x = rects[i].llx();
+      _point_events[j+1]._info = &_event_infos[i];
+      _point_events[j+1]._is_start = false;
+      _point_events[j+1]._x = rects[i].urx();
+    } 
+  }
+
+
+  /** Return if rectangles that are overlapped. The algorithm takes 
+      O(N log N) times where N is the number of rectangles. It uses
+      the overlap sweeping algorithm that sweeps through
+      horizontally. For each particular sweeping line, a set of
+      vertical intervals is constructed in order to detect the overlapping. */ 
+  bool overlap_sweeper::scan() const
+  {
+    sweeper<point_event> mys(_point_events.begin(), _point_events.end());
+    mys.do_on_event(todoEvent());
+
+    try {
+      mys.scan();
+    }
+    catch (event_info& ) {
+      return true;
+    }
+
+    return false;
+  }
+
+} // namespace

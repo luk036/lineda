@@ -1,0 +1,57 @@
+#ifndef CPP_UNIT_TRIPLE_HPP
+#define CPP_UNIT_TRIPLE_HPP
+
+// 	$Id: triple_t.hpp 1217 2006-07-22 08:30:43Z luk $	
+
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+#include <triple.hpp>
+//#include <boost/rational.hpp>
+
+//typedef boost::rational<int> Rat;
+
+/** @addtogroup cppunit
+ *  @{
+ */
+
+/**
+ * A test case for triple
+ */
+class triple_TestCase : public CppUnit::TestFixture
+{
+  CPPUNIT_TEST_SUITE( triple_TestCase );
+  CPPUNIT_TEST( test_copy );
+  CPPUNIT_TEST( test_equal_to );
+  CPPUNIT_TEST( test_less );
+  CPPUNIT_TEST( test_plus );
+  //xxx CPPUNIT_TEST( test_multiplies );
+  CPPUNIT_TEST_SUITE_END();
+
+protected:
+  numeric::triple<double>              _dd1, _dd2, _dd3;
+  //numeric::triple<Rat>                 _cd1, _cd2, _cd3;
+  numeric::triple<numeric::triple<double> >     _rd1, _rd2, _rd3;
+
+public:
+  void setUp();
+  void tearDown();
+
+protected:
+  /** Test copy. */
+  void test_copy();
+
+  /** Test equal to. */
+  void test_equal_to();
+
+  /** Test less. */
+  void test_less();
+
+  /** Test add. */
+  void test_plus();
+
+  //xxx /** Test multiply. */
+  //xxx void test_multiplies();
+};
+
+/** @} */
+#endif

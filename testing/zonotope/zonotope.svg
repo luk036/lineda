@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C/DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="500px" height="500px" viewBox="0 0 2000 2000"
+  xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Generate from recti package</desc>
+  <g transform="translate(1000,1000)">
+<polygon points=" 5,500 -50,445 -70,395 -70,365 205,90 235,90 290,145 310,195 310,225 35,500 " style="fill:green;fill-opacity:0.5;stroke:black"/>
+<circle cx="5" cy="500" r="8" style="fill:red;stroke:black"/>
+<circle cx="-50" cy="445" r="8" style="fill:red;stroke:black"/>
+<circle cx="-70" cy="395" r="8" style="fill:red;stroke:black"/>
+<circle cx="-70" cy="365" r="8" style="fill:red;stroke:black"/>
+<circle cx="205" cy="90" r="8" style="fill:red;stroke:black"/>
+<circle cx="235" cy="90" r="8" style="fill:red;stroke:black"/>
+<circle cx="290" cy="145" r="8" style="fill:red;stroke:black"/>
+<circle cx="310" cy="195" r="8" style="fill:red;stroke:black"/>
+<circle cx="310" cy="225" r="8" style="fill:red;stroke:black"/>
+<circle cx="35" cy="500" r="8" style="fill:red;stroke:black"/>
+
+<polygon points=" -222,251 -222,251 -296,66 -296,-13 -170,-139 -170,-139 -170,-139 -96,46 -96,125 -222,251 " style="fill:green;fill-opacity:0.5;stroke:black"/>
+<circle cx="-222" cy="251" r="8" style="fill:red;stroke:black"/>
+<circle cx="-222" cy="251" r="8" style="fill:red;stroke:black"/>
+<circle cx="-296" cy="66" r="8" style="fill:red;stroke:black"/>
+<circle cx="-296" cy="-13" r="8" style="fill:red;stroke:black"/>
+<circle cx="-170" cy="-139" r="8" style="fill:red;stroke:black"/>
+<circle cx="-170" cy="-139" r="8" style="fill:red;stroke:black"/>
+<circle cx="-170" cy="-139" r="8" style="fill:red;stroke:black"/>
+<circle cx="-96" cy="46" r="8" style="fill:red;stroke:black"/>
+<circle cx="-96" cy="125" r="8" style="fill:red;stroke:black"/>
+<circle cx="-222" cy="251" r="8" style="fill:red;stroke:black"/>
+
+<rect x="-296" y="-139" width="200" height="390" style="fill:none;stroke:black"/>
+<polygon points=" -262,145 -296,37 -170,-139 -130,-33 -96,75 -222,251 " style="fill:green;fill-opacity:0.5;stroke:black"/>
+<circle cx="-262" cy="145" r="8" style="fill:red;stroke:black"/>
+<circle cx="-296" cy="37" r="8" style="fill:red;stroke:black"/>
+<circle cx="-170" cy="-139" r="8" style="fill:red;stroke:black"/>
+<circle cx="-130" cy="-33" r="8" style="fill:red;stroke:black"/>
+<circle cx="-96" cy="75" r="8" style="fill:red;stroke:black"/>
+<circle cx="-222" cy="251" r="8" style="fill:red;stroke:black"/>
+
+  </g>
+</svg>

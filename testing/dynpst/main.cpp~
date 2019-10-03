@@ -1,0 +1,25 @@
+#include <intv_set.hpp>
+#include <point.hpp>
+
+using namespace recti;
+using namespace lineda;
+
+int main()
+{
+  svgstream sout("testing.svg");
+  intv_multiset<int> I;
+
+  for (size_t i=0; i<200; ++i) {
+    point p = point::random();
+    I.insert(make_pair(p.x(), p.y()));
+    sout << p << '\n';
+  }
+
+  intv_multiset<int>::iterator it1 = I.lower_bound(400, 750);
+  intv_multiset<int>::iterator it2 = I.upper_bound(600, 750);
+
+  for (; it1 != it2; ++it1) {
+    sout << point(it1.x(), it1.y()) << '\n';
+  }
+}
+

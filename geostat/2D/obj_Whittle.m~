@@ -1,0 +1,12 @@
+function L=obj_Whittle(par,P)
+
+% disp('in optimization');
+global omega_x2 omega_y2;
+
+alpha=par(1);
+nu=par(2);
+
+n=length(omega_x2);
+
+L=n*log(sum((alpha^2+omega_x2+omega_y2).^(nu+1).*P_sum));
+L=L-(nu+1)*sum(log(alpha^2+omega_x2+omega_y2));

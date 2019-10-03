@@ -1,0 +1,27 @@
+% clear all; close all;
+% NUM = 3;
+% %x = [1:10]'; y = [11:20]'; z = [21:30]';
+% x = 1 + 9*rand(40,1);
+% y = 11 + 9*rand(40,1);
+% z = 21 + 9*rand(40,1);
+% 
+% 
+% kx = 4; knotsx = augknt([1:1:10]',kx);
+% ky = 4; knotsy = augknt([11:1:20]',ky);
+% kz = 4; knotsz = augknt([21:1:30]',kz);
+% 
+% switch NUM,
+%   case 2,
+%     f = x + y;
+%     autogen_spcvx_H(2);
+%     sp4 = spcvx2d_gen_H({knotsx,knotsy},[kx,ky],[x y],f);
+%   case 3,
+%     f = x + y + z;
+%     autogen_spcvx_H(3);
+%     sp4 = spcvx3d_gen_H({knotsx,knotsy,knotsz},[kx,ky,kz],[x y z],f);
+% end
+
+figure, fnplt(sp4),
+xlabel('X'), ylabel('Y'), zlabel('Z')
+%axis([1 10 11 20 10 32])
+return

@@ -1,0 +1,2203 @@
+From: <ÓÉ Microsoft Internet Explorer 5 ±£´æ>
+Subject: Penrose Tiles -- from MathWorld
+Date: Fri, 8 Apr 2005 10:59:24 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C53C2A.067BB230"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://mathworld.wolfram.com/PenroseTiles.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Penrose Tiles -- from MathWorld</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"Weisstein, Eric W." name=3DDC.Creator>
+<META=20
+content=3D'The Penrose tiles are a pair of shapes that tile the plane =
+only aperiodically (when the markings are constrained to match at =
+borders).  These two tiles, illustrated above, are called the "kite" and =
+"dart," respectively.  In strict Penrose tiling, the tiles must be =
+placed in such a way that the colored markings agree; in particular, the =
+two tiles may not be combined into a rhombus (Hurd).  Two additional =
+types of Penrose tiled known as the rhombs (of which there are two...'=20
+name=3DDC.Description>
+<META scheme=3DW3CDTF content=3D2002-09-26 name=3DDC.Date.Modified>
+<META scheme=3DW3CDTF content=3D2004-04-10 name=3DDC.Date.Modified>
+<META scheme=3DMathWorld content=3D"Mathematics:Geometry:Plane =
+Geometry:Tiling"=20
+name=3DDC.Subject>
+<META scheme=3DMSC_2000 content=3D05B45 name=3DDC.Subject>
+<META scheme=3DMSC_2000 content=3D51M04 name=3DDC.Subject>
+<META=20
+content=3D"Copyright 1999 CRC Press LLC, Copyright 1999-2005 Wolfram =
+Research, Inc.  See http://mathworld.wolfram.com/about/terms.html for a =
+full terms of use statement."=20
+name=3DDC.Rights>
+<META scheme=3DIMT content=3Dtext/html name=3DDC.Format>
+<META scheme=3DURI =
+content=3Dhttp://mathworld.wolfram.com/PenroseTiles.html=20
+name=3DDC.Identifier>
+<META scheme=3DRFC3066 content=3Den name=3DDC.Language>
+<META content=3D"Wolfram Research, Inc." name=3DDC.Publisher>
+<META scheme=3DURI content=3Dhttp://mathworld.wolfram.com/=20
+name=3DDC.Relation.IsPartOf>
+<META scheme=3DDCMIType content=3DText name=3DDC.Type>
+<META content=3D2004-04-10 name=3DLast-Modified><LINK=20
+href=3D"http://mathworld.wolfram.com/css/mathworld.css" type=3Dtext/css=20
+rel=3Dstylesheet><LINK title=3D"MathWorld Headline News"=20
+href=3D"http://mathworld.wolfram.com/news/rss.xml" =
+type=3Dapplication/rss+xml=20
+rel=3Dalternate>
+<META content=3D"MSHTML 6.00.2900.2604" name=3DGENERATOR></HEAD>
+<BODY><!-- beg noidx --><!-- Topbar -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+  <TBODY>
+  <TR bgColor=3D#000000>
+    <TD align=3Dleft><IMG height=3D10 alt=3D""=20
+      src=3D"http://mathworld.wolfram.com/images/topbar/row1.gif" =
+width=3D784=20
+      border=3D0></TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND: url(/images/topbar/row2_bg.gif) #000000" =
+align=3Dleft=20
+    bgColor=3D#000000><A href=3D"http://www.wolfram.com/"><IMG =
+height=3D24=20
+      alt=3D"Wolfram Research"=20
+      src=3D"http://mathworld.wolfram.com/images/topbar/btn_wolfram.gif" =
+width=3D158=20
+      border=3D0></A><IMG height=3D24 alt=3D""=20
+      =
+src=3D"http://mathworld.wolfram.com/images/topbar/mid-backangle.gif"=20
+      width=3D24 border=3D0><A href=3D"http://mathworld.wolfram.com/" =
+target=3D_top><IMG=20
+      height=3D24 alt=3Dmathworld.wolfram.com=20
+      =
+src=3D"http://mathworld.wolfram.com/images/topbar/btn_products.gif"=20
+      width=3D453 border=3D0></A><IMG height=3D24 alt=3D""=20
+      =
+src=3D"http://mathworld.wolfram.com/images/topbar/row2_backangle.gif"=20
+      width=3D22 border=3D0><A =
+href=3D"http://www.wolfram.com/webresources.html"=20
+      target=3D_top><IMG height=3D24 alt=3D"Other Wolfram Sites"=20
+      =
+src=3D"http://mathworld.wolfram.com/images/topbar/btn_webresource.gif"=20
+      width=3D127 border=3D0></A></TD></TR>
+  <TR style=3D"BACKGROUND: url(/images/topbar/row3.gif)">
+    <TD vAlign=3Dtop>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop><NOBR><IMG height=3D28 alt=3D""=20
+            src=3D"http://mathworld.wolfram.com/images/topbar/row3.gif"=20
+            width=3D514></NOBR></TD>
+          <TD><NOBR><IMG height=3D28 alt=3D""=20
+            =
+src=3D"http://mathworld.wolfram.com/images/topbar/row3_frontangle.gif"=20
+            width=3D27></NOBR></TD>
+          <TD bgColor=3D#00b1ae>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+              <TBODY>
+              <TR>
+                <FORM name=3Dsearch action=3D/search/ method=3Dpost>
+                <TD vAlign=3Dcenter><NOBR><A=20
+                  =
+href=3D"http://mathworld.wolfram.com/search/advanced.cgi"><IMG=20
+                  height=3D28 alt=3D"Search Site"=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/topbar/btn_search.gif"=20
+                  width=3D56 border=3D0></A></NOBR></TD>
+                <TD vAlign=3Dcenter><NOBR><INPUT size=3D16 =
+name=3Dq></NOBR></TD>
+                <TD vAlign=3Dcenter><NOBR><IMG height=3D1 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                  width=3D5><INPUT type=3Dimage height=3D28 width=3D22=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/topbar/btn_go.gif"=20
+                  =
+border=3D0></NOBR></TD></FORM></TR></TBODY></TABLE></TD>
+          <TD style=3D"BACKGROUND: url(/images/topbar/row3_bg.gif)"=20
+            width=3D"100%"><NOBR><IMG height=3D28 alt=3D""=20
+            =
+src=3D"http://mathworld.wolfram.com/images/topbar/row3_backangle.gif"=20
+            =
+width=3D28></NOBR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-=
+- End Top Bar --><IMG=20
+height=3D10 alt=3D"" =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"> <!-- Main Table =
+for Sidebar, Separator, and Entry-->
+<TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD><!-- Sidebar -->
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D160 border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft><IMG height=3D1 alt=3D""=20
+            src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+width=3D155><BR>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+bgColor=3D#e0faed=20
+            border=3D0>
+              <TBODY>
+              <TR bgColor=3D#ffffff>
+                <TD align=3Dmiddle colSpan=3D2><A=20
+                  href=3D"http://mathworld.wolfram.com/"><IMG =
+height=3D21 alt=3D""=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/mathworld_logo.gif"=20
+                  width=3D159 border=3D0></A></TD></TR>
+              <TR>
+                <TD colSpan=3D2>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD width=3D"100%">
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 =
+width=3D"100%"=20
+border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD width=3D"100%" bgColor=3D#98cdb9 =
+height=3D1><IMG=20
+                              height=3D1 alt=3D""=20
+                              =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+                              width=3D1 border=3D0></TD></TR>
+                          <TR>
+                            <TD width=3D"100%" height=3D13><IMG =
+height=3D13 alt=3D""=20
+                              =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+                              width=3D1></TD></TR></TBODY></TABLE></TD>
+                      <TD width=3D12><IMG height=3D14 alt=3D""=20
+                        =
+src=3D"http://mathworld.wolfram.com/images/sidebar/top-angle.gif"=20
+                        width=3D12></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=3D2 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD width=3D"100%"><SPAN =
+class=3Dsidebarheader>INDEX</SPAN></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/Algebra.html">Algebra</A></TD=
+>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/AppliedMathematics.html"><NOB=
+R>Applied=20
+                  Mathematics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/CalculusandAnalysis.html"><NO=
+BR>Calculus=20
+                  and Analysis</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/DiscreteMathematics.html"><NO=
+BR>Discrete=20
+                  Mathematics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/FoundationsofMathematics.html=
+"><NOBR>Foundations=20
+                  of Mathematics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/Geometry.html">Geometry</A></=
+TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/HistoryandTerminology.html"><=
+NOBR>History=20
+                  and Terminology</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/NumberTheory.html"><NOBR>Numb=
+er=20
+                  Theory</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/ProbabilityandStatistics.html=
+"><NOBR>Probability=20
+                  and Statistics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/RecreationalMathematics.html"=
+><NOBR>Recreational=20
+                  Mathematics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/Topology.html">Topology</A></=
+TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D3 alt=3D"" hspace=3D17=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif"=20
+                  width=3D110 vspace=3D3></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/letters/"><NOBR>Alphabetical=20
+                  Index</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D9 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                  width=3D1><BR><IMG height=3D3 alt=3D""=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif"=20
+                  width=3D159></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><SPAN class=3Dsidebarheader>ABOUT THIS =
+SITE</SPAN></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/about/mathworld.html"><NOBR>About=20
+                  <I>MathWorld</I></NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/about/author.html"><NOBR>About=20
+                  the Author</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/about/terms.html"><NOBR>Terms=20
+                  of Use</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D9 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                  width=3D1><BR><IMG height=3D3 alt=3D""=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif"=20
+                  width=3D159></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><SPAN class=3Dsidebarheader>DESTINATIONS</SPAN></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/whatsnew/"><NOBR>What's=20
+                  New</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><NOBR><A class=3Dsidebarlinkleft=20
+                  href=3D"http://mathworld.wolfram.com/news/">Headline =
+News</A> <A=20
+                  class=3Dsidebarlinkright=20
+                  =
+href=3D"http://mathworld.wolfram.com/news/rss.xml">(RSS)</A></NOBR></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/cgi-bin/random.cgi"><NOBR>Random=20
+                  Entry</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/AnimatedGIFs.html">Animations=
+</A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/topics/LiveGraphics3DApplets.html"><=
+NOBR>Live=20
+                  3D Graphics</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D9 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                  width=3D1><BR><IMG height=3D3 alt=3D""=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif"=20
+                  width=3D159></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><SPAN class=3Dsidebarheader>CONTACT</SPAN></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  href=3D"mailto:mathworld@wolfram.com"><NOBR>Email=20
+                  Comments</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/about/contributing.html"><NOBR>Contr=
+ibute!</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://mathworld.wolfram.com/guestbook.html"><NOBR>Sign=20
+                  the Guestbook</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D9 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                  width=3D1><BR><IMG height=3D3 alt=3D""=20
+                  =
+src=3D"http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif"=20
+                  width=3D159></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><SPAN class=3Dsidebarheader><I>MATHWORLD</I> - IN=20
+                  PRINT</SPAN></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><A class=3Dsidebarlink=20
+                  =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/1584883472/weisstein-20"=20
+                  target=3D_blank><NOBR>Order book from =
+Amazon</NOBR></A></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD><IMG height=3D6 alt=3D""=20
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD>
+                <TD width=3D1 bgColor=3D#98cdb9><IMG height=3D1 alt=3D"" =
+
+                  src=3D"http://mathworld.wolfram.com/images/spacer.gif" =
+
+                width=3D1></TD></TR>
+              <TR>
+                <TD colSpan=3D2>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD rowSpan=3D2><IMG height=3D14 alt=3D""=20
+                        =
+src=3D"http://mathworld.wolfram.com/images/sidebar/bottom-angle.gif"=20
+                        width=3D12></TD>
+                      <TD><IMG height=3D13 alt=3D""=20
+                        =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+                        width=3D1></TD>
+                      <TD width=3D1 bgColor=3D#98cdb9 rowSpan=3D2><IMG =
+height=3D1=20
+                        alt=3D""=20
+                        =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+                        width=3D1></TD></TR>
+                    <TR>
+                      <TD width=3D"100%" bgColor=3D#98cdb9 =
+height=3D1><IMG height=3D1=20
+                        alt=3D""=20
+                        =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+                        =
+width=3D1></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR><=
+/TBODY></TABLE></TD><!-- Spacer Column between Sidebar and Main Entry =
+Columns -->
+    <TD><IMG alt=3D"" =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+      width=3D30></TD>
+    <TD><!-- Navigation Bar -->
+      <DIV class=3Dnavbar><A=20
+      =
+href=3D"http://mathworld.wolfram.com/topics/Geometry.html">Geometry</A> =
+<IMG=20
+      height=3D8 alt=3D">"=20
+      =
+src=3D"http://mathworld.wolfram.com/images/entries/gray_arrow_right.gif" =
+
+      width=3D8 border=3D0> <A=20
+      =
+href=3D"http://mathworld.wolfram.com/topics/PlaneGeometry.html">Plane=20
+      Geometry</A> <IMG height=3D8 alt=3D">"=20
+      =
+src=3D"http://mathworld.wolfram.com/images/entries/gray_arrow_right.gif" =
+
+      width=3D8 border=3D0> <A=20
+      =
+href=3D"http://mathworld.wolfram.com/topics/Tiling.html">Tiling</A> <IMG =
+
+      height=3D8 alt=3Dv=20
+      =
+src=3D"http://mathworld.wolfram.com/images/entries/gray_arrow_down.gif"=20
+      width=3D8 border=3D0> <BR></DIV><!-- End Navigation Bar =
+--><BR><!-- end noidx --><!-- Title Tab -->
+      <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+        <TBODY>
+        <TR>
+          <TD class=3Dtitle vAlign=3Dbaseline><NOBR>Penrose =
+Tiles</NOBR></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop><NOBR><IMG height=3D3 alt=3D""=20
+            =
+src=3D"http://mathworld.wolfram.com/images/entries/underline.gif"=20
+            width=3D"100%"><IMG height=3D3 alt=3D""=20
+            =
+src=3D"http://mathworld.wolfram.com/images/entries/underline.gif"=20
+            width=3D20></NOBR></TD>
+          <TD><IMG height=3D15 alt=3D""=20
+            =
+src=3D"http://mathworld.wolfram.com/images/spacer.gif"></TD></TR></TBODY>=
+</TABLE><!-- End Title Tab --><!-- Main Page -->
+      <DIV class=3Dentry>
+      <P><IMG height=3D35 alt=3Ddownload=20
+      src=3D"http://mathworld.wolfram.com/images/entries/download.gif" =
+width=3D226=20
+      align=3Dright useMap=3D#download border=3D0> <MAP =
+name=3Ddownload><AREA=20
+        shape=3DRECT alt=3D"Mathematica trial version" =
+coords=3D7,13,94,32=20
+        =
+href=3D"http://www.wolfram.com/products/mathematica/trial.cgi"><AREA=20
+        shape=3DRECT alt=3DPenroseTiles.nb coords=3D100,13,217,32=20
+        =
+href=3D"http://mathworld.wolfram.com/notebooks/Tilings/PenroseTiles.nb"><=
+/MAP><BR=20
+      clear=3Dall>
+      <P>
+      <DIV align=3Dcenter><IMG height=3D132=20
+      src=3D"http://mathworld.wolfram.com/p1img1998.gif" width=3D294 =
+border=3D0>=20
+</DIV>
+      <P>The Penrose tiles are a pair of shapes that tile the plane only =
+
+      aperiodically (when the markings are constrained to match at =
+borders).=20
+      These two tiles, illustrated above, are called the "<A=20
+      href=3D"http://mathworld.wolfram.com/Kite.html">kite</A>" and "<A=20
+      href=3D"http://mathworld.wolfram.com/Dart.html">dart</A>," =
+respectively. In=20
+      strict Penrose tiling, the tiles must be placed in such a way that =
+the=20
+      colored markings agree; in particular, the two tiles may =
+<I>not</I> be=20
+      combined into a rhombus (Hurd).=20
+      <P>Two additional types of Penrose tiled known as the rhombs (of =
+which=20
+      there are two varieties: fat and skinny) and the pentacles (or =
+which there=20
+      are six type) are sometimes also defined that have slightly more=20
+      complicated matching conditions (McClure 2002).=20
+      <P>
+      <DIV align=3Dcenter><IMG height=3D154=20
+      src=3D"http://mathworld.wolfram.com/p1img1999.gif" width=3D274 =
+border=3D0>=20
+</DIV>
+      <P>To see how the plane may be tiled aperiodically using the kite =
+and=20
+      dart, divide the kite into acute and obtuse tiles, shown above =
+(Hurd).=20
+      <P>
+      <DIV align=3Dcenter><IMG height=3D153=20
+      src=3D"http://mathworld.wolfram.com/p1img2000.gif" width=3D274 =
+border=3D0>=20
+</DIV>
+      <P>Now define "deflation" and "inflation" operations. The =
+deflation=20
+      operator takes an acute <A=20
+      href=3D"http://mathworld.wolfram.com/Triangle.html">triangle</A> =
+to the=20
+      union of two <A=20
+      href=3D"http://mathworld.wolfram.com/AcuteTriangle.html">acute =
+triangles</A>=20
+      and one <A=20
+      =
+href=3D"http://mathworld.wolfram.com/ObtuseTriangle.html">obtuse</A>, =
+and=20
+      the <A =
+href=3D"http://mathworld.wolfram.com/ObtuseTriangle.html">obtuse=20
+      triangle</A> goes to an <A=20
+      href=3D"http://mathworld.wolfram.com/AcuteTriangle.html">acute</A> =
+and an <A=20
+      href=3D"http://mathworld.wolfram.com/ObtuseTriangle.html">obtuse=20
+      triangle</A>. These operations are illustrated above. Note that =
+the=20
+      operators do not respect tile boundaries, but do respect =
+half-tiles.=20
+      <P>
+      <DIV align=3Dcenter><IMG height=3D184=20
+      src=3D"http://mathworld.wolfram.com/p1img2001.gif" width=3D382 =
+border=3D0>=20
+</DIV>
+      <P>When applied to a collection of tiles, the deflation operator =
+leads to=20
+      a more refined collection. The operators do not respect tile =
+boundaries,=20
+      but do respect the half tiles defined above. There are two ways to =
+obtain=20
+      aperiodic <A =
+href=3D"http://mathworld.wolfram.com/Tiling.html">tilings</A>=20
+      with 5-fold symmetry about a single point. They are known as the =
+"star"=20
+      and "sun" configurations, and are shown above (Hurd).=20
+      <P>
+      <DIV align=3Dcenter><IMG height=3D154=20
+      src=3D"http://mathworld.wolfram.com/p1img2002.gif" width=3D330 =
+border=3D0>=20
+</DIV>
+      <P>Higher order versions can then be obtained by deflation. For =
+example,=20
+      the illustrations above depict the third-order deflations (Hurd).=20
+      <P>John Conway has asked if Penrose tilings are three colorable in =
+such a=20
+      way that adjacent tiles receive different colors. Sibley and Wagon =
+(2000)=20
+      proved that tilings by rhombs are <A=20
+      =
+href=3D"http://mathworld.wolfram.com/Three-ColorableMap.html">three-color=
+able</A>,=20
+      and Babilon (2001) proved that tilings by kites and darts are=20
+      three-colorable. McClure then found an algorithm that appears to=20
+      three-color tilings by kites and darts, rhombs, and pentacles.=20
+      <P>
+      <P><IMG height=3D13=20
+      src=3D"http://mathworld.wolfram.com/images/entries/see_also.gif" =
+width=3D52=20
+      align=3Dleft><A =
+href=3D"http://mathworld.wolfram.com/Dart.html">Dart</A>, <A=20
+      =
+href=3D"http://mathworld.wolfram.com/KeplersMonsters.html">Kepler's=20
+      Monsters</A>, <A =
+href=3D"http://mathworld.wolfram.com/Kite.html">Kite</A>,=20
+      <A href=3D"http://mathworld.wolfram.com/Tiling.html">Tiling</A>=20
+      <P>
+      <P>
+      <FORM name=3DSearchLinks =
+action=3Dhttp://mathworld.wolfram.com/search/=20
+      method=3Dpost><IMG height=3D13 alt=3DLinks=20
+      src=3D"http://mathworld.wolfram.com/images/entries/page_links.gif" =
+
+      width=3D111> <INPUT type=3Dhidden=20
+      value=3Dhttp://mathworld.wolfram.com/PenroseTiles.html =
+name=3Das_lq> <A=20
+      href=3D"javascript:document.SearchLinks.submit();">search</A> =
+</FORM></P>
+      <P><BR clear=3Dall><IMG height=3D3 alt=3D""=20
+      src=3D"http://mathworld.wolfram.com/images/entries/underline.gif"=20
+      width=3D300><BR><BR><IMG height=3D13 alt=3DReferences=20
+      src=3D"http://mathworld.wolfram.com/images/entries/references.gif" =
+width=3D67>=20
+
+      <DIV class=3Dreferences>
+      <P>
+      <P>Babilon, R. "3-Colourability of Penrose Kite-and-Dart Tilings." =
+
+      <I>Disc. Math.</I> <B>235</B>, 137-143, 2001.=20
+      <P>Gardner, M. "Extraordinary Nonperiodic Tiling that Enriches the =
+Theory=20
+      of Tiles." <I>Sci. Amer.</I> <B>237</B>, 110-119, Dec. 1977.=20
+      <P>Gardner, M. "Penrose Tiling" and "Penrose Tiling II." =
+Chs.&nbsp;1-2 in=20
+      <A =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0883855216/weisstein-20"=20
+      target=3D_blank><I>Penrose Tiles and Trapdoor Ciphers... and the =
+Return of=20
+      Dr.&nbsp;Matrix, reissue ed.</I></A> New York: W.&nbsp;H. Freeman, =
+
+      pp.&nbsp;1-29, 1989.=20
+      <P>Gardner, M. <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0393020231/weisstein-20"=20
+      target=3D_blank><I>The Colossal Book of Mathematics: Classic =
+Puzzles,=20
+      Paradoxes, and Problems.</I></A> New York: W.&nbsp;W.&nbsp;Norton, =
+
+      pp.&nbsp;216 and 218, 2001.=20
+      <P><IMG height=3D16=20
+      =
+src=3D"http://mathworld.wolfram.com/images/entries/mathematica.gif" =
+width=3D16=20
+      align=3Dbottom border=3D0> Hurd, L.&nbsp;P. "Penrose Tiles." =
+<TT><A=20
+      href=3D"http://library.wolfram.com/infocenter/MathSource/595/"=20
+      =
+name=3Dtex2html144>http://library.wolfram.com/infocenter/MathSource/595/<=
+/A></TT>.=20
+
+      <P>McClure, M. "Three-Coloring Penrose Tiles." <TT><A=20
+      =
+href=3D"http://www.unca.edu/~mcmcclur/mathematicaGraphics/PenroseColoring=
+/"=20
+      =
+name=3Dtex2html145>http://www.unca.edu/~mcmcclur/mathematicaGraphics/Penr=
+oseColoring/</A></TT>.=20
+
+      <P>McClure, M. "A Stochastic Cellular Automaton for Three-Coloring =
+Penrose=20
+      Tiles." <I>Computers &amp; Graphics</I> <B>26</B>, 519-524, 2002. =
+<TT><A=20
+      =
+href=3D"http://www.unca.edu/~mcmcclur/professional/Penrose3Color.pdf"=20
+      =
+name=3Dtex2html146>http://www.unca.edu/~mcmcclur/professional/Penrose3Col=
+or.pdf</A></TT>.=20
+
+      <P>Peterson, I. <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0716720647/weisstein-20"=20
+      target=3D_blank><I>The Mathematical Tourist: Snapshots of Modern=20
+      Mathematics.</I></A> New York: W.&nbsp;H. Freeman, pp.&nbsp;86-95, =
+1988.=20
+      <P>Radin, C. <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/082181933X/weisstein-20"=20
+      target=3D_blank><I>Miles of Tiles.</I></A> Providence, RI: Amer. =
+Math. Soc.,=20
+      pp.&nbsp;2 and 34-36, 1999.=20
+      <P>Sibley, T. and Wagon, S. "Rhombic Penrose Tilings Can Be =
+3-Colored."=20
+      <I>Amer. Math. Monthly</I> <B>107</B>, 251-253, 2000.=20
+      <P>Smith, T. "Penrose Tilings and Wang Tilings." <TT><A=20
+      href=3D"http://www.innerx.net/personal/tsmith/pwtile.html"=20
+      =
+name=3Dtex2html147>http://www.innerx.net/personal/tsmith/pwtile.html</A><=
+/TT>.=20
+
+      <P>Vichera, M. "Penrose Tiling." <TT><A=20
+      href=3D"http://alpha.ujep.cz/~vicher/puzzle/penrose/penr.htm"=20
+      =
+name=3Dtex2html148>http://alpha.ujep.cz/~vicher/puzzle/penrose/penr.htm</=
+A></TT>.=20
+
+      <P>Wagon, S. "Penrose Tiles." =A1=EC4.3 in <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/071672202X/weisstein-20"=20
+      target=3D_blank><I>Mathematica in Action.</I></A> New York: =
+W.&nbsp;H.=20
+      Freeman, pp.&nbsp;108-117, 1991.=20
+      <P>Wells, D. <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0140118136/weisstein-20"=20
+      target=3D_blank><I>The Penguin Dictionary of Curious and =
+Interesting=20
+      Geometry.</I></A> London: Penguin, pp.&nbsp;175-177, 1991.=20
+      <P>
+      <P></P></DIV>
+      <P>
+      <P>
+      <P><BR><IMG height=3D3=20
+      src=3D"http://mathworld.wolfram.com/images/entries/underline.gif" =
+width=3D300=20
+      align=3Dbottom><BR><BR><IMG height=3D13 alt=3D"cite this as"=20
+      src=3D"http://mathworld.wolfram.com/images/entries/cite_as.gif"=20
+width=3D68><BR>
+      <DIV class=3Dcitation>Eric W. Weisstein. "Penrose Tiles." From <A=20
+      href=3D"http://mathworld.wolfram.com/"><I>MathWorld</I></A>--A =
+Wolfram Web=20
+      Resource. <A=20
+      =
+href=3D"http://mathworld.wolfram.com/PenroseTiles.html">http://mathworld.=
+wolfram.com/PenroseTiles.html</A>=20
+      </DIV><BR><IMG height=3D3 alt=3D""=20
+      src=3D"http://mathworld.wolfram.com/images/entries/underline.gif" =
+width=3D300>=20
+      <BR><BR>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft colSpan=3D4><IMG height=3D10 =
+alt=3Dheader=20
+            =
+src=3D"http://mathworld.wolfram.com/images/related/related_products.gif" =
+
+            width=3D227 border=3D0><BR></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft><NOBR><A=20
+            href=3D"http://www.wolfram.com/products/mathematica/"=20
+            target=3D_blank><IMG alt=3Dmathematica=20
+            =
+src=3D"http://mathworld.wolfram.com/images/related/product-mathematica.gi=
+f"=20
+            border=3D0></A> </NOBR></TD>
+          <TD vAlign=3Dtop align=3Dleft><NOBR><A=20
+            href=3D"http://www.wolfram.com/products/calculationcenter/"=20
+            target=3D_blank><IMG alt=3Dcalculationcenter=20
+            =
+src=3D"http://mathworld.wolfram.com/images/related/product-calculationcen=
+ter.gif"=20
+            border=3D0></A> </NOBR></TD></TR></TBODY></TABLE><BR>
+      <DIV class=3Dcopyright>&copy; 1999 CRC Press LLC, &copy; 1999-2005 =
+<A=20
+      href=3D"http://www.wolfram.com/">Wolfram Research, Inc.</A> </DIV>
+      <P></P></DIV></TD>
+    <TD><IMG src=3D"http://mathworld.wolfram.com/images/spacer.gif"=20
+  width=3D15></TD></TR></TBODY></TABLE></BODY></HTML>
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/row1.gif
+
+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
+LVy3gdASBAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/btn_wolfram.gif
+
+R0lGODlhngAYAMQAAHd3d+7u7szMzLu7u5mZmREREd3d3VVVVSIiIkRERDMzM2ZmZoiIiKqqqicn
+J729vRcXF5ubm83NzWpqakhISDg4OHp6egEBAYuLi97e3qysrP///wYGBgAAAAAAAAAAACH5BAAA
+AAAALAAAAACeABgAAAX/ICeOZGmeaKqubOu+cCzPdG3feK7vfO+nnaBwSCwaj8ikcslsOoO/0nNK
+rVqvwov2MoySsOCweAz1ipKEzUYQFKiDDTW7UwC4N42DUL0BCAF8agMdgRsDC0MHfHNBCXx+Co9D
+agENBXt8gx0KbgMIQYVFCh0llBoQJBMSGwERDhwbpShJim8FfKMBapC6hQSgu3+Fg4XBQWl8n0GA
+ar/MeJMdCAO/oEUGiACIhEgFBqQksQ4PESMRDxUcDhgUsLInSr0JtX0IyR13xYiSy5kDDISaDaAk
+pJexDgz4fIsjJxqdb9aIbCgy8ciCDQveQcggYsKDE7HCzUKzK2Gzi2s2//EhUEBBLzb8OjybpGYe
+nyC1XgoZmCzUniAFGFUcQu3SzyMGBhjQKEGEhHYmQo6QKoWWwA0GsDLz88yoyYkxnwVbpLMDsmfK
+emVF1ksZNwQEAAITBHSgn7mGhiz4ZmCCSAcRMIigGq7YyCS6BOhCdudT135vwhbyU2zAqA69Dty5
+yyeOrgA8E2AKwPJokQQGOCPlynEqqwio3IF8Z2IJspqB5kRqtkmn5F0ARPPpVY3eAoZsHGldafIu
+oUiXIxrhJF1vgEsFAvgdXGFDOqdQaQ8+jITeRJ59hOQrtK9QgpmY+vDRc7sQApSe5jOTy82OUW6J
+3IXAHEMNsd4GH41ngboEsVmQoHiy1bZEL4Pc5pZLxVRTzHs3xZcATwZkV4waDDAzSFYb1EFXRP+Y
+FgQCAYwSV3WNXCcEBAFAFdIDgomggQbprNMOYYSNwMRZMjU0RB0o5hEfHxy+4aFy8qmxzR0GMARQ
+Qg10kNNRMG4TiCYHGECaUT4N4BwpDo6njnYjLLhBBq5E6KaEZOSp555FmHEGn4AGKoafHAhq6KFT
+EIroooweoWijkDb6aKSUGjpppZjueWmmnA7qZwgAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/mid-backangle.gif
+
+R0lGODlhGAAYANUAAAerqQWtqwKxr0DFwwqppwqjoQCysAimpAmdm0S+vQWlow6kowqamELCvw2h
+nwOvrQmfnQaopgignwGtqwSopgSmpEmysUTAvwGsqgCuqw2mpQmqqQCvrAyopgOopQasqgyXlQCy
+rwOwrQaioAKrqQSurAOqpwOppgeenQ6lowuYlwynpgejoQGxsAehnwynpQikoweioAGurACwrAya
+mAufngGwrkDGxEHDwke0sw6joUTCwEe4tgCxrgCwrQYGBiH5BAAAAAAALAAAAAAYABgAAAb/QAsI
+5EgZj8dFauEo6mhD0M+iKmquWE1Ke23WVGDV75ervTqdVeelUac7BUQtzqiPfzyCXn8oHPYEEBB/
+BxAICHc/CRuMGwcSLgeMMCgwjQcoKIk/FwCeESwuMQcRMSyeqKGbnB8fAAojsbARra0AESOrPzsB
+HxEKwMAmAcTEHwq6nCQUFc3NJwEl0iUBFcmKHtnaJiUi3iIPJ9c/DSYnJ+YkIgLsAg8m4+Qk8yQP
+7ewPJPE/ODIyEzYMGGhBkAOGfT8G9MjAoYdAAyE4ZED440aPhg8vcqCY0IePEBB9cNjIcYCPHiFE
+cpjBcYzCHh49tnQZAqbMmQlt+sDpEmYPCZ49fwLNOdRlEAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/btn_products.gif
+
+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
+ikHqlFKKm73ppFaKndHJjDw6nSIJgrJJf0+qA1yqpU/KjMwIpbhIlfVnn9G5ljTApV0KgnE6A3Ia
+m9YomGLKmnDapLvZgB6JhzSgpsnJjHu6pkg6fx5ZprWIi7goqHhIoPXHpXE6pX96qUkap3LKo5uq
+h6t4j0HKpvcZp0r6pzMZp1jakWSqpNC5pGJqjZ86ipq6qnOqqWVanUXqptApqP9kmppLCqmD+qpj
+SquKiqWI6qiqqqlmep9rGaZLCouz6qO0CarRmYe2Oqe0api4KoB3iKco2a06OZRv2q3kWq7meq7d
+2pHhOq7gypGteYfuSq7i6oex2q70Sq46+a7eOq8yia7++q/42pFDqa/wypHlGq93uK7uao8A27D/
+qrAIW7DcKq/3iq/2yK/9mq4Vm7AGW64KW68OG7L7+ooB65Ily68Ea672eLELy7DnWosrq64ue7Ik
+a68my7EYe7H6yrI3O7IZ67MDm7Iey7MuubJCi6dG+6kza7M1i7NNC7QL+7NDS7SvuLIAS7VBSbE9
+C7Q7S5Q5S7Psuq1PC65KG7P/RyuSRhuUVju09Lqz+Uq287q2KhuzGEuUcquzDou1BJuvXRu31Pqm
+egu2SwuxRImuaVu3dtu3Zwu26iq4jFu0Zvuuh4u4Rmu4hNu4Tlu4Ccu3HMuwWLu1You5sRmuS2u5
+7Dq5OVu5XCu4biuupbu5l5u6aCu6/qq3rQu6EHu30Wm7jsu0C/uyn4u4Mou0i5u5Y8u5m+u6kluv
+wSu8cmuxyuu7YUu6f7u80Zu8uEu9DQuzaBu7fguqSRu+4ju+5Fu+5nu+6Ju+6ru+7Nu+7vu+8Bu/
+8ju/9Fu/9nu/+Ju/+ru//Nu//vu/ABzAAjzABFzABnzACJzACrzADNzADlzAAkEAADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/row2_backangle.gif
+
+R0lGODlhFgAYANUAAACysAOopQKrqQerqQasqgOppgmqqQKxrwSmpAWtqwGysAOqpwGtqwGxrwCu
+qwGsqgOsqQGwrgWrqQGurAGxsAufnQOuqwWlowSsqgOwrgqppwSppwWopgCuqgWsqwmlowarqQSu
+rAmopgOwrQOvrAKtqwuYlwKwrgCvrAStqwqbmQSnpQCwrQCzsACyrwCxrgAAAAYGBgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAWABgAAAaxwJhw
+SCwKYUikycgcJpGqSpP5hH1EmmmxaugatM7nYDwGx6qEdBoEribeHgnnoq2GUpjNCsGfVkkQBQGD
+hE1VGSMWEAsFjQsLVE8HkwcnJQKYmEZVDQoKFAoNERMMDw8MW08Aq6wALiwOHQ4sRFUtt7i4rygv
+LWFJLrnCLi+9vmdPLMXBwi2uuMhJLNMvLtbX2NdV09zV2d/J3NTe39pI4t3k5S9Ixe7v8PHy8/T1
+9i9BADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/btn_webresource.gif
+
+R0lGODlhfwAYANUAADAwMPX19Wpqaq6urr6+vnBwcJ2dnQYGBsLCwhEREcrKytvb2yAgIN7e3ltb
+W9LS0ra2toWFhaGhoeDg4Onp6YGBg+vr6ywsLktLTaioqFFRUUBAQM/Pz1dXV8zMzPb29o+Pj9PV
+8ZeXl6SkpH19fVVVVc7Ozrq6utfX14iIiIyMjLKysmBgYGVlZezs7D09PUZGRpOTk0NDQ3Nzc9HS
+7qaovsbGxgwNDpeZrSUlKB4eIsLE3ebm5gCxrv///wAAACH5BAAAAAAALAAAAAB/ABgAAAb/wJ9w
+SCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/o9Bj08X1mP59cvvFthPb4XO+zJYYNBj8J
+PgpCExE/GXIfAnh3eHIqeh8jQyQ+AEJ1CEMuPkQJE3KaoHN0HHsObQ9TDj4tPzM+GI+2cXd5eAAC
+PhVDEhM/DgEfPww+DCIBd5gMuEOg0TcVmUIuFCubcn+v0kIgARqacdGQHB1DHCgA5Dc4OU4EA0ME
+2tBxFR0deb4dL3FYpPgQTwgAHwlGZAjwogCFHw9iAEqBL86+Z7RGCPvRIQCGD3/qNPh1gse3Hy18
+iPhT7hYHEB1k/DjxZsiNEDQq3GDycggI/w63fCzgkCrXUEE+AvgQRCQAiwYsEIhAYAlFAXUgKvog
+yiKO0nQ/FAiyQOJHHYcJPhQ4+SNCMYzmhHBowMFSgkVAf9wMEWKHjiUDTAxZwFSX4VyQcEUASWQF
+AoQkHnzQxIGeEAtXdbXEk+AEih8XTj2sQ0hCgzpGEgTI+k0XuiJ1NO2tcYFJHQMdIFjDdzhfBw3Q
+KIggUsKHsIPGhqnsoCAARn0yT4JChiGwEEIlUOsmgXrIhQgDfMBpfQ5muhktFiTTu6OWEw0eOBBI
+7IFcfSH343Pw8OO+AAKhmPBLf1kJUYIJHJxgH1GW8DeEgwaogEAJQ8SgAgD8wcBBAhgSAVwDgsP1
+9yA5BhAFVAocmEChEDup4eKLMMYo44w0NtFijTjmqOOOPNZ4QBMHBCnkkD/2+CKRSCapZA9MNunk
+k1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phkltlkEAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/row3.gif
+
+R0lGODlhAgIcAJEAAEDFwgYGBgAAAP///yH5BAAAAAAALAAAAAACAhwAAAL/lI+py+0Po5wm2Iuz
+3rz7DITiSJbmiabqyrbuC8fyTNf2jZvUzvf+//gIh8Si8YhMKpfMpvMJjUqnQqD1is1WqNyu9wsO
+i8fkskaLTqsZ5rb7DY/L5+G1/Z6l6/f8vv8vhSc4uANoeIiYqGg20Oj4CBkpOUlZaXmJmam5ydnp
++QkaKjpKWmp6ipqqusra6voKGys7S1tre4ubq7vL2+v7CxwsPExcbHyMnKy8zNzs/AwdLT1NXW19
+jZ2tvc3d7f0NHi4+Tl5ufo6err7O3u7+Dh8vP09fb3+Pn6+/z9/v/w8woMCBBAsaPIgwocKFDBs6
+fAgxosSJFCtavIgxo8aNCBw7evwIEmIBADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/row3_frontangle.gif
+
+R0lGODlhGwAcAJEAAAYGBv///wCxrgAAACH5BAAAAAAALAAAAAAbABwAAAJElI+py93gYgJQSlrt
+w7qF/3ULCIoJWZoGmpps272wJc9RbXt4SO/87fvpggEgsTg8JpWjI6nptEVRp+nzYKWuslcutQAA
+Ow==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/btn_search.gif
+
+R0lGODlhOAAcAMQAAOL29mbRzjbCv0/Jx/T8/Lzr6Ry6t8rv7+z5+XzX1Y/d29fz8v///6Li4vr9
+/azm5ACxrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAA4ABwAAAXxICSOZGmeaKqubOu+cCzPdG3feK7vfO//wKBQFxDQBAqUIWCACIwvAwGA
+gMYCgFNgmlUkA4lWo1AaWAcD0dMsYmKXpUVY/Twc0hC2FhEYAQoAYQUPC2QPDgUBAwQPD1sHBQgk
+hFCNWABJf4EoCQQLEAkHEAaSeQEMEA+iEAB9EFsiCHgihw2pD7egoqQpBgsKD1xZCAcPqI0iqG1Z
+rK4jAgQCyNPCKgUKoSNYo8e4EAt4280mVdO42SkJCOtNAJC2BIAEuXmMjsytI/KiyFtk7gVsnUBD
+QoCrJU20WFFoQgAeg0MiSpxIsaLFixgzamwRAgA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/spacer.gif
+
+R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/row3_backangle.gif
+
+R0lGODlhHAAcAIAAAP///wCxriH5BAAAAAAALAAAAAAcABwAAAI5jI+py+0Po5y02guyvkZ77n1W
+KFJkKZ0opK5O6zJwrMw0Yt9dvjX8/aMFY0NXcXVEJUtLUfPz9BQAADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/sidebar/mathworld_logo.gif
+
+R0lGODlhnwAVAMQAAPr6+p7Ipl2kltjY2OXl5U1NTazOwZycnDIyMsfHx2NjY6Ojo7Ozs5bTzRIS
+EouMjM3j29jq5np6epS+tIK0nmu+t+vu7bDd2sTd0vD18r/bw0d9dmyFgILHwAAAAP///yH5BAAA
+AAAALAAAAACfABUAAAX/4CeOZGmeaKqWxDAAayzPq0vIA5NkdO//KIXHMQAajwCERyETeorHqPTk
+hE6vqeSyObRiv6nBo3AjVcHokZYZExLTcFLB4ymPzvETgOdbc995cHMOdiJ4gR8ZBhSMFBMRNH5t
+XXAWA4UfAC4wKBk5CZh7AIMDGRmceC2YVxkBrhiMGxsCFZAnnmWSJQMJoIaUVxIIDxbCQ2QiBwgO
+DggHJgTGdA4KVgoIy3TYCAy/RAkFDkMKdgMFziwF6hYlDwgF7B8GARAYBhqMDQICHbbK8MqYFdEl
+Ipq4cQTceImiRN00OvAWPKSzoMScIcymlblIp6OHih/cSJh2EEECERbE/yHgJEIinZMklKz8ECGA
+BlcRMlDQcKEDrQvenLzMpISNiAFKMGojhUWJuAcuHjwskCCHOAfxDEkA1WKkBwlHew3SkSCeUG4u
+FlyNx3TEIA8PSBAQV7GVhZsRLDgy0KBBhwsVeAh1cKAXO11a4A6wJHXawiNJwbp1PKJxtxF81Mgs
+4SbrLw8ICl2E6fXyhwEeCow0+kEi1g94A2SAsAgArAZAKwB14gCm5i1HtbWjfCWp7w+NC5BADXfF
+SASeB2FyEpdEaREM6DxL9hX1619sNNzTkEHvBAsQLkxokOFCg5B0JJPQZblEhquPjTj1nN2D6Q9z
+NbfcGNicM4RoB3I2FP8JLoH0QUMiaNHNHNsNIM5JANwUgAEQTEABBBF4aEAHFVTwnhP/RVjUZN/J
+AcwUMrH0QX/HBVidCBIc5NEQ0SVoBh0L9eegVA7wkACQyKXWEmiczINBABHQZoABExgQgV+6wefB
+cSoC9yBoVLwoRYwk0CjXU5VpI8EBCywgnYuEKPhECUKOYKF/HzzHg4VvzCHfTRmId88HEwgAFG59
+acklUV7OMZOCgMDIZJkLFoTmaRB5RiSCcf44J6Uf/ciEnyMo8QABdJimlwbiCSoAARkk2o+Wj+mi
+kAltSfoodpUCeGmdP3YqwpueBkkRg6BloIRvcxTgkhcBULDhBBhgUKXsAQIg+tmiuhxAx40i3Ccm
+Q5OOYOYINvL6VZlrufjpHUiC6qCvcDWTGZGOytiKtPYIAAFtWNpyyG9GBSisBbzlBwSZ5vaa7gcW
+JKVALw8cJKyWVPXymbGhuivgUTqCK0IEFOwjQMkXGFAiBPBuaQJBTiCwwAALJDUuZGCCelxKH/fn
+kQMjXZyAjuvSSuexnr47bEf5tbJPyfsEVuwJK6Jrc0fvxCsFANcUcMDXXwszDNhfY6MA2G5uY7Yy
+Y6N9zTZnH/D2A2QfIPaabm9Tt9wF7o22BBs8wMEGHOw9t9/nxP31Au6ojYAEb6+CQggAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/sidebar/top-angle.gif
+
+R0lGODlhDAAOANUAAPL49p/OvKzVxa/Wx9Ho3+Xy7Z3OuqTTwKHQva/ayL7e0c7m3OHw6q3Zxrvi
+0bngz87u4O7388Xo2Nn16NDw4eH67tv36eL87+D67eX98eP87+L77uj/8+f+8uf/8ub+8f3+/f//
+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAOAAAGQsBIaEgshgwgo9ES
+UBYvFIFziMlIFFMMpuNYOLUYToKhBGM+B4DRjNkgi+zKBAFnayADIltrxYb2Wh4PBH+AYQ0FQQA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/sidebar/sidebar-line.gif
+
+R0lGODlhfAADAIAAAJvNue389SH5BAAAAAAALAAAAAB8AAMAAAIajI+py+0Po5wI2Iuz3rz7D4bi
+iFHmiaZqVAAAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/sidebar/bottom-angle.gif
+
+R0lGODlhDAAOAPcAAPL49p/OvKzVxa/Wx9Ho3+Xy7Z3OuqTTwKHQva/ayL7e0c7m3OHw6q3Zxrvi
+0bngz87u4O7388Xo2Nn16NDw4eH67tv36eL87+D67eX98eP87+L77uj/8+f+8uf/8ub+8f3+/f//
+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAMAA4A
+BwhUAAs04IChoEGDIQg88HDwYIgQCiRkaFjwYYgBEDRQtBgCwYQKDTmCMLAhJEcABz445BiCQQKC
+FVmGWOCgQ0yZESfKtCiAwoWdFgNYAPpwJNGHEQICADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/gray_arrow_right.gif
+
+R0lGODlhCAAIAJEAAJycnGlpac7Ozv///yH5BAAAAAAALAAAAAAIAAgAAAIRnH8CaBIgkAshNvrs
+XAmyPxQAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/gray_arrow_down.gif
+
+R0lGODlhCQAIALMAAGlpaWBgYFtbW+vr66enp5eXl+Li4vDw8Ofn58nJyc7OzmRkZHl5edLS0v//
+/wAAACH5BAAAAAAALAAAAAAJAAgAAAQe0MlJUVI4IdnYAgvTSEcRhOPUCcVBOQkxvI5h0HgEADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/underline.gif
+
+R0lGODlhFAADAIAAAJvNue32uCH5BAAAAAAALAAAAAAUAAMAAAIJjI+ZwO3/lJQFADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/download.gif
+
+R0lGODlh4gAjALMAAP///5mZmUqoqZzPz87n59WgQ6hnLPP49wAAAOTy8t67eOrSrfnx4/bp0c/o
+6KvW1yH5BAAAAAAALAAAAADiACMAAAT/MMhJq7046827/2AojmQInGiqrmzrvnAsz3Rt33g+S3rv
+/8CgcDjkEY/IpHK5NDKf0KgU6jwRBFjB4HQYZLfX7QF7wo4FBEAY4E1bs4IEF7stww/TvL4ZUIUJ
+XlteWnQAZoMJgYZYBGttJwl0gyeDAiiMk3uamz9Valp2i3OWgV9mi3Sgj2ygrGmpdWSunLS1NJ5r
+orJndoSFi5WCaJStbYFXlqKztszNKrhagGSD1MSWyHKi1YEDA5Fak3CMi9ICeM7ozNB31q0AY7HJ
+yoqV13AJud+o4+n9tJ7+AgqsBXCgwYNRCiJcyLBIHxgMUkRsSLEiC4UpFiw4odGiDAQg/0OKHOkx
+T8EFDVAUMACgQYGJJV8giAEyZsKHKg4YUNBAgYGfO2HaXBFS4gmYNYcyUbgAqIGVBRQoQJHyxjlI
+L7zlmdkyZYEFCpByRXEVQLYWWp+UrVFHRtsWGKUWmPt0rt2qD7I4iNE20YthPdJ+rOly5dMGByIm
+RdH37QrAOgS7GOCGjWMX8mJkvogTRcQFURXQtTs3RYK8DtauGJPNC4tuhnRcUWNjrGioc1MufheH
+2Ostm2vMrpwVMGw/l4NjhgGw6dPbhukKBeAg2QMCDx6ceHBWETJIBPDBY+0GH4pGCQ64UW++m3mz
+btCfRRHywFzRQDcC2O1dFj7xWpAH3v954anHRXhpuFdefOF198hx73khRyNlqHeOhQSWoQZxKZz0
+XFQBGPaTfihUZ0de2JnDmGuEfDIIMmGgEaOLhAwAjxmpsNJNKZftx1FUIhqwEX8suhYjGowQ0kiL
+MQZyozk5csPjilcAIswh4BRyDzLDVEOIaicoFJpPATgFFEwmGiLHA15od8mNs6kC3CeGhNFGnF3s
+yFudePKGx3Ep1GfXTyvxtN9YhsBpiZyxxWmnjIvmCdsYfEbqp2Urugjcn5QtmkWilsHWzWxqngJX
+ZyhAJyJdT3V0QprDnOEgK+mRIsicsKExqo25hgrGolaqyZsckAXalXN2TbSYqHFQKirirsBZCUie
+se34a525ysFanZm6yG00wHZRJzzPRnIAa+C4AJBPgxJK11QqwLqXIW5SAkYsn9AxW69c5hnJuF9U
+e6U0EhKVlH2iaVTVsvdqyGWnmNpziDfhBmwrK7oSMiskv4Kyr5afnqGil/CcqgIDC5zL7k+37SRD
+JPOZ5s9YDHymwm4oxKxUDxgBwKpot7nVo0BFpbAWzjsT0XNuh53QEwwYNoRoC0gnLQRGB8ALmtFW
+nzDS1yR1fQRGQpEodqBgf3220qiuTct0bqPQc9x0/9N23XjbXcLefPft99+ABy54BAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/p1img1998.gif
+
+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
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/p1img1999.gif
+
+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
+aQpg8jMQADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/p1img2000.gif
+
+R0lGODlhEgGZAOYAACAgpyIi/6Ojo0hIrf9mZpmZmURE/2Rkp2Zm//+7u1hYmxEE8YiI/3cIj3d3
+d3Fxcaqq/91oibsydbs/gv9ERMzM/8iOjlVVVe7u//+ZmUlJSTMY45g7oWBgcD8/P+7u7kRA+ndw
+91UizDMzM+6Pn//u7u5AUIhJvykpKf8iIh0dHczMzBEREcDAwP93dwsLC3cgpxER/7Gx0qqqqqpm
+u//MzKSkpDMz//8AAFU/6FVV/yIc+IqKil0au4iIiHd3//9VVYhb0ZmZ/yAbG3Jycru7//+qqmZm
+ZjMp9FxcXN3d/8wOQFBQUN2Fpv///+o8PN3A4f8zM0REREBAQDg4OHVqamY+1js7XMy/8Xc4v9/f
+3z4+1t3d3f+IiJSU6CIiIoht40BAx8QCAv/d3aYMDK03NwwMDLu7u/8REXdY3wAA/wADygDQwACw
+oAAo2ABDMwDYoACY5wAB6wBDsAAA2AD+wABYnACwmAABbQD/AACYwADAIgACAAAA2AAI8ADC/CH5
+BAEAAE4ALAAAAAASAZkAQAf+gE6Cg4SFhoeIiYQzio2Oj5CRkpOUlZaXmJmakVw+m5+goaKjpKWm
+iQ6nqqusra6vjTOMsLS1tre4iEe5vL2+v5sOH5E1FCXAyMnKrJ2OGRnL0dLTn6mOFNTZlR9S1oM2
+KNq2spEJLo5aKESI3uKt3O2KL+61u5ZaZFWX5PSa8JgakpTK0CBEv0LC0Kl7RGCMpXgHC3HpNkrL
+PE0JUrg45gRDDAwRCTUblG7dpi4JLHGBGG0iSyUfERlJ0YUSChukYoYcxHIUNklFECAoIsgHl14u
+MQVwkuBnJXClhu4UxG+VU0EIfjxk5snUCY6UpkgZS7as2bNoz14BkLat27f+cNEOc2RPVQYSBkCK
+qjq176+EpYqB0Muqp9/DXDcZAUIArBMlCHCtREx5leFNOoA5OFq58ya+ozIvu+y5NKIRDlKrXs26
+tevXCga8nk27tu3ZTASY3j2tLu/fwCP5WBG8uHFEH0gfX15aOfPniGVs+VFESSQMRYSkCQK9OzXf
+iYo59k5+2vBGJc6Vz1VgBPGL6w0lh0SgEhEUWlYUiO+ogBTiiFBhEn+EOGcIEOPdpwUkR8zlnX8A
+RtKCCgQWot8kChYChENb8QbhJyq0IEoCaJAQgHVTgUdIhpXUV0kBER7kgxQy6ASJC2ig5EgSGjBl
+hAtARIEDBUC4kIELLlD+QAEOKVBAQAbjFYKAEH4Nx+IoLlqi4i8zxqgIBgEQVgIaNVgCnyhh9jXf
+KkYYkQgGWRGGyIW0dAkKAyGkcImApqjRl4GaPOMEBDrIeUmDFZZH5ykcpGFZos9tqQmQJUCgFS0w
+QgrceYWMkUAXQBJAAZIJJBBlIoX2IqmmU61ZimjALMrqToBeYoA0iM6q6yErdLXrr74YBeywvKxK
+7LGquIrssqxkyuyzqhgL7bSZ1ErttY6Ahu22lQDG7beUsFSBpUIZ8IMQRYCUQJGngotsr5CI5+63
+wjYi6LzgSuuEkfhO4oAZVMyqLCI69qvICiPsJ8hNszrbSJaVPICsAxf+OEjImZDqO4gLZUICDk48
+WZwowrMkAtWs1iKYCBUBH6xwfBSLrEhAs2oLicofh9sdyWYuWAoNWfwp8yMsC0IBh90aF3MmE5JS
+QwpIQOAXoDkj0pAlBZRcGc+g8AhKRhspsZRf8CpStCRXUzJwRMlVbMkYP1KARhRoNGlkAkOISEkJ
+GVCgEdKD3EBUlZwRUvUlQFxirS9njFAyTIYe0kUKbkaC8ScMXOpXXWeDkt4l9UbT9tCDiB15kfa1
+LIoQmrfKAsimuJCSJV4cgEzjWkPCuiBGRHEJw6MIEZlfDp+SuCMM6EDlIRfgMromBhQBROWVXA6K
+ARVs3srxhVSgAwP+kni7Cu6jKLGBepScXMqtf7ZyLwbYYyKrwf3YPMozQYmyOP29iF+KC1YYHCn2
+x79bEJAYIkCRKrJWwGmUbRQloAAUYPWOAzZQFaHbBKUEUYTWwcKCFyRFGVxghNlFYgxdKBLgCkFB
+W2QwhLZY250EmIuRwLAWxRMFA2jYi+bdEBYau4QQpJYM//3QFCB0hAeBcYaXHZEU9gOFEpaIjCQ+
+MRpWvGKiNqPFb9mwi9gKIhiB9cIxPuuLZoSWD9M4rRyyEVkyfCOxsihH6BTgDHVk1gfEmMcK0bGP
+x4kiIFn1x0EGh4+GLM8MnJhIXRWykbsRRnZ+YAAE6OAHEBCgEjr++AMdXDINE4hAuyDZmfk1ogbs
+IuVxxCgvVR6Hi45opSuNg0ZEGGOWzNHYVXBZnDIWIoJjPIPqNDWZRvhOi1wYgQ+Axyp9feqJe0QU
+EYYJKTcawgUrbKAPRlA4J1iPQHEsBMQKeIYv4LEQfELZze6hAg90U1cI81Uh1KepO65zElTokSAe
+6ZkPXCBXiPgmgcSYARM2IglU8NkgTMkfB3DTEekk5CTGaQgbhAgVpOvODMwJiabVLHeOMMchtKAC
+HjwCkbuJ5yReoFBN7U+kg8inJBbpHX8CNBI0mxVKB2EOhLY0EvzUhkPfKSEKlYIEC8BCX5poCYta
+AH1JM85Gz3n+CZaSIgFL2EHkDrI4kppUEAmgaCQEiRiVasJrongaGNgntEhoQaaGGINYGbQbm2Z0
+EhYJRXpSkIBLHoahh9BAQhUhV0vs0TMOkAJRM3FRTex1dj8A32H0xQMU6M0RhX2Rl3YygxFQ9RJR
+QuvbJhcFgwoPMbA8RAtQ8FVJwFRnU1kBAMJAiRokaW4EKJgTSvApFzxBDGgYleyyWYgEGIEAKSAA
+9QpRhBsgppZOeKs+LcG9SYRzGv5MSFbiFQWVPYKZhPAUkkiYAOIiwiNbjYiKBPvTSmzEEpwSR2Lf
+ud1EjEFJozzENEmhAyISbhCVvSxGaqIlbXT2s1Ki4pg6tlL+UlTAuYeZzGpbG4pdSgK6v1iBFOSZ
+iB94sHeWAC8oEODfvjABrqWYKyR8mYvs3tUQkR0E6lJHCrEhxpqiwCYlMEBJBnRAM4qtRBFuVYIU
+MJgSAs1EjP1yXVCouBAYEIK5FOiEB97iwJmIwb6gis8BiSJ6hwlqIWzbiCEvjx0vNoWGOXyJc6Ug
+v4qgpygg3BcGroJjiJAyD1EBCxeHogg5qG6D+zTZVlBUCKmSBGBHkdg0W0INBpVEREcx5Km1Ygzo
+w4DyFOdoXmKCrKD4SQUMQOUCexqJrcDGaT8B6lNX4qamoMCoGe1qUTBVFSUwQfwGWGtQiHkQJYDB
+maEI0l7Bh6vTl2hCD1ixU2MvlJFplYBBWNFkZydijRCkQAhKvAocWzsRLM5EMWqgg1IX5tucYLO4
+KVA5tvb514Bs9iGKsVwEpJcV8UU3IsL9CNtSAEow3jMQ9Z2IldTgRwQQlQtQAhbe/ihJLlBuI4Qw
+bFtgWN9ihkywFotub2uihbmQNymrfYkKUPEWVsb4KUDOCyM62841Pnku4N3FX//g3rhY9Knh7e4q
+IhuSrcbE8JYh8jzSfOjKCHojYU1pmfuC5jAMBAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/p1img2001.gif
+
+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
+hgAoxERURIQICAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/p1img2002.gif
+
+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
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/see_also.gif
+
+R0lGODlhNAANAMQAAKfHxnurqiNzcUCGhDF9e/D29uLs7LbQ0Ji+vdPj42yioV2Zl4q1tMTa2U+P
+jpvNuRRqaP///+32uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAA0AA0AAAX3YHQQEBFFTuoAUaAGZxwhzhEHcMwIkHIWCt7AFiv0GqwIxMFgNFCEZlJG
+EAxiqdgBgmgQBwJAYwEhRhplGYQhy8q0XEji5I4wIIUYekpYtGACAgF5SkwMBlBNTzIKA0Y+KA4x
+CSUIJ3cymDgRBgoQAoglKXMOAilTEUYsCwJ5dWcOEFeYOhBvEZSWa22StwgQwMAsrye/CVuLKFd6
+ZxAsRw2IDgMNDXMxAw7VDQSS09UJBoh3BgVWiL8sAM/ADnnBu7Htes43EAbyS2jAOQkk/HQcSBhI
+sKDBgwgTKlzIsKFDhw8iSpxIsaLFixgtPtzIsaPHjwZDAAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/page_links.gif
+
+R0lGODlhbwANAMQAAKHDwyR0ctDh4YKwru/19eDr6zN+fGKcmkOIhnKmpLHNzcDX15G5uVOSkJvN
+uRRqaP///+32uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABvAA0AAAX/IAQ0zaFAEEEWaJoEDyJAJAmIxmO06DijjYGowYAIGrMghNG4KY8H4M14
+eDwaPJrweBvUhN7SAlibohiPBOIxA1iLqXWCkRjrGIxFIbYAEHhoYyhXSw8BBAsPdg0FAQiDWImK
+EA9FAgEBA0xZhIlFDZUMTpUwf3d5gIqeEAcIJWeVnFgoiUJZhYKUWGgBeZNXVT+dhlGxVbmyEKug
+PMyBus03gWh+DwMDD38JDwWIepQGeCw5SFnPkIUDBol2MLbQtdyxBjsFCwt/LYYNa5+hY6AWINgB
+ThylImisICDgZoGCB6OUvaEUgMSMI4ZYtDgHDc2eZ4YeREHHLlwsQgmRxu3rR+NKk5ZWBO0rt7HS
+jypWRELYNmYVIXOxauZC+YAGjEXbTsBTxABGEQOHcPEY5q9ZNkfobnGseG8NIh0K0BTh820MtVRz
+bhAVEVPXHgOmIinaEwtNgwU8p8r1dy9J0SosyLJ4ee7hFDQnAMCYmPOklQb5YD3uWBTCUWjYhAwb
+UwUOtpw/SMYCNZmZG7U5xzKIwLq169ewY8ueTbu27du4c+vezbu3b9sOggsfTry48ePIkytfzrx5
+8d/Qo0ufTr26deohAAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/references.gif
+
+R0lGODlhQwANAMQAAKHDw9Dh4eDr63KmpLHNzYKwru/19TN+fCR0ckOIhmKcmpG5ucDX11OSkJvN
+uRRqaP///+32uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABDAA0AAAX/IAQ0JABBBdkUqAoEahPA5GJANBmMCy6fhMMjMYsFUIjH4MRcKBMPAqTx
+WCxMVCuD8WhYBdyG4sEKf50IA5cBITwQi8K2+wUoGSYmxDnvUfV/J1w9glUQXRCDTW8La1MPAkyK
+J05STA0mTgsDkI9ano1mPVwDTiaie2QHjoiSdD0CD0o3hz1OsoRUJY8lXAckibKtvsBOsXyHDXrE
+ym1CCXqpDFQ3gSfWk8FWUdqLU0lsULTd0WNHiwymj1tH2HcMalUBSsEDWwZOIrJsTgkEBAFI3RMQ
+aUwkTNJiLaEiS5k7YX0gHDgQDGI+COBOFBBGgAtEj2ROVIlAsqTJkyhTIqpcybKly5cwY8J0QLOm
+zZs4c+rcybOnA5lAgwodSrRohBAAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/mathematica.gif
+
+R0lGODlhEAAQALMAAP///q5dItywTdGLLvLdgOfJUcR3KnJHLvft2q2IX963gql1OMiZP+/YrwAA
+AAAAACH5BAAAAAAALAAAAAAQABAAAARvEMgJEL3YTIGVlYF3EBgQMEpgGItAYgSzDsZQMI2US0hR
+CLQBcGWwIBoB3y0QGA4myORPkDicQhfDNME9WAO7ik/AWHgNTKaiEhgwymYy7YNQNBQ1M8NZQtQO
+AkMaJQYCC3s6DBgIHAALYX0TaxgRADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/entries/cite_as.gif
+
+R0lGODlhRAANAMQAANPj4zF9e3urquLs7CNzcfD29rbQ0KfHxkCGhGyioV2Zl5i+vcTa2Yq1tE+P
+jpvNuRRqaP///+32uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABEAA0AAAX/YFQ0ARQAhwM4LCtErXNEdMxGwhutADyvEEKPRkw4BkSgkAiDNBgHQAMy
+aEwdjRkE+yRaAwErzEFjQBgRZwSBYBiQzEFQt26/k5AFc0pU0/xMNWSCZWdpDWl0gQIBAgR9ijlT
+BXsQfYh/XHBENzVhDQmGagoQCUNMjQYQMxGkpjSSlpWXfQEsp4Q1BCwIoogjBBAGTKpIuzTAwkSq
+w16yh7SBuWOFaIAFAQpMpBDdVETY2sgEBGgFI8+ApQwMm9OdZtaIaAMBCeAQAuyq8xH19wd+9OrG
+gM8fTGm8IXw3KB40B91OONuEIEATEz1YSNjIsaPHjyBDihxJsqTJkyhTGD5YybKly5cwY8qcSXNl
+yps4c+rcyZNjCAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/related/related_products.gif
+
+R0lGODlh4wAKAMQAAKfHxkCGhHurqpi+vV6Zl2yiobXQ0OLs7CNzcTF9e/D29tPj48Ta2U+Pjoq1
+tBRqaP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAADjAAoAAAX/ICSO5HgwZaqSzLG+pMIoIjDQcK7vPLQsPV4rSEyddMPVosF0uFKOxwuY
+ezhGg4aI0SDUGjjWAxUNFFMCZgFw7jFXzMYtaN0pnqolFRbV1VcMDwUOCAkqfSpvVVciBmMQUQ80
+BWYpgSiKbSMNCQ4ED2yaOZklDw0CCFo9f4svlzqIMKyWj30KnwlsiA0PghCoqRAACQ8ENAe8ArN1
+DQUPBhAJAhAHBKkol8BaDcMMww8JKACnpgwJuSSKdd/Gv71s7DSopi4CWVeECEsByl4kdX3sNbgy
+IIC0Y8mYsdEDwQCxceAEKOClb8SlJQLOQYOEQF+fcSIETEP2QNmVeBC4/wUqgGoaJQWODiC6cQAB
+gAUBArQANbEABGsGnDESQUALgoJOnkHIyaAAghNjcOqE8ACBgAUGgGSEVBIAOAMNEKTrFPbAAZ7N
+Fig1i9YngAM9UyIgYMDrgBa8BgwA9a+AgQDb5hpwNMCA1Z8Igtapc+lsAQYLVi7Yq6CyxTGBdBoU
+9uCuTCm7tAAVehZAXJUPDCagkWBgFACIJjvolFKLVwcOOFGdpmDWgKdjCjRwdEdpbwCv1E2DANOB
+M64iAErZlKozZ9yczqK7ndvQAdhvGlQiUCllpWW9CAARL4JSSEMlmS++conyiHXlxDAIBK0P+RF9
+hLabfA5wp9sWY5x1Rf8quDnAQB+ODELbG3s1eMUfs6ilDGcCmKEWClTd9Yg6jBjkHGjTSZeOFk4p
+UGGDEDDwiQMv4lbTQOGpkgmJ/wxVG1GqEEIVI/PFOEYsQ9YQwCMI7leLFJkEON0bGNJoBYxN/mRI
+USIA4Z8WCiBwBXsfdrnUahWWkAACHlbFyFwQ7BXZiKrUUaaU0eEznQhvqHUTkwvgwESZPuzF5zaq
+yEkNj/f5qIicCiTghUEu1gHnJ5BZ50J8OLByySt9KPpZnA/8YMqZlTpAqJdOihPVOUtC5whgtDny
+wAHKhHXFAgikNgsEzvgEQa8gMtCrdcnVWWIqvECXJJKKtOaOrgsksCRxNLmKWVNrgP3IHC9WMJrn
+iiN8kpoLvPqqpymPKHOqMgkUtCYenz75bS+4SREmONKmu+QV2V7oYwmRhSHCESSYJYIMeyiwBxEz
+9JCEKAwfHPHCkGFsMMEganLAww6XoHDCFwfqQ8c8RGZJCSHHkPEIIQAAOw==
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/related/product-mathematica.gif
+
+R0lGODlhZQAXAMQAAM+XRKvW13q/wM/o6OK/UZZVKOfz9PP5+Vaur8Pi4vDct9vu7vTv5+TEjLfc
+3Z7R0WK0tJLLy4bFxm65ulJRUImJhywrK8N6K0qoqf///wAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABlABcAAAX/YCaOZGmeaKqubOu+cCzPNMkwI17vfE82jVHQRyyqFDrR5SIqKIzQqIgB
+GDYKF0AB8JR6idelOEsgfM89AmAtBqgbCkUjuVsM0OmyeqkGiLskCQIPIoKEKxgQUhMCPAwKfnp+
+W3sAdCMSiSIQGI0nDgIDBp1FoKIIhzUMF1iSWliRJwcYtAYBtJ4LAQYDCweZAQkYAQ4BByK6DiK8
+tsoDu8i7vb/DB6IZB8XHtgt2LmRlABVaFgXmgCMOtBgOCLgZEbTuEuq0t+4YEvCd+RkCGPg4YZiw
+D2C+esPYLcA3ACECBC4aSCpQgQIFcxgBlABm8JYAYRIOxNuVaMCDap1A8w7IlGEChgUnH8yaAFLk
+sFEQTGIY8G/AgQWJDKjztAJSuEkU2CwBgi7RrE4DOsW7cyvBrEb/fuaLx0hAo4EZbomSujMsBquk
+/o3ypC5ABqCpUijAkmWJOaVMTAiL0BIDr04nIyRwNyAqoYcZhAWYaisBUH1ZowYIPHin4QwPZyFI
+MEDYhAEu3a6AI6duKz9ZTsRLkOEBoagCDHBCwMmsMVJVZeNaoDhD7VsOdNPGYPuqWQx8/w0s+6JB
+FkqoL1xqsQCGAQMuqq/gNcLAMRmr2BCwYgmPeRiQRLixge68exSAFJh5Tz/Go/r4XdzIz7+//xIh
+AAA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/related/product-calculationcenter.gif
+
+R0lGODlhhQAXANUAAKvW18/o6PP5+Xq/wOfz9Nvu7laur265usPi4mK0tLfc3Z7R0YbFxpLLy5Xa
+7dXm65bI1vv+/qnl+dby+sfu+sbd4ySZtIG3xbHk8Or09q/S3ACly6rX4+D2/b3p+Oj4/E2lvXC9
+0TupxR6ryxCSsASbvGDE4vT8/2vS7rze6AOOsiC63OLu8QeKqOz5/iF5l1yzx3/O6EbL6N7u8ka0
+1Tu11yWEnle82GGoufD2+HXB04ng+HzZ9Uqoqf///wAAACH5BAAAAAAALAAAAACFABcAAAb/QJ9w
+SCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/njyd2o5kkE7R8HsHoLhrN5aVapaIEAQJL
+AgEEc4hCHxgcGUQPNhswRQELAwuHRgM9mUkAPQpLBwNPAgAMDKGJQhMYFB4TJx0QD0cQGyBEDT28
+PUgJvku7AUcKA4YGC04FBr0ATcbEXBkcDhgOIysoDi5IGBsXQ58Hgg1CCAqBhz2kPggABYWHBcSb
+QgTw9AIMPQDyQgHg3TME4JmAZv4C+hCgAMAheQ0F7Os36J20AAUKqHpCgdaQCiQ2yOiAZIeFWkKa
+dRJwgBfCAD0asORVsAcCHy199EjgQ0Ev/wMGfNIEVQAYL3ObmvX7ZG4IswTACnxSmqoXSwMtAcBs
+xgDKhBAsiHyA0aLECA8RiJyQIEKD051EFlBsGQDB0n4+CgzTeUAAO78JCPgcQGBnpR4BWiI46Ktl
+AbunQBFRDFmuP3aFExzWmmCA3b6DnLgIUYHIBAgzILwQgYKHBAoUJJgAUXoIzB6hCQATws8U4t1C
+7BXowQAmAJ/Phi/wS2pT4QNCdveA/gnAJmU+CBQ2MKC7MdzDGTD3Aaz7pU83n0RwgGNIBAqNhDzg
+IKIFCQsWQEDIYQRYAuuJ3eULPwVkdVMzCOxSEwCfBahVD8oA5ZdNcjUQng9yBSBUAwswUJcYKREB
+5U4/MCmTgAGFwEMgFB3UEI4PHTigQVpEZPBABRWwQKMRBWzCCwEINNMSKTkFCZdcvAwgQIY++EhX
+deN9cpQAkDWJmw8AKGWOlAZcRgp61bmj5UxRSDCCBQ44EMIfVgRCRAFIFJIbRkcQEJoS0ixhCBF5
+MhFPFQ6UoIIFFziyyqGIJqrooow26uijkEYq6aSUGhEEADs=
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://mathworld.wolfram.com/images/topbar/btn_go.gif
+
+R0lGODlhFgAcALMAAN319CK7uXfV1O76+qrl5Lvq6Yjb2bXo5////wCxrgAAAAAAAAAAAAAAAAAA
+AAAAACH5BAAAAAAALAAAAAAWABwAAARYMMlJq7046827/2AoVkdpnug5HSKbuCELxzNYVgSib/dk
+AJJAIgBAAISUnmSAlAAECQEwOUNIdtYraUYoaJ/R6apWGOyIxqZESRu93q11fJ2qo9z4vF4SAQA7
+
+------=_NextPart_000_0000_01C53C2A.067BB230
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://mathworld.wolfram.com/css/mathworld.css
+
+BODY {
+	MARGIN: 0px 0px 10px; COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+.title {
+	FONT-SIZE: 24px; COLOR: #00a6a6; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H1 {
+	FONT-SIZE: 24px; COLOR: #00a6a6; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H1 A:visited {
+	FONT-SIZE: 24px; COLOR: #00a6a6; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+P {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+BLOCKQUOTE {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.entry {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.entry TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+LI {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+TH {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.letters A {
+	FONT-SIZE: 24px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+A {
+	COLOR: #009999; TEXT-DECORATION: none
+}
+.index A {
+	COLOR: #009999; TEXT-DECORATION: none
+}
+.index TD {
+	COLOR: #009999; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #00cccc
+}
+.index A:hover {
+	COLOR: #00cccc
+}
+A:visited {
+	COLOR: #003399
+}
+HR {
+	COLOR: #bbbbbb; HEIGHT: 1px
+}
+A.sidebarlink {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; MARGIN-LEFT: 18px; COLOR: =
+#111111; LINE-HEIGHT: 17px; MARGIN-RIGHT: 8px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlink:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; MARGIN-LEFT: 18px; COLOR: =
+#111111; LINE-HEIGHT: 17px; MARGIN-RIGHT: 8px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlinkleft {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; MARGIN-LEFT: 18px; COLOR: =
+#111111; LINE-HEIGHT: 17px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlinkleft:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; MARGIN-LEFT: 18px; COLOR: =
+#111111; LINE-HEIGHT: 17px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlinkright {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #111111; LINE-HEIGHT: =
+17px; MARGIN-RIGHT: 8px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlinkright:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #111111; LINE-HEIGHT: =
+17px; MARGIN-RIGHT: 8px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+A.sidebarlink:hover {
+	COLOR: #009999
+}
+A.sidebarlinkleft:hover {
+	COLOR: #009999
+}
+A.sidebarlinkright:hover {
+	COLOR: #009999
+}
+.sidebarheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-LEFT: 10px; COLOR: #146a68; =
+LINE-HEIGHT: 16px; FONT-FAMILY: 'Lucida =
+Grande',Tahoma,Verdana,Helvetica,sans-serif
+}
+.index A {
+	FONT-SIZE: 12px; LINE-HEIGHT: 16px; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+.index TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 16px; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H2 {
+	FONT-WEIGHT: normal; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H3 {
+	FONT-WEIGHT: normal; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H4 {
+	FONT-WEIGHT: normal; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H5 {
+	FONT-WEIGHT: normal; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+H6 {
+	FONT-WEIGHT: normal; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+.navbar {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; LINE-HEIGHT: 16px; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+.navbar A {
+	COLOR: #696969
+}
+.navbar A:visited {
+	COLOR: #696969
+}
+.navbar A:hover {
+	COLOR: #999999
+}
+.references {
+	FONT-SIZE: 10px
+}
+.references P {
+	FONT-SIZE: 10px
+}
+.citation {
+	FONT-SIZE: 10px
+}
+.citation P {
+	FONT-SIZE: 10px
+}
+.references-head {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #146a68; FONT-FAMILY: =
+Verdana,Arial,Helvetica,sans-serif
+}
+.copyright {
+	FONT-SIZE: 9px
+}
+
+------=_NextPart_000_0000_01C53C2A.067BB230--

@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C/DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="500px" height="500px" viewBox="0 0 2000 2000"
+  xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Generate from recti package</desc>
+  <g transform="translate(1000,1000)">
+<polygon points=" -748,739 -886,-564 -772,-665 -157,-862 932,-873 964,902 458,-106 497,-138 -63,-31 -369,837 " style="fill:green;fill-opacity:0.2;stroke:black"/>
+  </g>
+</svg>

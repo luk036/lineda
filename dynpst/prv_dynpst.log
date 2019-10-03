@@ -1,0 +1,176 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2004.10.24)  19 SEP 2006 16:18
+**&latex prv_dynpst.ini \nonstopmode\nofiles\PassOptionsToPackage{active,tightp
+age,auctex}{preview}\AtBeginDocument{\ifx\ifPreview\undefined\RequirePackage[di
+splaymath,floats,graphics,textmath,sections,footnotes]{preview}[2004/11/05]\fi}
+\input{dynpst.tex}
+(prv_dynpst.ini
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/carlisle/mylatex.ltx)
+(/usr/share/texmf/tex/latex/tools/.tex File ignored))
+No auxiliary output files.
+
+(dynpst.tex (/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2001/06/04 PSNFSS-v8.2 (SPQR) 
+)
+(/usr/share/texmf/tex/latex/cite/cite.sty
+Package: cite 2001/10/14  v 3.9
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf/tex/latex/algorith/algorithm.sty
+Package: algorithm 
+
+Document Style `algorithm' - floating environment
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count87
+\float@exts=\toks15
+\float@box=\box26
+\@float@everytoks=\toks16
+\@floatcapt=\box27
+)
+(/usr/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks17
+\c@algorithm=\count88
+)
+(/usr/share/texmf/tex/latex/algorith/algorithmic.sty
+Package: algorithmic 
+
+Document Style `algorithmic' - environment
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count91
+)
+\c@ALC@line=\count92
+\c@ALC@rem=\count93
+\ALC@tlm=\skip45
+)
+(/usr/share/texmf/tex/latex/html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+(/usr/share/texmf/tex/latex/misc/subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip46
+\subfigcapskip=\skip47
+\subfigcaptopadj=\dimen107
+\subfigbottomskip=\skip48
+\subfigcapmargin=\dimen108
+\subfiglabelskip=\skip49
+\c@subfigure=\count94
+\c@lofdepth=\count95
+\c@subtable=\count96
+\c@lotdepth=\count97
+\subfig@top=\skip50
+\subfig@bottom=\skip51
+)
+\c@theorem=\count98
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 21.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 21.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 21.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 21.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 21.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+) )
+Beginning to dump on file prv_dynpst.fmt
+ (format=prv_dynpst 2006.9.19)
+5269 strings of total length 66139
+57438 memory locations dumped; current usage is 223&55958
+4121 multiletter control sequences
+\font\nullfont=nullfont
+\font\OMX/cmex/m/n/5=cmex10
+\font\tenln=line10
+\font\tenlnw=linew10
+\font\tencirc=lcircle10
+\font\tencircw=lcirclew10
+\font\OT1/cmr/m/n/5=cmr5
+\font\OT1/cmr/m/n/7=cmr7
+\font\OT1/cmr/m/n/10=cmr10
+\font\OML/cmm/m/it/5=cmmi5
+\font\OML/cmm/m/it/7=cmmi7
+\font\OML/cmm/m/it/10=cmmi10
+\font\OMS/cmsy/m/n/5=cmsy5
+\font\OMS/cmsy/m/n/7=cmsy7
+\font\OMS/cmsy/m/n/10=cmsy10
+\font\OT1/ptm/m/n/10=ptmr7t
+\font\OT1/ptm/m/n/12=ptmr7t at 12.0pt
+\font\OT1/ptm/m/n/8=ptmr7t at 8.0pt
+\font\OT1/ptm/b/n/10=ptmb7t
+\font\OT1/ptm/b/it/10=ptmbi7t
+\font\OT1/ptm/m/it/10=ptmri7t
+\font\OT1/pcr/m/n/10=pcrr7t
+\font\OT1/phv/m/n/10=phvr7t
+7576 words of font info for 22 preloaded fonts
+14 hyphenation exceptions
+Hyphenation trie of length 23693 has 740 ops out of 1501
+  31 for language 4
+  235 for language 3
+  207 for language 2
+  86 for language 1
+  181 for language 0
+No pages of output.

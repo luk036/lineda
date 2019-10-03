@@ -1,0 +1,46 @@
+clear all; close all;
+NUM = 3;
+%x = [1:10]'; y = [11:20]'; z = [21:30]';
+x = 1 + 9*rand(20,1);
+y = 11 + 9*rand(20,1);
+z = 21 + 9*rand(20,1);
+
+<<<<<<< .mine
+
+kx = 4; knotsx = augknt([1:2:10]',kx);
+ky = 4; knotsy = augknt([11:2:20]',ky);
+kz = 4; knotsz = augknt([21:2:30]',kz);
+
+switch NUM,
+  case 2,
+    f = x + y;
+    autogen_spcvx_H(2);
+    sp4 = spcvx2d_gen_H({knotsx,knotsy},[kx,ky],[x y],f);
+  case 3,
+    f = x.^2 + y.^2 + z.^2;
+    autogen_spcvx_H(3);
+    sp4 = spcvx3d_gen_H({knotsx,knotsy,knotsz},[kx,ky,kz],[x y z],f);
+end
+
+=======
+
+kx = 4; knotsx = augknt([1:2:10]',kx);
+ky = 4; knotsy = augknt([11:2:20]',ky);
+kz = 4; knotsz = augknt([21:2:30]',kz);
+
+switch NUM,
+  case 2,
+    f = x.^2 + y.^2;
+    autogen_spcvx_H(2);
+    sp4 = spcvx2d_gen_H({knotsx,knotsy},[kx,ky],[x y],f);
+  case 3,
+    f = x.^2 + y.^2 + z.^2;
+    autogen_spcvx_H(3);
+    sp4 = spcvx3d_gen_H({knotsx,knotsy,knotsz},[kx,ky,kz],[x y z],f);
+end
+
+>>>>>>> .r2063
+figure, fnplt(sp4),
+xlabel('X'), ylabel('Y'), zlabel('f')
+%axis([1 10 11 20 10 32])
+return

@@ -1,0 +1,227 @@
+#ifndef DSL_DLIST_HPP
+#define DSL_DLIST_HPP
+
+#include <cassert>
+#include <cstdlib> // for rand()
+#include <iosfwd>
+
+namespace dsl {
+/** @addtogroup dsl
+ *  @{
+ */
+
+/* Forward declaration */
+template <class _Node> class dlist;
+template <class _Node>
+std::ostream &operator<<(std::ostream &, const dlist<_Node> &);
+
+/**
+ * A Doubly-linked List class. This class simply contains a link of
+ * node's. By adding a dummy node (sentinel) nil, deleting a node is
+ * extremely fast (see "Introduction to Algorithm"). This class does
+ * not keep the length information as it is not necessary for the FM
+ * algorithm. This saves memory and run-time to update the length
+ * information. Note that this class does not own the list node. They
+ * are supplied by the caller in order to better reuse the nodes.
+ *
+ * From "Introduction to Algorithm":
+ *
+ * A sentinel is a dummy object that allows us to simplify boundary
+ * conditions. For example, suppose that we provide with list L an object
+ * nil[L] that represents NIL but has all the fields of the other list
+ * elements. Wherever we have a reference to NIL in list code, we replace
+ * it by a reference to the sentinel nil[L]. As shown in Figure 11.4,
+ * this turns a regular doubly linked list into a circular list, with the
+ * sentinel nil[L] placed between the head and tail; the field
+ * next[nil[L]] points to the head of the list, and prev[nil[L]] points
+ * to the tail. Similarly, both the next field of the tail and the prev
+ * field of the head point to nil[L]. Since next[nil[L]] points to the
+ * head, we can eliminate the attribute head[L] altogether, replacing
+ * references to it by references to next[nil[L]]. An empty list consists
+ * of just the sentinel, since both next[nil[L]] and prev[nil[L]] can be
+ * set to nil[L].
+ *
+ */
+template <class _Node> class dlist {
+public:
+  typedef typename _Node::iterator iterator;
+  typedef typename _Node::const_iterator const_iterator;
+  friend std::ostream &operator<<<>(std::ostream &, const dlist<_Node> &);
+
+  /** Constructor */
+  dlist() : _head(nil()), _tail(_head) {}
+
+  /** @return true if list is empty. */
+  bool empty() const { return _head == nil(); }
+
+  /** Reset to empty list. */
+  void clear() { _head = _tail = nil(); }
+
+  /** Reverse */
+  void reverse() { _tail->reverse(); }
+
+  /** @return iterator that points to the head of the list */
+  iterator begin() { return iterator(_head); }
+
+  /** @return iterator that points to the tail of the list */
+  iterator end() { return iterator(nil()); }
+
+  /** @return iterator that points to the head of the list */
+  const_iterator begin() const { return const_iterator(_head); }
+
+  /** @return iterator that points to the tail of the list */
+  const_iterator end() const { return const_iterator(nil()); }
+
+  /** @return the first item. Precondition: list is not empty */
+  _Node &first() {
+    assert(!empty());
+    return *_head;
+  }
+
+  /** @return the last item. Precondition: list is not empty */
+  _Node &last() {
+    assert(!empty());
+    return *_tail;
+  }
+
+  /** @return the first item. Precondition: list is not empty */
+  const _Node &first() const {
+    assert(!empty());
+    return *_head;
+  }
+
+  /** @return the last item. Precondition: list is not empty */
+  const _Node &last() const {
+    assert(!empty());
+    return *_tail;
+  }
+
+  /** Detach item from this list. Precondition: list contains the node */
+  static void detach(_Node &ptr) {
+    _Node *const n = ptr._next;
+    _Node *const p = ptr._prev;
+    assert(n != 0 && n->_prev == &ptr);
+    assert(p != 0 && p->_next == &ptr);
+    p->_next = n;
+    n->_prev = p;
+  }
+
+  /** Insert item at the front of this list.
+      Precondition: list does not contain the node */
+  void pushFront(_Node &ptr) {
+    ptr._next = _head;
+    _head->_prev = &ptr;
+    _head = &ptr;
+    ptr._prev = nil();
+  }
+
+  /** Insert item at the end of this list
+      Precondtion: list does not contain the node */
+  void pushBack(_Node &ptr) {
+    ptr._prev = _tail;
+    _tail->_next = &ptr;
+    _tail = &ptr;
+    ptr._next = nil();
+  }
+
+  /** Arbitrarily put item at the front or at the end of this list
+      Precondition: list does not contain the node */
+  void pushRandom(_Node &ptr) {
+    if (rand() & 1 == 0)
+      pushBack(ptr);
+    else
+      pushFront(ptr);
+  }
+
+  /** Pop an item from the front of the list.
+      Precondition: list is not empty */
+  _Node &popFront() {
+    assert(!empty());
+    _Node *res = _head;
+    _head = res->_next;
+    _head->_prev = nil();
+    return *res;
+  }
+
+  /** Pop an item from the end of the list.
+      Precondition: list is not empty */
+  _Node &popBack() {
+    assert(!empty());
+    _Node *res = _tail;
+    _tail = res->_prev;
+    _tail->_next = nil();
+    return *res;
+  }
+
+  /** Pop an item from the front of the list.
+      Precondition: list is not empty */
+  void popFrontFast() {
+    assert(!empty());
+    _head = _head->_next;
+    _head->_prev = nil();
+  }
+
+  /** Pop an item from the end of the list.
+      Precondition: list is not empty */
+  void popBackFast() {
+    assert(!empty());
+    _tail = _tail->_prev;
+    _tail->_next = nil();
+  }
+
+  /** Concatenate L to the end of this list. L becomes an empty list
+      after the concatenation. */
+  void concat(dlist<_Node> &L) {
+    if (L.empty())
+      return;
+    _tail->_next = L._head;
+    L.first()._prev = _tail;
+    L.last()._next = nil();
+    _tail = L._tail;
+    L.clear();
+  }
+
+  // xxx   /** @return true if list contains ptr. Take O(n) time. */
+  // xxx   bool contains(_Node& ptr) const
+  // xxx   {
+  // xxx     const _Node* cur = nil();
+  // xxx     while ((cur = cur->_next) != nil()) {
+  // xxx       if (&ptr == cur) return true;
+  // xxx     }
+  // xxx     return false;
+  // xxx   }
+
+  /** @return true if the list is valid. Take O(n) time */
+  bool isValid() const {
+    const _Node *cur = nil();
+    do {
+      if (cur->_next->_prev != cur)
+        return false;
+      if (cur->_prev->_next != cur)
+        return false;
+      cur = cur->_next;
+    } while (cur != nil());
+    return true;
+  }
+
+private:
+  _Node *nil() { return reinterpret_cast<_Node *>(this); }
+  const _Node *nil() const { return reinterpret_cast<const _Node *>(this); }
+
+  /** (for restricted use only) Make the list act like a non-empty list
+      (Function empty() always returns false). */
+  void makeDummy() { _head = 0; }
+
+  // Unimplemented (no way to implement these)
+  dlist(const dlist<_Node> &);
+  dlist<_Node> &operator=(const dlist<_Node> &);
+
+private:
+  _Node *_head; /**< pointer of the head */
+  _Node *_tail; /**< pointer of the tail */
+};
+
+/** @} */ // end of dsl
+}
+
+#endif

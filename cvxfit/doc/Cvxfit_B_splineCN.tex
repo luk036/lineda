@@ -1,0 +1,277 @@
+\documentclass[10pt,twocolumn]{article}          % LaTeX 2e
+\usepackage{latex8}                              % LaTeX 2e
+\usepackage{times}
+\usepackage{CJK}
+\usepackage{pgf}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{cite}
+%%%%%%%%%%%%
+\newtheorem{law}{B-spline}
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\title{用 B 样条实现凸拟合(Convex Fitting)}
+\author{陆伟成 \\ 复旦大学{} 微电子系
+      \\ Email: luk@fudan.edu.cn
+\and 刘硕然 \\ Email: 0372462@fudan.edu.cn}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{介绍}
+\subsection{为什么要做凸拟合(convex fitting)}
+目前有许多实际应用中的问题，特别是电路设计领域中的优化问题，
+都可以等效为（或近似为）几何规划的问题(geometric programming)。
+并且已经有方法可以快速准确地解决大规模的几何规划问题。但是几何
+规划问题是有标准格式的，它由目标方程(objective function)和
+约束方程(constraint function)组成。其中目标方程必须是正项式 \cite{tutorial-GP}。\\
+
+然而，手工算出一个正项式是非常困难的。因此，导致尽管解一个
+GP问题很容易，但是建立一个几何规划问题的模型(modeling)很困难。
+后来研究发现，可以将GP转化为一个凸优化问题(convex optimization)。
+凸优化问题的一大优点是建模不像GP那么严格，只要保证目标方程和约束
+方程是凸的即可。这样就避免了手工写正项式的低效率。我们可以通过
+仿真器(simulator)得到一组数据点，然后拟合出一个最接近数据点的方程。
+对这个方程只有一个要求，那就是它要是凸的。凸拟合(convex fitting)可以满足我们的要求。\\
+
+\subsection{已经提出的方法}
+\begin{itemize}
+  \item
+  Sum-of-squares polynomial fitting
+  \item
+  Convex piecewise linear fitting
+  \item
+  ConvexFit
+  \item
+  ConvexSmooth
+\end{itemize}
+
+\subsection{如何用 B-spline 做凸拟合(convex fitting)}
+在本篇论文中，我们会提出一种新的实现凸拟合的思路，即使用B-spline。
+Least squares spline approximation 是一个非常有效率的做数据拟合的
+工具，因为有许多现成的工具包(如在 Matlab中的 spline toolbox)来解决这个问题。
+但是spline方程不能保证原始数据点的一些形状特性，比如单调性和凸性。因此需要
+对 spline coefficients 加一些线性不等式的条件限制，来维持形状特性。
+
+使用 B-spline 拟合出来的方程有以下优点：方程的估值变的很容易；导数（斜率）很容易求；
+具有局部控制性（ local support ），因为每一个控制点只影响周围的曲线；光滑；具有
+Affine variant 的性质。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{B-spline}
+\subsection{基本定义}
+
+B-spline 曲线是于1946年首次由 Schoenberg
+提出的。若$P(t)$为曲线上的位置向量，则沿着参数 $t$ 的 B-spline
+的曲线可定义为
+\begin{equation} \label{equ:bspline}
+P(t) =  \sum\limits_{i=1}^n{P_i N_{i,k}(t)} \qquad
+\begin{array}{l} t_{min} \leq t \leq t_{max} \\ 2 \leq k \leq n
+\end{array}
+\end{equation}
+其中 $P_i$ 为控制点位置向量（ position vector ），简称控制点（
+control point ）。$N_{i,k}$则是正规化的 B-spline 基底函数（
+Normalized B-spline basis function
+）。在阶数为$k$时，第$i$个基底函数$N_{i,k}$定义为
+\begin{equation} \label{equ:basisf1}
+N_{i,1} (t) = \{
+\begin{array}{ll}
+   1 & \textrm{if} \quad x_i  \le t < x_{i + 1}   \\
+   0 & \textrm{otherwise}
+\end{array}
+\end{equation}
+及
+\begin{equation} \label{equ:basisfk}
+N_{i,k} (t) = \frac{{(t - x_i )N_{i,k - 1} (t)}}{{x_{i + k - 1}  -
+x_i }} + \frac{{(x_{i + k}  - t)N_{i + 1,k - 1} (t)}}{{x_{i + k}
+- x_{i + 1} }}
+\end{equation}
+其中$x_i$为节点向量（ knot vector ）中的第$i$个元素，且$x_i \leq x_{i+1}$。
+
+\subsection{B-spline 良好的特性}
+
+\begin{law} \label{law:bl1}
+如果所有的控制点都在一个凸包中，那么拟合出来的曲线也可以保证是凸的。
+\end{law}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{用 B-spline 拟合单变量凸曲线}
+
+\subsection{Least squares spline approximation}
+
+假设现在要拟合一组数据点
+\begin{displaymath}
+  (x_1,y_1), \quad \cdots \quad (x_n,y_n)
+\end{displaymath}
+其中，$ x_i,y_i \in \mathbf{R}$，利用{} matlab 中的 spline toolbox
+可以很容易的做最小二乘法拟合，即{} least-squares spline
+approximation 。 \cite{Gleb_00}
+但是，就如介绍中提到的一样，这样得到的曲线是不满足
+凸的要求的。因此，拟合单变量方程的问题转化为
+\begin{equation}
+  \begin{array}{ll}
+  \textrm{minimize} & \sum\limits_{i=1}^n{(y_i - f(x_i))^2} \\
+  \textrm{subject to} & f \quad \textrm{is convex} \label{equ:unilsf}
+  \end{array}
+\end{equation}
+根据(B-spline \ref{law:bl1})，我们可以通过调整控制点的位置来达到使曲线为凸的目的。
+设控制点的数目为 $ncp$ ，控制点向量为 $p$ 。
+保持节点向量不变，阶数$k$不变，则根据式(\ref{equ:basisf1})(\ref{equ:basisfk})，
+$f$的基底函数(basis function)不变。
+因此，$f$的基底函数矩阵不变，设为$C$(matrix of basis function, 又叫 collocation matrix)。
+$C$是连接控制点和原始数据点的桥梁，它们的关系是
+\begin{equation}
+  \vec y = C \cdot \vec p \label{equ:collocation}
+\end{equation}
+所以，问题又可以转化为找到一组$p$，使得
+\begin{equation}
+    \textrm{min} \quad \|y - C \cdot p\|_2 \quad
+     \textrm{且满足} \quad  p \quad \textrm{is convex} \nonumber
+\end{equation}
+根据矩阵的运算规则，上式变形并略去常数项后，
+\begin{equation}
+\textrm{min} \quad \frac{1}{2} p^T C^T C p - C^T y^T p \quad
+\textrm{且满足} \quad  p \quad \textrm{is convex} \label{equ:unilsf1}
+\end{equation}
+( \cite{linear-shape-approx} )。
+
+\subsection{Convex constraint}
+
+对于单变量方程来说，使所有控制点在一个凸包上的条件如下，
+\begin{align}
+   & \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_0} \leq
+      \frac{f(x_{i+2})-f(x_{i+1})}{x_{i+2}-x_{i+1}} \nonumber\\
+   \Rightarrow & - (x_{i+2}-x_{i+1})f(x_i)   \nonumber\\
+    & + \left[ (x_{i+2}-x_{i+1})+(x_{i+1}-x_i) \right] f(x_{i+1})
+    \nonumber\\
+    & - (x_{i+1}-x_i)f(x_{i+2}) \quad \leq 0 \label{cvx1}
+\end{align}
+其中，$i : 1 \to (ncp-2)$ 。上述不等式(\ref{cvx1})即为 convex constraint 。
+再联系式(\ref{equ:unilsf1})，容易想到问题可以转化为带线性不等式限制的QP问题
+（ Quadratic programming with linear inequality ）。\\
+QP的标准形式为，
+\begin{displaymath}
+\textrm{min} \qquad \frac{1}{2} p^T H p + f^T p \qquad
+\textrm{且满足} \quad A \cdot p \leq b
+\end{displaymath}
+因此，$H = C^T \cdot C$，$f = - y \cdot C$，  {}(\cite{linear-shape-approx}) $A$为一个
+$(ncp-2) \times ncp $的矩阵，根据不等式(\ref{cvx1})的系数得到。
+$b$为有$(ncp-2)$个零元素的列向量。
+
+\subsection{一个例子}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{arctan}
+\caption{An example of univariate} \label{fig:exp1d}
+\end{center}
+\end{figure}
+
+如图(\ref{fig:exp1d})所示，蓝色点为原始的数据点，红色点为优化后的控制点。可以明显看到，
+加了 convex constraint 的曲线是凸的。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{用 B-spline 拟合多变量数据点}
+
+\subsection{Tensor Product B-spline}
+上面我们已经讨论了单变量B-spline的情况，但变量数目大于$1$时，多变量
+B-spline 可以写成单变量 B-spline 张量积(tensor product)的形式，
+这就是所谓的 tensor product B-spline (\cite{M_Spline} \cite{shape-tensor-spline})。比如，$f$是
+$x$的函数，$g$是$y$的函数，则
+\begin{displaymath}
+  p(x,y) = f(x) \otimes g(y)
+\end{displaymath}
+即对于双变量的B-spline方程，
+\begin{equation}
+  p(x,y) = \sum\limits_{i=1}^m {\sum\limits_{j=1}^n{a_{ij} B_{i,m}(x) B_{j,n}(y)}} \label{equ:mulbspline}
+\end{equation}
+
+假设有一组$m$个变量的数据点，
+\begin{displaymath}
+  ( x_1 , x_2 , \cdots , x_m , y )
+\end{displaymath}
+其中
+\begin{displaymath}
+  x_1 = \left[ \begin{array}{c} x_{1,1} \\ x_{1,2} \\ \vdots \\ x_{1,nx_1} \end{array} \right]
+  \quad x_2 = \left[ \begin{array}{c} x_{2,1} \\ x_{2,2} \\ \vdots \\ x_{2,nx_2} \end{array} \right]
+  \quad \cdots
+  \quad x_m = \left[ \begin{array}{c} x_{m,1} \\ x_{m,2} \\ \vdots \\ x_{m,nx_m} \end{array} \right]
+\end{displaymath}
+所以，共有$ nx_1 \times nx_2 \times \cdots \times nx_m$个数据点。
+
+设每一个变量对应的基底函数矩阵分别为 $ C_1 , C_2 , \cdots , C_m $ ，
+控制点的个数分别为 $ncx_1, ncx_2, \cdots , ncx_m $。则控制点
+\begin{displaymath}
+  p_1 = \left[ \begin{array}{c} p_{1,1} \\ p_{1,2} \\ \vdots \\ p_{1,ncx_1} \end{array} \right]
+  \quad p_2 = \left[ \begin{array}{c} p_{2,1} \\ p_{2,2} \\ \vdots \\ p_{2,ncx_2} \end{array} \right]
+   \cdots
+  p_m = \left[ \begin{array}{c} p_{m,1} \\ p_{m,2} \\ \vdots \\ p_{m,ncx_m} \end{array} \right]
+\end{displaymath}
+如果我们将所有的控制点排列成式如下的列向量，
+\begin{displaymath}
+  p = \left[ p_1^T \quad p_2^T \quad \cdots \quad p_m^T \right]^T
+\end{displaymath}
+并且同时$y$也排成相应的列向量$y'$，则基底函数矩阵(collocation matrix)$C$
+满足以下关系，
+\begin{displaymath}
+  y' = C \cdot p
+\end{displaymath}
+根据 tensor product spline ，得到
+\begin{equation}
+  C = C_m \otimes C_{m-1} \otimes \cdots \otimes C_1 \label{equ:tensor_collocation}
+\end{equation}
+因此，在做最小二乘法拟合时的目标方程与单变量时的类似
+\begin{equation}
+    \textrm{min} \quad \frac{1}{2} p^T C^T C p - C^T y'^T p \label{equ:mullsf}
+\end{equation}
+
+\subsection{Convex constraint}
+多变量的方程或数据点为凸的充要条件是
+\begin{equation}
+  \bigtriangledown^2 f(x_1, x_2, \cdots, x_m) \succeq 0 \nonumber
+\end{equation}
+结合方程(\ref{equ:mullsf})，解决这个问题需要 semi-definite programming(SDP)(\cite{Semi_96}) 。
+解SDP问题是比较困难的,因此我们放宽条件，使用充分非必要条件(\cite{linear-shape-approx} \cite{shape-tensor-spline})。
+\begin{equation}
+  f_{x_i x_i} \geq \sum\limits_{i \neq j}{|f_{x_j x_j}|} \quad i,j: 1 \rightarrow m \label{equ:cvx_inequality0}
+\end{equation}
+但是发现仍然是一个非线性的问题，继续放宽条件。取不等式(\ref{equ:cvx_inequality0})的一种特殊情况，即
+\begin{equation}
+  f_{x_i x_i} \geq 0 \quad  \textrm{and} \quad f_{x_i x_j} = 0 \quad i,j: 1 \rightarrow m \label{equ:cvx_inequality1}
+\end{equation}
+\subsection{拟合 Franke 函数}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{franke}
+\caption{Franke function(bivariate)} \label{fig:franke}
+\end{center}
+\end{figure}
+
+\subsection{拟合一组三变量的数据点}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{cvxfitnd}
+\caption{An example of multivariate(three variables)} \label{fig:cvxfitnd}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{CJK*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{latex8}
+\bibliography{refbibtex,ref-fitting,ref-cvxfit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

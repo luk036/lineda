@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="4"
+   name=""
+   committed-date="2009-11-23T07:08:01.945920Z"
+   url="file:///export/SVNRoot/lineda/design_patterns"
+   last-author="why"
+   kind="dir"
+   uuid="14c78f76-7678-0410-82d7-e93bf30084ed"
+   revision="39"/>
+<entry
+   committed-rev="4"
+   name="Template Method.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="cdcba77f90460c6b066f928ffb0d4fdf"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Decorator.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="8dd4bb28f1ec4b1fa9ca3cb5ab608f0b"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Strategy.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="e822270c6668526ba1383f48dd4fb15f"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="designpatterns.xmi"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="e15721bce4c199f4b6562a046caab03b"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Bad OO.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="9cc9dc21cfb8a9caca27ad8ce7aa9c15"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Local Refinement Template Method.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="c09f547b4c2707f35f934895a17a86c4"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Bad OO 2.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="f48119e6b9704fb8a046779a94b6c5e0"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="Delay Calculator Strategy.png"
+   text-time="2010-03-03T08:53:15.000000Z"
+   committed-date="2009-11-23T07:08:01.945920Z"
+   checksum="329a5a93fdc81df9e3bbfe15b4deccd9"
+   last-author="why"
+   kind="file"
+   prop-time="2010-03-03T08:53:15.000000Z"/>
+</wc-entries>

@@ -1,0 +1,5 @@
+exp1d_data	
+| log_mle_cc_corr_fn  | converge! | not good | fast |
+| log_mle_inv_corr_fn | converge! | ok       | fair |
+
+

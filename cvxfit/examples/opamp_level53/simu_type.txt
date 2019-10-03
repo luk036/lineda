@@ -1,0 +1,8 @@
+Vin1  9  0  Vcm 
+Vin2  8  0  dc=Vcm ac=1 
+.ac  dec  20  1  1000x 
+* .print ac vdb(5) vp(5) 
+
+.measure  ac  bandwidth  when  vdb(5)=0
+.measure  ac  phase_mar  find  vp(5)  at=bandwidth
+.measure  ac  gain  find  vdb(5)  at=1

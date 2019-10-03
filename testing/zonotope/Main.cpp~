@@ -1,0 +1,31 @@
+#include <zonotope.hpp>
+#include <aa.h>
+#include <iostream>
+#include <svgstream.hpp>
+
+using namespace recti;
+using namespace std;
+
+int main()
+{
+  srand((unsigned)time(NULL));
+
+  AAF r(interval(30, 40));
+  AAF s(interval(-40, 10));
+  AAF t(interval(5, 6));
+  AAF p = 10 + t*(r + s);
+  AAF q = 20 + t*(r - s);
+  Zonotope<double> zz(Point<AAF>(p,q));
+  svgstream sout("zonotope.svg"); 
+  sout << zz << endl;
+
+  zonotope w = zonotope::random();
+  Zonotope<double> ww = w;
+  //xxx zonotope z = zonotope::random();
+  //xxx Zonotope<double> zz = z;
+  sout << zz.approximate(ww) << endl;
+  //xxx sout << z;
+  sout << w.bounding_box() << endl;
+  sout << w << endl;
+}
+

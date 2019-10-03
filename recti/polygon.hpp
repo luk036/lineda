@@ -1,0 +1,365 @@
+#ifndef RECTI_POLYGON_HPP
+#define RECTI_POLYGON_HPP
+
+#include "point.hpp"
+#include <algorithm>
+#include <cassert>
+#include <cmath> // for fabs()
+#include <dclist.hpp>
+#include <functional>
+#include <iosfwd>
+#include <vector>
+
+class svgstream;
+
+namespace recti {
+/**
+ * @addtogroup recti
+ * @{
+ */
+
+/* Forward declarations */
+template <typename _Tp> class Polygon;
+template <typename _Tp> class Rectangle;
+template <typename _Tp>
+std::ostream &operator<<(std::ostream &os, const Polygon<_Tp> &p);
+template <typename _Tp>
+svgstream &operator<<(svgstream &os, const Polygon<_Tp> &p);
+class seg_overlap_sweeper;
+
+/** Define integer coordinate type polygon */
+typedef Polygon<int> polygon;
+
+/**
+ * Polygon Class. A polygon.
+ * Implemented by a circular list of points [p0, p1, p2, ... pN-1].
+ * Simple polygon (i.e. no crossing line segments) is assumed.
+ */
+template <typename _Tp> class Polygon {
+  typedef Polygon<_Tp> _Self;
+
+  friend std::ostream &operator<<<>(std::ostream &, const Polygon<_Tp> &);
+  friend svgstream &operator<<<>(svgstream &, const Polygon<_Tp> &);
+  friend class seg_overlap_sweeper;
+
+public:
+  typedef typename dsl::dclist<Point<_Tp>> pt_set_type;
+  typedef typename pt_set_type::iterator iterator;
+  typedef typename pt_set_type::const_iterator const_iterator;
+  typedef typename pt_set_type::node pnode;
+
+  static const char *_svg_style; /**< SVG style */
+
+  /** Create randomly a simple polygon with n vertices.
+      Time complexity O(n^5). */
+  static _Self random(size_t n);
+
+  /** Create randomly a simple polygon with n vertices.
+      Time complexity O(n^5). */
+  static _Self random2(size_t n);
+
+  /** Create a polygon by a vector of points */
+  inline Polygon(const pt_set_type &v) : _pt_set(v) {}
+
+  /** Create a polygon by an array of points. */
+  Polygon(const Point<_Tp> *a, size_t s);
+
+  /** Create a polygon by converting a rectangle r. */
+  Polygon(const Rectangle<_Tp> &r);
+
+  /** Create a polygon that is an outline of a set of polygon.
+      (not implemented yet) */
+  Polygon(const std::vector<Polygon<_Tp>> &poly_set);
+
+  // Compiler generated copy constructor and operator=() are fine.
+
+  /** @return the number of vertices. */
+  inline size_t num_vertices() const { return _pt_set.size(); }
+
+  /** @return perimeter. (not implemented yet)
+      Preconditon: polygon is in canonical form.
+      Time complexity: O(n). */
+  inline _Tp perimeter() const;
+
+  /** @return signed area.
+      Preconditon: polygon is in canonical form.
+      Time complexity: O(n). */
+  inline _Tp area() const;
+
+  /** @return the bounding box of this polygon
+      (not implemented yet) */
+  Rectangle<_Tp> bounding_box() const;
+
+  /** @return whether this polygon is convex. The
+      following property is characteristic for convex polygons:
+      if we walk from any vertex, then we always move
+      "leftwards" if the polygon is anti-clockwise, or "rightwards"
+      if it is clockwise.
+      Time complexity: O(n). */
+  bool is_convex() const;
+
+  /** @return whether this polygon is x-monotone.
+      @see is_y_monotone()
+      Reference: Computational Geometry p.49.
+   */
+  bool is_x_monotone() const;
+
+  /** @return whether this polygon is y-monotone. A simple polygon
+      is called monotone with respect to a line l if for any line l'
+      perpendicular to l the intersection of the polygon with l' is
+      connected. In other words, the intersection should be a line
+      segment, a point, or empty. A polygon that is monotone with
+      respect to the y-axis is called y-monotone polygon. The
+      following property is characteristic for y-monotone polygons:
+      if we walk from a topmost to a bottommost vertex along the
+      left (or the right) boundary chain, then we always move
+      upwards or horizontally, never downwards.
+      Reference: Computational Geometry p.49.
+   */
+  bool is_y_monotone() const;
+
+  /** @return whether this polygon is clockwise. */
+  bool is_clockwise() const;
+
+  /**
+   * @name Geometry transformations
+   */
+  //@{
+
+  /** Translate this point_set by (delta_x, delta_y). */
+  inline void translate(int delta_x, int delta_y);
+
+  /** Rotate 90 degree anti-clockwise. */
+  inline void rotate090();
+
+  /** Rotate 180 degree anti-clockwise. */
+  inline void rotate180();
+
+  /** Rotate 270 degree anti-clockwise. */
+  inline void rotate270();
+
+  /** Flip against y-axis. */
+  inline void flip_y();
+
+  /** Rotate 90 degree anti-clockwise and then flip against y-axis. */
+  inline void rotate090_then_flip_y();
+
+  /** Rotate 180 degree anti-clockwise and then flip against y-axis. */
+  inline void rotate180_then_flip_y();
+
+  /** Rotate 270 degree anti-clockwise and then flip against y-axis. */
+  inline void rotate270_then_flip_y();
+
+  /** Flip against y-axis and then rotate 90 degree anti-clockwise. */
+  inline void flip_y_then_rotate270() { rotate090_then_flip_y(); }
+
+  /** Flip against y-axis and then rotate 90 degree anti-clockwise. */
+  inline void flip_y_then_rotate180() { rotate180_then_flip_y(); }
+
+  /** Flip against y-axis and then rotate 90 degree anti-clockwise. */
+  inline void flip_y_then_rotate090() { rotate270_then_flip_y(); }
+
+  /** Flip against x-axis */
+  inline void flip_x() { rotate180_then_flip_y(); }
+  //@}
+
+  /** @name Arithmetic */
+  //@{
+  /** Minkowski sum with a point p and assign.
+      Time complexity: O(n). */
+  template <typename _Up> Polygon<_Tp> &operator+=(const Point<_Up> &p);
+
+  /** Minkowski sum with a point.
+      Time complexity: O(n).
+      @see operator+=(). */
+  inline Polygon<_Tp> operator+(const Point<_Tp> &p) const {
+    return Polygon<_Tp>(*this) += p;
+  }
+
+  /** Minkowski difference with a point p and assign.
+      Time complexity: O(n). */
+  template <typename _Up> Polygon<_Tp> &operator-=(const Point<_Up> &p);
+
+  /** Minkowski difference with a point.
+      Time complexity: O(n).
+      @see operator-=(). */
+  // xxx inline Polygon<_Tp> operator-(const Point<_Tp>& p) const
+  // xxx { return Polygon<_Tp>(*this) -= p; }
+
+  /** Minkowski sum with a rectangle and assign.
+      Precondition: polygon is convex and in canonical
+      form. Time complexity: O(n). */
+  template <typename _Up> Polygon<_Tp> &operator+=(const Rectangle<_Up> &r);
+
+  /** Minkowski sum with a rectangle.
+      Precondition: polygon is convex and in canonical
+      form. Time complexity: O(n).
+      @see operator+=(). */
+  // inline Polygon<_Tp> operator+(const Rectangle<_Tp>& r) const
+  // { return Polygon<_Tp>(*this) += r; }
+
+  //@}
+
+  /** @name Comparison and Relations */
+  //@{
+
+  /** Test for equality. Assume two polygons are in canonical form. */
+  template <typename _Up> inline bool operator==(const Polygon<_Up> &p) const;
+
+  /** Test for inequality. @see operator==() */
+  template <typename _Up> inline bool operator!=(const Polygon<_Up> &p) const;
+
+  /** @return whether it is below p. */
+  template <class geom_obj> inline bool below(const geom_obj &p) const {
+    return bounding_box().below(p.bounding_box());
+  }
+
+  /** @return whether it is above p. */
+  template <class geom_obj> inline bool above(const geom_obj &p) const {
+    return bounding_box().above(p.bounding_box());
+  }
+
+  /** @return whether it is left of p */
+  template <class geom_obj> inline bool left_of(const geom_obj &p) const {
+    return bounding_box().left_of(p.bounding_box());
+  }
+
+  /** @return whether it is right of r */
+  template <class geom_obj> inline bool right_of(const geom_obj &p) const {
+    return bounding_box().right_of(p.bounding_box());
+  }
+
+  /** @return whether it is left-of and below p. */
+  template <class geom_obj>
+  inline bool left_and_below(const geom_obj &p) const {
+    return bounding_box().left_and_below(p.bounding_box());
+  }
+
+  /** @return whether it is left-of or below p. */
+  template <class geom_obj> inline bool left_or_below(const geom_obj &p) const {
+    return bounding_box().left_or_below(p.bounding_box());
+  }
+
+  /** @return whether the point q is inside this polygon.
+      Use ray intersection method. (not implemented yet) */
+  template <typename _Up> bool contain(const Point<_Up> &q) const;
+
+  /** @return whether the rectangle r overlaps with this polygon */
+  template <typename _Up> bool overlap(const Rectangle<_Up> &r) const;
+
+  /** @return whether the polygon poly overlaps with this polygon */
+  template <typename _Up> bool overlap(const Polygon<_Up> &poly) const;
+
+  /** Convert a polygon in canonical form: i.e. the first point is
+      left-bottom most and the sequence of points is in
+      anti-clockwise order */
+  void normalize();
+
+  /** @return whether a polygon is in canonical form: i.e. the first point is
+      left-bottom most and the sequence of points is in
+      anti-clockwise order */
+  bool is_normal() const;
+
+  /** Remove duplicate consecutive vertical/horizontal segments */
+  void unique_segment();
+
+  /** Polygon cutting. Cut this polygon into a set of rectangles.
+      (not implemented yet) */
+  template <typename _Up> void cut(std::vector<Rectangle<_Up>> &rect_set);
+
+  pt_set_type &get_pt_set() { return _pt_set; }
+  const pt_set_type &get_pt_set() const { return _pt_set; }
+
+private:
+  template <class GEOIterator>
+  bool is_x_monotone_internal(GEOIterator it) const;
+
+protected:
+  pt_set_type _pt_set; /**< point set */
+};
+
+/** @} */
+
+// Non-member inline functions
+/** Translate this polygon by (delta_x, delta_y). */
+template <typename _Tp>
+inline void Polygon<_Tp>::translate(int delta_x, int delta_y) {
+  // xxx typedef dsl::dnode<Point<_Tp> >  pnode;
+  pnode *const sa = _pt_set.head_ptr();
+  for (pnode *p = sa; p != sa + _pt_set.size(); ++p)
+    p->_data.translate(delta_x, delta_y);
+}
+
+/** Rotate 90 degree anti-clockwise.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate090() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate090));
+}
+
+/** Rotate 180 degree anti-clockwise.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate180() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate180));
+}
+
+/** Rotate 270 degree anti-clockwise.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate270() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate270));
+}
+
+/** Flip against y-axis.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::flip_y() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::flip_y));
+}
+
+/** Rotate 90 degree anti-clockwise and then flip against y-axis.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate090_then_flip_y() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate090_then_flip_y));
+}
+
+/** Rotate 180 degree anti-clockwise and then flip against y-axis.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate180_then_flip_y() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate180_then_flip_y));
+}
+
+/** Rotate 270 degree anti-clockwise and then flip against y-axis.
+    Post-condition: _ll is left below _ur */
+template <typename _Tp> inline void Polygon<_Tp>::rotate270_then_flip_y() {
+  _pt_set.apply(std::mem_fun_ref(&Point<_Tp>::rotate270_then_flip_y));
+}
+
+/** Test for equality. Precondition: two polygons are in canonical form. */
+template <typename _Tp>
+template <typename _Up>
+inline bool Polygon<_Tp>::operator==(const Polygon<_Up> &p) const {
+  return _pt_set == p._pt_set;
+}
+
+/** Not equal. @see operator==() */
+template <typename _Tp>
+template <typename _Up>
+inline bool Polygon<_Tp>::operator!=(const Polygon<_Up> &p) const {
+  return !(*this == p);
+}
+
+/** @return signed area. Preconditon: polygon is in canonical form. */
+template <typename _Tp> inline _Tp Polygon<_Tp>::area() const {
+  auto res = _Tp(0);
+  const_iterator it = _pt_set.begin();
+  const Point<_Tp> &p0 = *it;
+  ++it;
+
+  do {
+    const Point<_Tp> &p1 = *it;
+    const Point<_Tp> &p2 = *++it;
+    res += det(p1 - p0, p2 - p0);
+  } while (it.next() != _pt_set.begin()); // assume circular list
+  return res / 2;
+}
+}
+
+#endif // RECTI_POLYGON_HPP

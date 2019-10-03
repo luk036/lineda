@@ -1,0 +1,86 @@
+#ifndef CGL_SWEEPER_HPP
+#define CGL_SWEEPER_HPP
+
+//xxx #include <rectifwd.hpp>
+//xxx #include <intvl_set.hpp>
+#include <boost/signal.hpp>
+#include <boost/signals/slot.hpp>
+#include <queue>
+#include <vector>
+
+namespace cgl {
+  /** 
+   * @addtogroup cgl
+   * @{
+   */
+
+  //xxx /** Event info */
+  //xxx struct event_info
+  //xxx {
+  //xxx   const recti::Rectangle<int>* _rect;   /**< rectanlge that the event point belong to */
+  //xxx   intvl_set<int>::const_iterator _it;    /**< for easing the intervals */
+  //xxx };
+  //xxx 
+  //xxx 
+  //xxx /** Point event for plane sweeping algorithm. An event happen when
+  //xxx     the sweep line encounters the corner points of rectangles. */
+  //xxx struct point_event
+  //xxx {
+  //xxx   bool _is_start;      /**< whether it is a start point */
+  //xxx   int  _x;             /**< x coordinate */
+  //xxx   event_info* _info;   /**< Event info */
+  //xxx 
+  //xxx   /** @return wheter this event has higher priority than rhs */
+  //xxx   inline bool operator<(const point_event& rhs) const
+  //xxx   { return _x < rhs._x || _x == rhs._x && _is_start; }
+  //xxx };
+
+  /** Plane sweeping algorithm for overlap detection of a set of 
+      rectangles */
+  template <class Event, class Compare = std::less<Event> >
+  class sweeper
+  {
+    typedef boost::signal<void (Event e)>   OnEvent;
+    typedef std::priority_queue<Event, std::vector<Event>, Compare> PQ;
+
+  private:
+    //xxx std::vector<event_info> _event_infos;       /**< event information */
+    //xxx std::vector<Event> _point_events;           /**< point events */
+    PQ      _pq;                                /**< event priority queue */
+    OnEvent _on_event;                          /**< on Event signal */
+
+  public:
+    /** Constructor */
+    template <typename ForwardIterator>
+    sweeper(ForwardIterator first, ForwardIterator last)
+    {
+      while (first != last) {
+        _pq.push(*first);
+        ++first;
+      }
+    }
+
+    /** Connect slot */
+    void do_on_event(const typename OnEvent::slot_type& slot)
+    {
+      _on_event.connect(slot);
+    }
+
+    /** perform scan line */
+    void scan()
+    {
+      while (!_pq.empty()) {
+        _on_event(_pq.top());
+	_pq.pop();
+      }
+    }
+
+
+    //xxx /** Constructor */
+    //xxx sweeper(const std::vector<recti::rectangle>& rects);
+    //xxx 
+    //xxx bool overlap() const;
+  };
+}
+
+#endif

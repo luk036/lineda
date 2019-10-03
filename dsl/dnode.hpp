@@ -1,0 +1,346 @@
+#ifndef DSL_DNODE_HPP
+#define DSL_DNODE_HPP
+
+#include "snode.hpp"
+#include <cassert>
+#include <iterator> // for iterator_category
+
+namespace dsl {
+/**
+ * @addtogroup dsl
+ * @{
+ */
+
+/** Iterator (const or non-const) for dnode_base. */
+template <class _Ref, class _Ptr = _Ref> class dnode_base_iterator {
+  // typedef forward_iterator_tag iterator_category;
+  typedef dnode_base_iterator<_Ref, _Ptr> _Self;
+
+public:
+  /** Default constructor */
+  dnode_base_iterator() : _p(nullptr) {}
+
+  /** Construct an iteration by the node pointer x */
+  dnode_base_iterator(_Ptr *x) : _p(x) {}
+
+  /** Copy constructor */
+  dnode_base_iterator(const _Self &copy) : _p(copy._p) {}
+
+  /** Assignment */
+  _Self &operator=(const _Self &rhs) {
+    _p = rhs._p;
+    return *this;
+  }
+
+  /** @return the node pointer */
+  _Ptr *value() const { return _p; }
+
+  /** Dereference */
+  _Ref &operator*() const { return *_p; }
+
+  /** Reference */
+  _Ptr *operator->() const { return _p; }
+
+  /** @return the next iterator */
+  _Self next() const { return _Self(_p->_next); }
+
+  /** @return the prev iterator */
+  _Self prev() const { return _Self(_p->_prev); }
+
+  /** Prefix increment: advance one node */
+  _Self &operator++() {
+    _p = _p->_next;
+    return *this;
+  }
+
+  /** Postfix increment: advance one node */
+  _Self operator++(int) {
+    _Self old(*this);
+    ++*this;
+    return old;
+  }
+
+  /** Prefix decrement: advance backward one node */
+  _Self &operator--() {
+    _p = _p->_prev;
+    return *this;
+  }
+
+  /** Postfix decrement: advance backward one node */
+  _Self operator--(int) {
+    _Self old(*this);
+    --*this;
+    return old;
+  }
+
+  /** Equal */
+  bool operator==(const _Self &x) const { return _p == x._p; }
+
+  /** Not equal */
+  bool operator!=(const _Self &x) const { return _p != x._p; }
+
+  /** Equal */
+  bool operator==(const _Ptr *p) const { return _p == p; }
+
+  /** Not Equal */
+  bool operator!=(const _Ptr *p) const { return _p != p; }
+
+private:
+  _Ptr *_p; /**< the node pointer */
+};
+
+/** Base class of Doubly-linked node. */
+class dnode_base {
+public:
+  typedef dnode_base _Self;
+  typedef dnode_base_iterator<dnode_base> iterator;
+  typedef dnode_base_iterator<const dnode_base> const_iterator;
+
+  dnode_base *_next; /**< pointer to the next node */
+  dnode_base *_prev; /**< pointer to the previous node */
+
+  /** Default constructor */
+  dnode_base() : _next(nullptr), _prev(nullptr) {}
+
+  /** Compiler generated copy constructor
+      and assignment operator are fine. */
+
+  /** Detach itself from a list.
+      Precondition: this node is contained in a list */
+  inline void detach();
+
+  /** Equality */
+  inline bool operator==(const dnode_base &rhs) const {
+    return _next == rhs._next && _prev == rhs._prev;
+  }
+
+  /**
+   * @return true if a chain is a linear list. Time
+   * complexity is O(n) where n is the length of the path. The
+   * storage requirement is O(1).
+   */
+  inline bool is_dlist() const;
+
+  /**
+   * @return whether it contains cycle on its path.
+   * Time compliexity: O(n). Space complexity O(1).
+   */
+  inline dnode_base *has_cycle() {
+    return reinterpret_cast<dnode_base *>(this)->has_cycle();
+  }
+
+  inline bool loop_back() const {
+    return reinterpret_cast<const snode_base *>(this)->loop_back();
+  }
+
+  /**
+   * Reverse a doubly linked list in which this node is the head.
+   * @return the pointer to the head of the reversed list.
+   * Pre-condition: the list is a doubly linked list.
+   * Time complexity: O(n). Space complexity: O(1).
+   */
+  inline dnode_base *reverse();
+
+  /**
+   * Perform (n,m)-Josephus permutation. Assume that this node
+   * is the tail of a circular doubly lined list.
+   * @return  pointer to the tail of the permutated circular linked list.
+   * Pre-conditions: m > 0 and m <= n, where n is the length of list
+   * Time complexity: O(n*m), Space complexity: O(1)
+   */
+  dnode_base *josephus_permutate(int m);
+};
+
+/**
+ * @return true if a chain is a linear list. Time
+ * complexity is O(n) where n is the length of the path. The
+ * storage requirement is O(1).
+ */
+inline bool dnode_base::is_dlist() const {
+  // xxx if (has_cycle()) return false;
+  const dnode_base *s(this);
+  const dnode_base *t;
+  while ((t = s->_next) != nullptr) {
+    if (t->_prev != s)
+      return false;
+    s = t;
+  }
+  return true;
+}
+
+/** Detach itself from a list.
+    Precondition: this node is contained in a list */
+inline void dnode_base::detach() {
+  assert(_next != nullptr && _next->_prev == this);
+  assert(_prev != nullptr && _prev->_next == this);
+  _prev->_next = _next;
+  _next->_prev = _prev;
+}
+
+/**
+ * Reverse a linked list in which this node is the head.
+ * @return the pointer to the head of the reversed list.
+ * Time complexity: O(n). Space complexity: O(1).
+ * Note: same cost as snode_base::reverse().
+ */
+inline dnode_base *dnode_base::reverse() {
+  dnode_base *h = this->_next;
+  dnode_base *res = nullptr;
+  dnode_base *head = this;
+  while (head != nullptr) {
+    head->_prev = head->_next;
+    head->_next = res;
+    res = head;
+    head = head->_prev;
+  }
+  if (res == this) { // cycle
+    res->_prev = h;
+  }
+  return res;
+}
+
+// Forward declaration
+template <typename _Tp> class dnode;
+
+/** Iterator for Doubly linked node. */
+template <typename _Tp, typename _Ref, typename _Ptr> class dnode_iterator {
+  typedef dnode_iterator<_Tp, _Ref, _Ptr> _Self;
+  typedef dnode_base_iterator<dnode<_Tp>> _Base;
+
+public:
+  typedef std::bidirectional_iterator_tag iterator_category;
+  typedef _Tp value_type;
+  typedef _Ptr pointer;
+  typedef _Ref reference;
+  typedef std::ptrdiff_t difference_type;
+
+  /** Default constructor */
+  dnode_iterator(dnode<_Tp> *x) : _it(x) {}
+
+  /** Construct an iteration by the node pointer x */
+  dnode_iterator() : _it(nullptr) {}
+
+  /* Default copy constructor and assignment operator are fine. */
+
+  /** Dereference */
+  _Ref operator*() const { return _it->_data; }
+
+  /** Reference */
+  _Ptr operator->() const { return &_it->_data; }
+
+  /** @return the next iterator */
+  _Self next() const { return _Self(_it.next().value()); }
+
+  /** @return the previous iterator */
+  _Self prev() const { return _Self(_it.prev().value()); }
+
+  /** @return pointer */
+  dnode<_Tp> *value() const { return static_cast<dnode<_Tp> *>(_it.value()); }
+
+  /** Prefix increment: advance one node */
+  _Self &operator++() {
+    ++_it;
+    return *this;
+  }
+
+  /** Postfix increment: advance one node */
+  _Self operator++(int) {
+    _Self old(*this);
+    ++*this;
+    return old;
+  }
+
+  /** Prefix decrement: advance backward one node */
+  _Self &operator--() {
+    --_it;
+    return *this;
+  }
+
+  /** Postfix decrement: advance backward one node */
+  _Self operator--(int) {
+    _Self old(*this);
+    --*this;
+    return old;
+  }
+
+  /** Equal */
+  bool operator==(const _Self &x) const { return _it == x._it; }
+
+  /** Not equal */
+  bool operator!=(const _Self &x) const { return _it != x._it; }
+
+private:
+  _Base _it; /**< base iterator */
+};
+
+/** Doubly linked node */
+template <typename _Tp> class dnode {
+  typedef dnode<_Tp> _Self;
+  typedef dnode_base _Base;
+
+public:
+  typedef dnode_iterator<_Tp, _Tp &, _Tp *> iterator;
+  typedef dnode_iterator<_Tp, const _Tp &, const _Tp *> const_iterator;
+
+  _Self *_next; /**< pointer to next node */
+  _Self *_prev; /**< pointer to prev node */
+  _Tp _data;    /**< data that this node carries */
+
+  /** Default constructor */
+  dnode() : _next(nullptr), _prev(nullptr), _data() {}
+
+  /** Copy constructor */
+  dnode(const _Self &copy)
+      : _next(copy._next), _prev(copy._prev), _data(copy._data) {}
+
+  /** Assignment */
+  _Self &operator=(const _Self &rhs) {
+    _next = rhs._next, _prev = rhs._prev;
+    _data = rhs._data;
+    return *this;
+  }
+
+  /** Detach itself from a list.
+      Precondition: this node is contained in a list */
+  inline void detach() { ((_Base *)this)->detach(); }
+
+  /**
+   * @return whether it contains cycle on its path.
+   * Time compliexity: O(n). Space complexity O(1).
+   */
+  inline _Self *has_cycle() { return (_Self *)((_Base *)this)->has_cycle(); }
+
+  /**
+   * @return whether it will loops back to itself.
+   * Time compliexity: O(n). Space complexity O(1).
+   */
+  inline bool loop_back() const { return ((const _Base *)this)->loop_back(); }
+
+  /** Equality */
+  inline bool operator==(const _Self &rhs) const {
+    return _next == rhs._next && _prev == rhs._prev && _data == rhs._data;
+  }
+
+  /**
+   * Reverse a linked list in which this node is the head.
+   * @return the pointer to the head of the reversed list.
+   * Time complexity: O(n). Space complexity: O(1).
+   */
+  inline _Self *reverse() { return (_Self *)((_Base *)this)->reverse(); }
+
+  /**
+   * Perform (n,m)-Josephus permutation. Assume that this node
+   * is the tail of a circular doubly lined list.
+   * @return  pointer to the tail of the permutated circular linked list.
+   * Pre-conditions: m > 0 and m <= n, where n is the length of list
+   * Time complexity: O(n), Space complexity: O(1)
+   */
+  inline _Self *josephus_permutate(int m) {
+    return (_Self *)((_Base *)this)->josephus_permutate(m);
+  }
+};
+
+/** @} */ // end of dsl
+}
+
+#endif

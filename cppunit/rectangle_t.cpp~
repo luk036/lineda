@@ -1,0 +1,115 @@
+#include <aa_aaf.h>
+#include "rectangle_t.hpp"
+#include <recti/rectangle.hpp>
+#include <recti/checker.hpp>
+#include <concept_test.hpp>
+#include <functional>
+
+using namespace std;
+using namespace lineda;
+using namespace recti;
+
+CPPUNIT_TEST_SUITE_REGISTRATION( rectangle_TestCase );
+
+void rectangle_TestCase::setUp ()
+{
+  _r1 = rectangle(point(1, 2), 0, 0);
+  _r2 = rectangle(point(-4, 5), 3, 2);
+  _r3 = rectangle(point(-3, -4), 5, 5);
+
+  //xxx Point<AAF> lower_left_p=Point<AAF>(AAF(interval(2,5)),AAF(interval(2,5)));
+  //xxx AAF width=AAF(interval(3,4));
+  //xxx AAF height=AAF(interval(4,5));
+  //xxx _ra1 = Rectangle<AAF>(lower_left_p,width,height);
+  //xxx  
+  //xxx lower_left_p=Point<AAF>(AAF(interval(2.3,5.4)),AAF(interval(1.3,5.6)));
+  //xxx width=AAF(interval(3,5));
+  //xxx height=AAF(interval(2,5));
+  //xxx _ra2 = Rectangle<AAF>(lower_left_p,width,height);
+  //xxx 
+  //xxx lower_left_p=Point<AAF>(AAF(interval(4.2,6.5)),AAF(interval(1.2,2.5)));
+  //xxx width=AAF(interval(4,4.5));
+  //xxx height=AAF(interval(3,5));
+  //xxx _ra3 = Rectangle<AAF>(lower_left_p,width,height);
+
+}
+
+void rectangle_TestCase::tearDown()
+{
+}
+
+
+void rectangle_TestCase::test_copy()
+{
+  CPPUNIT_ASSERT (copy_ok(_r1));
+  CPPUNIT_ASSERT (copy_ok(_r2));
+  CPPUNIT_ASSERT (copy_ok(_r3));
+}
+
+
+void rectangle_TestCase::test_equal_to()
+{
+  for (size_t i=0; i<10; ++i) {
+    const rectangle r1 = rectangle::random();
+    const rectangle r2 = rectangle::random();
+    const rectangle r3 = rectangle::random();
+    CPPUNIT_ASSERT (equal_to_ok(r1, r2, r3));
+  }
+}
+
+
+void rectangle_TestCase::test_sum()
+{
+  for (size_t i=0; i<10; ++i) {
+    const rectangle r1 = rectangle::random();
+    const rectangle r2 = rectangle::random();
+    const rectangle r3 = rectangle::random();
+    CPPUNIT_ASSERT (plus_ok(r1, r2, r3));
+  }
+}
+
+
+void rectangle_TestCase::test_less()
+{
+  for (size_t i=0; i<10; ++i) {
+    const rectangle r1 = rectangle::random();
+    const rectangle r2 = rectangle::random();
+    const rectangle r3 = rectangle::random();
+    CPPUNIT_ASSERT (less_ok(r1, r2, r3));
+  }
+}
+
+
+void rectangle_TestCase::test_rotate()
+{
+  for (size_t i=0; i<10; ++i) {
+    const checker<rectangle> tst(rectangle::random());
+    CPPUNIT_ASSERT (tst.rotate090_ok());
+    CPPUNIT_ASSERT (tst.rotate180_ok());
+    CPPUNIT_ASSERT (tst.rotate270_ok());
+    CPPUNIT_ASSERT (tst.rotate_ok());
+  }
+}
+
+
+void rectangle_TestCase::test_flip()
+{
+  for (size_t i=0; i<10; ++i) {
+    const checker<rectangle> tst(rectangle::random());
+    CPPUNIT_ASSERT (tst.flip_y_ok());
+    CPPUNIT_ASSERT (tst.rotate090_then_flip_y_ok());
+    CPPUNIT_ASSERT (tst.rotate180_then_flip_y_ok());
+    CPPUNIT_ASSERT (tst.rotate270_then_flip_y_ok());
+    CPPUNIT_ASSERT (tst.rotate_then_flip_ok());
+  }
+}
+
+
+void rectangle_TestCase::test_area()
+{
+  CPPUNIT_ASSERT_EQUAL(0,  _r1.area());
+  CPPUNIT_ASSERT_EQUAL(6,  _r2.area());
+  CPPUNIT_ASSERT_EQUAL(25, _r3.area());
+}
+
+

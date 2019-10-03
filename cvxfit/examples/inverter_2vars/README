@@ -1,0 +1,13 @@
+0.35um CMOS Inverter
+Wn and Wp are input variables
+Falltime and Risetime are measured
+Area is of concern
+****************************
+convex B-spline and posynomial model are fitted
+optimization is applied to minimize area, subject to
+transition time constraints and matching constraints,
+i.e.,
+
+min   AREA
+s.t.  T_rise < xx
+      T_rise == T_fall

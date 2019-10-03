@@ -1,0 +1,503 @@
+#ifndef DSL_BIN_TREE_HPP
+#define DSL_BIN_TREE_HPP
+
+#include "bt_node.hpp"
+#include <cassert>
+#include <cstddef>
+#include <iosfwd>
+#include <stdexcept> // for std::domain_error
+
+/**
+ * @defgroup dsl Data Structure Library
+ * @ingroup lineda
+ *
+ * This module provides data structures such as stack, queue, linked
+ * lists, de-queue, binary trees, BDD, heap, priority queue, rooted
+ * trees, hash tables, bounded priority queue, skip-list, graphsm
+ * hypergraphs, etc. Each class provides basic operations such as
+ * push(), pop(), insert(), erase(), find(), sort(), find_max(),
+ * traversals, etc.
+ *
+ * Q: Why not just using STL?
+ * A: STL intentionally does not allow direct access of nod
+ * structures; other classes cannot be built on top of them.
+ * Very often number of nodes are known in prior so that we can
+ * allocate memory in one shot.
+ */
+class svgstream;
+class dotstream;
+
+namespace dsl {
+/**
+ * @addtogroup dsl
+ * @{
+ */
+
+/** A binary tree data structure. A binary tree is a rooted tree
+    which is either empty or to consisit of a root node and a left
+    and a right subtree, both of which are binary tree. */
+class bin_tree_base {
+  typedef bin_tree_base _Self;
+  friend std::ostream &operator<<(std::ostream &os, const _Self &cs);
+
+public:
+  typedef bt_node_base _Node;
+  typedef _Node::iterator iterator;
+  typedef _Node::const_iterator const_iterator;
+
+  /** Create a tree with n nodes. */
+  inline bin_tree_base(size_t n)
+      : _size(n), _bt_ab(new _Node *[n]), _root(nullptr) {}
+
+  /** Destructor */
+  virtual ~bin_tree_base() { delete[] _bt_ab; }
+
+  /** @return root of tree */
+  const _Node *root() const { return _root; }
+
+  /** @return root of tree */
+  _Node *root() { return _root; }
+
+  /** @return root of tree (depreciated) */
+  const _Node &get_root() const { return *_root; }
+
+  /** @return root of tree (depreciated) */
+  _Node &get_root() { return *_root; }
+
+  /** @return node of tree by index */
+  const _Node &get_node(size_t idx) const { return *_bt_ab[idx]; }
+
+  /** @return node of tree by index */
+  _Node &get_node(size_t idx) { return *_bt_ab[idx]; }
+
+  /** @return maximum (longest) path length (recursive function). */
+  double max_path_length(const _Node &t) const;
+
+  /** @return minimum (shortest) path length (recursive function). */
+  double min_path_length(const _Node &t) const;
+
+  /** @return iterator that points to the leftmost node of the tree.
+      Reference: A. D. Robison. Considering Recursion, Dr. Dobb's
+      Journal, March 2000.
+      Iteration starts from the left-most leaf node.
+      @see bt_node::iterator
+   */
+  iterator begin() { return iterator(left_most_node()); }
+
+  /** @return iterator that points to the end of the tree */
+  iterator end() { return iterator(nullptr); }
+
+  /** @return iterator that points to the leftmost node of the tree.*/
+  const_iterator begin() const { return const_iterator(left_most_node()); }
+
+  /** @return iterator that points to the tail of the list */
+  const_iterator end() const { return const_iterator(nullptr); }
+
+public:
+  /** Generate a random binary tree using Remy's algorithm.
+   * Time complexity: O(N), Storage Requirement O(1)
+   * Reference: E. Makinen and J. Siltaneva. A Note on Remy's
+   * algorithm for Generating Randon Binary Trees. Department of
+   * Computer and Information Sciences, University of Tampere, REPORT
+   * A-2000-2.
+   */
+  void randomize();
+
+  /** Generate a random slicing tree using *modified* Remy's algorithm.
+   * Time complexity: O(N), Storage Requirement O(1)
+   * Reference: E. Makinen and J. Siltaneva. A Note on Remy's
+   * algorithm for Generating Randon Binary Trees. Department of
+   * Computer and Information Sciences, University of Tampere, REPORT
+   * A-2000-2.
+   */
+  void randomize_st();
+
+  /** Equal. */
+  bool operator==(const _Self &rhs) const;
+
+  /** @return the number of nodes. */
+  size_t num_nodes() const { return _size; }
+
+  /** @return whether it is a valid tree.
+      Time complexity: O(n) */
+  inline bool is_valid() const;
+
+  /** Left rotation. @see bt_node_base::rotate_left */
+  inline void rotate_left(_Node *x);
+
+  /** Right rotation. @see bt_node_base::rotate_right */
+  inline void rotate_right(_Node *y);
+
+  /** @return the cost between two nodes. Default is a unit cost. */
+  virtual double cost(const _Node &, const _Node &) const;
+
+  /** @return the total cost.
+      Time complexity: O(N) */
+  double total_cost() const;
+
+  /** @return maximum (longest) path length (recursive function).
+      Time complexity: O(N) */
+  double max_path_length() const {
+    assert(root() != 0);
+    return max_path_length(*root());
+  }
+
+  /** @return minimum (shortest) path length (recursive function).
+      Time complexity: O(N) */
+  double min_path_length() const {
+    assert(root() != 0);
+    return min_path_length(*root());
+  }
+
+private:
+  // Degeneate assignment operator
+  _Self &operator=(const _Self &);
+
+  // Copy constructor is generated by compiler. However, derived
+  // class should take care of the actual values of the member
+  // pointers.
+
+protected:
+  /** @return point to the leftmost node of the tree.
+      Reference: A. D. Robison. Considering Recursion, Dr. Dobb's
+      Journal, March 2000.
+      Expected time complexity: O(log N)
+      @see bt_node::iterator
+   */
+  const _Node *left_most_node() const {
+    const _Node *n = root();
+    if (n) {
+      const _Node *m;
+      while ((m = n->left())) {
+        n = m;
+      }
+    }
+    return n;
+  }
+
+  /** @return point to the leftmost node of the tree.
+      Reference: A. D. Robison. Considering Recursion, Dr. Dobb's
+      Journal, March 2000.
+      Expected time complexity: O(log N)
+      @see bt_node::iterator
+   */
+  _Node *left_most_node() {
+    _Node *n = root();
+    if (n) {
+      _Node *m;
+      while ((m = n->left())) {
+        n = m;
+      }
+    }
+    return n;
+  }
+
+protected:
+  size_t _size;   /**< size of array */
+  _Node **_bt_ab; /**< array of pointer of node */
+  _Node *_root;   /**< root of the tree */
+};
+
+/**@} */
+
+/** @return whether it is a valid tree. */
+inline bool bin_tree_base::is_valid() const {
+  if (root() == nullptr)
+    return true;
+  try {
+    root()->check_valid();
+  } catch (bad_bt_tree &) {
+    return false;
+  }
+  return root()->parent() == nullptr;
+}
+
+/** Left rotation. */
+inline void bin_tree_base::rotate_left(_Node *x) {
+  assert(x->right() != 0);
+  if (x->parent() == nullptr)
+    _root = x->right();
+  x->rotate_left();
+}
+
+/** Right rotation. */
+inline void bin_tree_base::rotate_right(_Node *y) {
+  assert(y->left() != 0);
+  if (y->parent() == nullptr)
+    _root = y->left();
+  y->rotate_right();
+}
+
+/**
+ * @addtogroup dsl
+ * @{
+ */
+
+/** A binary tree generated by tree rotations. The number of trees
+    with n nodes is the well-known Catalan number Cn =
+    (2n)!/(n!(n+1)!). The algorithm can identify the next rotation
+    to be performed by maintaining two lists, the list of finished
+    nodes and the list of unfinished nodes.
+
+    Reference: J. Lucas, D. Roelants van Baronaigien and F. Ruskey,
+    Generating Binary Trees by Rotations, J. Algorithms, 15 (1993)
+    343-366. */
+class bin_gen_tree : public bin_tree_base {
+  typedef bin_gen_tree _Self;
+  typedef bin_tree_base _Base;
+  typedef bgt_node _Node;
+  typedef _Base::_Node _Node_Base;
+
+  friend std::ostream &operator<<(std::ostream &os, const _Self &tree);
+
+public:
+  /** Create an initial tree with n nodes. Initially all the nodes
+      are unfinished except for node 1, and the initial tree is the
+      one where each node, except node n, has a right subtree and no
+      left substree. */
+  bin_gen_tree(size_t n);
+
+  /** Destructor */
+  ~bin_gen_tree() override;
+
+  /** @return whether there exists a next tree. */
+  inline bool has_next() const { return _uhead != nullptr; }
+
+  /** @return the ranking of the current tree. The rank of a binary
+      tree is the number of trees that precede it in the list. */
+  inline size_t rank() const { return _rank; }
+
+  /** Create the next tree by one rotation in O(1) worst case
+      time. The algorithm requires each node to store the usual
+      pointers to its parent, left child and right child in the
+      tree, and in addition two more pointers and a direction
+      bit. At any given time in the generation procedure each node i
+      is currently in the process of rotating either up or down the
+      right path of T[1..i-1]. We say i os unfinsihed if at the
+      current time i has not yet completed its rotations along the
+      right path of T[1..i-1]. Otherwise we say i is finished. */
+  void create_next_tree();
+
+private:
+  // Degenerate copy constructor and assignment operator
+  bin_gen_tree(const _Self &) = delete;
+  _Self &operator=(const _Self &) = delete;
+
+  void print_it(std::ostream &os, const _Node_Base *t, size_t &d) const;
+
+protected:
+  _Node *const _bgt_a; /**< array of pointer of node */
+  _Node *_uhead;       /**< first node of unfinished nodes */
+  _Node *_fhead;       /**< first node of finished nodes */
+  size_t _rank;        /**< ranking of the current tree */
+};
+
+/** A binary tree data structure. */
+template <typename _Tp> class bin_tree : public bin_tree_base {
+  typedef bin_tree<_Tp> _Self;
+  typedef bt_node<_Tp> _Node;
+  typedef bin_tree_base _Base;
+
+public:
+  typedef typename _Base::_Node _Node_Base;
+  typedef typename _Node::iterator iterator;
+  typedef typename _Node::const_iterator const_iterator;
+
+  /** @return iterator that points to the leftmost node of the tree.*/
+  iterator begin() { return iterator((_Node *)left_most_node()); }
+
+  /** @return iterator that points to the end of the tree */
+  iterator end() { return iterator(nullptr); }
+
+  /** @return iterator that points to the leftmost node of the tree.*/
+  const_iterator begin() const {
+    return const_iterator((_Node *)left_most_node());
+  }
+
+  /** @return iterator that points to the tail of the list */
+  const_iterator end() const { return const_iterator(nullptr); }
+
+public:
+  /** Create a tree with n nodes. */
+  inline bin_tree(size_t n) : _Base(n), _bt_a(new _Node[n]) {
+    _Node *s = _bt_a;
+    for (size_t i = 0; i < n; ++i) {
+      _bt_ab[i] = (_Node_Base *)s++;
+    }
+  }
+
+  /** Left rotation. */
+  inline void rotate_left(_Node *x) { _Base::rotate_left((_Node_Base *)x); }
+
+  /** Right rotation. */
+  inline void rotate_right(_Node *y) { _Base::rotate_right((_Node_Base *)y); }
+
+  /** Copy constructor */
+  bin_tree(const _Self &copy) : _Base(copy._size) {
+    size_t i;
+
+    _bt_a = new _Node[_size];
+    _Node *s = _bt_a;
+    for (size_t i = 0; i < _size; ++i) {
+      _bt_ab[i] = (_Node_Base *)s++;
+    }
+
+    for (i = 0; i < _size; ++i) {
+      _bt_a[i] = copy._bt_a[i];
+    }
+
+    if (copy._root == nullptr) {
+      _root = nullptr;
+      return;
+    }
+
+    for (i = 0; i < _size; ++i) {
+      _Node &node = _bt_a[i];
+      node._parent = _bt_a + (node._parent - copy._bt_a);
+      if (node._left != nullptr)
+        node._left = _bt_a + (node._left - copy._bt_a);
+      if (node._right != nullptr)
+        node._right = _bt_a + (node._right - copy._bt_a);
+    }
+
+    _root = (_Node_Base *)(_bt_a + (((_Node *)copy._root) - copy._bt_a));
+    _root->_parent = nullptr;
+    assert(is_valid());
+  }
+
+  /** Assignment operator */
+  _Self &operator=(const _Self &rhs) {
+    size_t i;
+
+    if (this == &rhs)
+      return *this;
+    if (_size != rhs._size) {
+      delete[] _bt_ab;
+      delete[] _bt_a;
+      _size = rhs._size;
+      _bt_ab = new _Node_Base *[_size];
+      _bt_a = new _Node[_size];
+      _Node *s = _bt_a;
+      for (size_t i = 0; i < _size; ++i) {
+        _bt_ab[i] = (_Node_Base *)s++;
+      }
+    }
+
+    for (i = 0; i < _size; ++i) {
+      _bt_a[i] = rhs._bt_a[i];
+    }
+
+    if (rhs._root == nullptr) {
+      _root = nullptr;
+      return *this;
+    }
+
+    for (i = 0; i < _size; ++i) {
+      _Node &node = _bt_a[i];
+      node._parent = _bt_a + (node._parent - rhs._bt_a);
+      if (node._left != nullptr)
+        node._left = _bt_a + (node._left - rhs._bt_a);
+      if (node._right != nullptr)
+        node._right = _bt_a + (node._right - rhs._bt_a);
+    }
+    _root = (_Node_Base *)(_bt_a + (((_Node *)rhs._root) - rhs._bt_a));
+    _root->_parent = nullptr;
+    assert(is_valid());
+    return *this;
+  }
+
+  /** Equal */
+  bool operator==(const _Self &rhs) const {
+    size_t i;
+
+    if (this == &rhs)
+      return true;
+    if (_size != rhs._size)
+      return false;
+    for (i = 0; i < _size; ++i) {
+      const _Node &l = _bt_a[i];
+      const _Node &r = rhs._bt_a[i];
+      if (l._data != r._data)
+        return false;
+    }
+
+    if (_root == nullptr) {
+      if (rhs._root == nullptr)
+        return true;
+      else
+        return false;
+    }
+
+    for (size_t i = 0; i < _size; ++i) {
+      const _Node &l = _bt_a[i];
+      const _Node &r = rhs._bt_a[i];
+      if (l._parent == nullptr) {
+        if (r._parent != nullptr)
+          return false;
+      } else {
+        if (l._parent - _bt_a != r._parent - rhs._bt_a)
+          return false;
+      }
+      if (l._left == nullptr) {
+        if (r._left != nullptr)
+          return false;
+      } else {
+        if (l._left - _bt_a != r._left - rhs._bt_a)
+          return false;
+      }
+      if (l._right == nullptr) {
+        if (r._right != nullptr)
+          return false;
+      } else {
+        if (l._right - _bt_a != r._right - rhs._bt_a)
+          return false;
+      }
+    }
+    if (((_Node *)_root) - _bt_a != ((_Node *)rhs._root) - rhs._bt_a)
+      return false;
+    return true;
+  }
+
+  /** Destructor */
+  inline ~bin_tree() override { delete[] _bt_a; }
+
+  /** @return root of tree */
+  const _Node &get_root() const { return (_Node &)*_root; }
+
+  /** @return root of tree */
+  _Node &get_root() { return (_Node &)*_root; }
+
+  /** @return node of tree by index */
+  const _Node &get_node(size_t idx) const { return _bt_a[idx]; }
+
+  /** @return index of node */
+  size_t get_id(const _Node *v) const { return v - _bt_a; }
+
+  /** @return node of tree by index */
+  _Node &get_node(size_t idx) { return _bt_a[idx]; }
+
+  /** Set root of tree */
+  void set_root(_Node &root) {
+    _root = (_Node_Base *)&root;
+    _root->_parent = nullptr;
+  }
+
+protected:
+  _Node *_bt_a; /**< array of pointers of nodes */
+};
+
+// xxx /** Print out binary tree in svg format??? */
+// xxx template <class _Tp>
+// xxx inline svgstream& operator<< (svgstream& os, const bin_tree<_Tp>& cs)
+// xxx {
+// xxx   for (size_t i=0; i<cs.num_nodes(); ++i) {
+// xxx     const typename bin_tree<_Tp>::_Node& s = cs.get_node(i);
+// xxx     os << s.data() << "\n";
+// xxx   }
+// xxx   return os;
+// xxx }
+
+/**@} */
+}
+
+#endif

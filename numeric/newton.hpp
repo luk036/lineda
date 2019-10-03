@@ -1,0 +1,45 @@
+#ifndef NUMERIC_NEWTON_HPP
+#define NUMERIC_NEWTON_HPP
+
+#include <cassert>
+#include <cmath>
+
+namespace {
+
+/** @addtogroup numeric
+ *  @{
+ */
+
+/** Finding a root of f(x) using Newton's method. */
+template <typename _Tp, class _F>
+bool newton_solve(_Tp &x, const _F &f, int max_it = 100, double tol = 1e-6);
+
+/** Calculate "x power to n" using Peasant algorithm.
+    Idea: x^10 = ((x^2)^2)^2 * x^2 . So only four
+    multiplications are needed instead of nine.
+    Pre-requisite: (_Tp, *) is associative.
+    Pre-condition: n > 0
+ */
+template <typename _Tp, typename _Integer> inline _Tp power(_Tp x, _Integer n) {
+  assert(n > 0);
+  assert((x * x) * x == x * (x * x)); // associative
+
+  while ((n & 1) == 0) { // while n is even
+    x = x * x;
+    n >>= 1; // faster than n /= 2
+  }
+  _Tp P = x;
+  n >>= 1;
+  while (n > 0) {
+    x = x * x;
+    if ((n & 1) != 0) // if n is odd
+      P = P * x;
+    n >>= 1;
+  }
+  return P;
+}
+
+/** @} */
+}
+
+#endif

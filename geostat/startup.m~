@@ -1,0 +1,6 @@
+addpath /home/luk/Downloads/cvx/builtins
+addpath /home/luk/Downloads/cvx/commands
+addpath /home/luk/Downloads/cvx/functions
+addpath /home/luk/Downloads/cvx/lib
+addpath /home/luk/Downloads/cvx/structures
+addpath /home/luk/Downloads/cvx

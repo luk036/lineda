@@ -1,0 +1,2 @@
+global opcTclVar
+set opcTclVar(P_Design_Dir) /export/home/xuexin/WORKS/simu/rank_p

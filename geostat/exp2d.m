@@ -1,0 +1,39 @@
+clear all
+exp2d_data;   % generate data
+figure
+subplot(2,2,1);
+contourf(xx,yy,reshape(Ys(:,1),nx,ny));
+subplot(2,2,2);
+contourf(xx,yy,reshape(Ys(:,2),nx,ny));
+subplot(2,2,3);
+contourf(xx,yy,reshape(Ys(:,3),nx,ny));
+subplot(2,2,4);
+contourf(xx,yy,reshape(Ys(:,4),nx,ny));
+
+figure
+hold on;
+[sp,tau2] = lsq_corr_fn(Y,s,'mf');
+fnplt(sp,'r--');
+tau2,
+%[sp1, tau2] = log_mle_cc_corr_fn(Y,s, 'mf');
+%fnplt(sp1);
+%tau2,
+[knotsx, kx] = fnbrk(sp, 'knots', 'order');
+xx = aveknt(knotsx, kx)';
+xx = [0:0.2:knotsx(size(knotsx,2))]';
+%% corr = var*var*exp(-0.5*(xx.*xx)/(sdkern*sdkern)/2);
+corr1 = var*var*exp(-0.5*(xx.*xx)/(sdkern*sdkern)/2);
+corr2 = var*var*exp(-0.5*sqrt(xx.*xx)/sdkern);
+corr = max([corr1'; corr2'])';
+plot(xx,corr,'ro--');
+xlim([0,xx(size(xx,1))]);
+xlabel('distance');
+ylabel('variance');
+legend('Least squares','Max. Likelihood');
+title('Isotropic spatial correlation estimation');
+
+hold off
+disp('Relative error of least estimation:');
+disp(norm(fnval(sp,xx) - corr)/norm(corr));
+%%disp('Relative error of Maximum Likelihood estimation:');
+%%disp(norm(fnval(sp1,xx) - corr)/norm(corr));

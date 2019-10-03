@@ -1,0 +1,58 @@
+#include "segment.hpp"
+#include "rectangle.hpp"
+#include <svgstream.hpp>
+#include <boost/static_assert.hpp>
+#include <interval.hpp> // for testing only
+#include <cassert>
+
+using numeric::interval;
+using numeric::make_interval;
+using std::ostream;
+
+namespace recti {
+
+  // Don't increase the size.
+  BOOST_STATIC_ASSERT( sizeof(Segment<int>) <= 16  );
+
+
+
+  /** Print the segment in plain text form */
+  template <typename _Tp>
+  std::ostream& operator<< (std::ostream& os, const Segment<_Tp>& l)
+  {
+    os << "line:" << l.start() << ", " << l.end();
+    return os;
+  }
+
+  // Specialization
+
+  template <>
+  const Segment<int> Segment<int>::_origin = segment();
+
+  template <>
+  const char* Segment<int>::_svg_style = "fill:red;stroke:black";
+
+  /** Print the segment in SVG format. The reason this function is
+      not inlined is that I don't want the iostream header file
+      included in any header files. */
+  template <>
+  svgstream& operator<< (svgstream& osvgs, const Segment<int>& l)
+  {
+    osvgs << "<line"
+          << " x1=\"" << l.start().x() << "\""
+          << " y1=\"" << l.start().y() << "\""
+          << " x2=\"" << l.end().x() << "\""
+          << " y2=\"" << l.end().y() << "\""
+          << " style=\"" << segment::_svg_style << "\""
+          << "/>";
+    return osvgs;
+  }
+
+
+
+  /** Explicit instantiation */
+  template class Segment<int>;
+  template ostream& operator<<(ostream& os, const Segment<int>& p);
+  template class Segment<interval<int> >;
+  template ostream& operator<<(ostream& os, const Segment<interval<int> >& p);
+}

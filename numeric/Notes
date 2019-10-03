@@ -1,0 +1,35 @@
+                                      lessThanComparable   Invertible
+ int                                          +                -
+ double                                       +                +
+
+ GF(n)                                        -                -
+
+*complex<int>                                 -                -
+ complex<double>                              -                +
+ complex<complex<int> >                       -                -
+ complex<complex<double> >                    -                +
+*complex<polynomial<int> >                    -                -
+*complex<polynomial<double> >                 -                -
+ complex<rational<int> >                      -                +
+ 
+ polynomial<int>                              +                -
+ polynomial<double>                           +                -
+ polynomial<complex<int> >                    -                -
+ polynomial<complex<double> >                 -                -
+ polynomial<polynomial<int> >                 +                -
+ polynomial<polynomial<double> >              +                -
+ polynomial<rational<int> >                   +                -
+ 				            
+ rational<int>                                +                +
+*rational<complex<int > >                     -                +
+ rational<polynomial<int> >                   +                +
+ rational<polynomail<double> >                +                +
+*rational<polynomail<complex<int> > >         -                +
+*rational<polynomail<complex<double> > >      -                +
+
+
+
+Note:
+  LessThanComparable allows operator<()
+  Invertible disallows operator%()
+  rational<Tp> requires Tp to be not invertible.

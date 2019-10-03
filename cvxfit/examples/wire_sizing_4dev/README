@@ -1,0 +1,22 @@
+main Matlab file is opt_loop_search.m
+
+This problem optimize an RC tree which is composed by\
+two resistors and two capacitors.
+
+in            v(1)               v(2)
+----/\/\/\------------/\/\/\-----
+               |		|
+	      ---              ---
+              ---              ---
+               |                |
+               |                |
+               V                V
+
+data fitting is finished by rank-1 projection method,
+with quadratic functions
+addpath rank_p before running this program
+
+sizing optimization is described as
+    min  DELAY(2)            // file objfun.m
+    s.t. R >= 50 ohm
+         DELAY(1) >= 1.5 ns  // file confun.m

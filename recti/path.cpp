@@ -1,0 +1,129 @@
+#include "path.hpp"
+#include "rpolygon.hpp"
+#include <interval.hpp>
+#include <svgstream.hpp>
+using numeric::interval;
+
+namespace recti {
+
+// Print out in SVG format
+template <> svgstream &operator<<(svgstream &osvgs, const Path<int> &ph) {
+  unsigned int i;
+  osvgs << "<path"
+        << " d=\"M " << ph._pt_vec[0].x() << " " << ph._pt_vec[0].y();
+  for (i = 1; i < ph._pt_vec.size(); ++i) {
+    osvgs << " L " << ph._pt_vec[i].x() << " " << ph._pt_vec[i].y();
+  }
+  osvgs << "\""
+        << "\t"
+        << "fill=\"none\" stroke-opacity=\"0.2\" "
+        << "stroke=\"red\" "
+        << "stroke-width=\"" << ph.width() * 2 << "\""
+        << "/>\n";
+  return osvgs;
+}
+
+/** Create a rectilinear path with n vertices randomly.
+    Time complexity O(n). */
+template <typename _Tp> Path<_Tp> Path<_Tp>::random(size_t n) {
+  pt_vec_type pt_vec(n);
+  for (size_t i = 0; i < n; i += 2) {
+    pt_vec[i] = Point<_Tp>::random();
+  }
+  for (size_t i = 1; i < n; i += 2) {
+    pt_vec[i] = Point<_Tp>(pt_vec[i - 1].x(), pt_vec[i + 1].y());
+  }
+  return Path<_Tp>(pt_vec, rand() % 10 + 1);
+}
+
+template <typename _Tp> _Tp Path<_Tp>::length() const {
+  assert(_Base::_pt_vec.size() > 0);
+  auto res = _Tp(0);
+
+  auto it1 = _Base::_pt_vec.begin();
+  auto it2 = it1++;
+  while (it1 != _Base::_pt_vec.end()) {
+    assert(recti::distance(*it1, *it2) >= 0);
+    res += recti::distance(*it1, *it2);
+    it2 = it1++;
+  }
+  return res;
+}
+
+template <typename _Tp> inline Point<int> sign(const numeric::vector2<_Tp> &v) {
+  int x = 0, y = 0;
+  if (v._a1 > 0)
+    x = 1;
+  else if (v._a1 < 0)
+    x = -1;
+  if (v._a2 > 0)
+    y = 1;
+  else if (v._a2 < 0)
+    y = -1;
+  return Point<int>(x, y);
+}
+
+// xxx template <typename _Tp>
+// xxx RPolygon<_Tp> * Path<_Tp>::create_outline() const
+// xxx {
+// xxx   size_t n = _Base::_pt_vec.size();
+// xxx   assert( n>1 );
+// xxx   Point<_Tp> *v = new Point<_Tp> [2*n];
+// xxx   _Tp delta = _width;
+// xxx
+// xxx   typename pt_vec_type::const_iterator it = _Base::_pt_vec.begin();
+// xxx
+// xxx   numeric:vector2<int> p(+1, +1);
+// xxx   Point<_Tp> p0 = *it++;
+// xxx   Point<_Tp> p1 = *it;
+// xxx
+// xxx   // Consider the first point
+// xxx   if(p0.is_horizontal(p1)){
+// xxx     v[0] = Point<_Tp>(p0.x(),p0.y()+delta);
+// xxx     v[2*n-1] = Point<_Tp>(p0.x(),p0.y()-delta);
+// xxx   }
+// xxx   else{
+// xxx     v[0] = Point<_Tp>(p0.x()+delta, p0.y());
+// xxx     v[2*n-1] = Point<_Tp>(p0.x()-delta, p0.y());
+// xxx   }
+// xxx
+// xxx   for(size_t i=1;i<n-1;i++) {
+// xxx     const Point<_Tp> p2 = *(it+1);
+// xxx     Point<int> d = sign(p2 - p0);
+// xxx     d.rotate090();
+// xxx     if (p0.is_horizontal(p1)) {
+// xxx 	if (p.y() > 0 != d.y() > 0)
+// xxx 	  d.rotate180();
+// xxx     } else { // vertical
+// xxx 	if (p.x() > 0 != d.x() > 0)
+// xxx 	  d.rotate180();
+// xxx     }
+// xxx     //*it += d * delta;
+// xxx     v[i] = *it + d * delta;
+// xxx     v[2*n-1-i] = *it - d * delta;
+// xxx     p0 = p1;
+// xxx     p1 = p2;
+// xxx     p = d;
+// xxx     ++it;
+// xxx   }
+// xxx
+// xxx   // Consider the last point
+// xxx   if(p0.is_horizontal(p1)){
+// xxx     v[n-1] = Point<_Tp>(p1.x(),v[n-2].y());
+// xxx     v[n] = Point<_Tp>(p1.x(),v[n+1].y());
+// xxx
+// xxx   }
+// xxx   else{
+// xxx     v[n-1] = Point<_Tp>(v[n-2].x(), p1.y());
+// xxx     v[n] = Point<_Tp>(v[n+1].x(), p1.y());
+// xxx   }
+// xxx
+// xxx   RPolygon<_Tp> *pp = new RPolygon<_Tp>(v,2*n);
+// xxx   delete [] v;
+// xxx   return pp;
+// xxx }
+
+/** Explicit instantiation */
+template class Path<int>;
+//  template class Path<interval<int> >;
+}

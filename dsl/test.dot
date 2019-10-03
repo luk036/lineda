@@ -1,0 +1,19 @@
+digraph g {
+  node [shape=circle]
+  n0x804bca8 [label="1"];
+  n0x804bcb0 [label="2"];
+  n0x804bcb8 [label="3"];
+  n0x804bcc0 [label="4"];
+  n0x804bcc8 [label="5"];
+  n0x804bcd0 [label="6"];
+  n0x804bcd8 [label="7"];
+  tail [shape=box];
+  tail -> n0x804bcc0;
+  n0x804bcb8 -> n0x804bcd0;
+  n0x804bcd0 -> n0x804bcb0;
+  n0x804bcb0 -> n0x804bcd8;
+  n0x804bcd8 -> n0x804bcc8;
+  n0x804bcc8 -> n0x804bca8;
+  n0x804bca8 -> n0x804bcc0;
+  n0x804bcc0 -> n0x804bcb8;
+}

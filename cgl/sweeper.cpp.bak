@@ -1,0 +1,62 @@
+#include "sweeper.hpp"
+//xxx #include <rectangle.hpp>
+//xxx #include <interval.hpp>
+//xxx #include <set>
+//xxx #include <vector>
+//xxx 
+//xxx using namespace std;
+//xxx using recti::rectangle;
+//xxx using numeric::interval;
+
+namespace cgl {
+  //xxx /** Constructor */
+  //xxx template <class Event, class Compare>
+  //xxx sweeper<Event, Compare>::sweeper(const vector<rectangle>& rects) :
+  //xxx   _event_infos(rects.size()),
+  //xxx   _point_events(2*rects.size())
+  //xxx {
+  //xxx   for (size_t i=0,j=0; i<rects.size(); ++i,j+=2) {
+  //xxx     _event_infos[i]._rect = &rects[i];
+  //xxx     _point_events[j]._info = &_event_infos[i];
+  //xxx     _point_events[j]._is_start = true;
+  //xxx     _point_events[j]._x = rects[i].llx();
+  //xxx     _point_events[j+1]._info = &_event_infos[i];
+  //xxx     _point_events[j+1]._is_start = false;
+  //xxx     _point_events[j+1]._x = rects[i].urx();
+  //xxx   } 
+  //xxx   sort(_point_events.begin(), _point_events.end());   
+  //xxx }
+  //xxx 
+  //xxx 
+  //xxx /** Return if rectangles that are overlapped. The algorithm takes 
+  //xxx     O(N log N) times where N is the number of rectangles. It uses
+  //xxx     the plane sweeping algorithm that sweeps through
+  //xxx     horizontally. For each particular sweeping line, a set of
+  //xxx     vertical intervals is constructed in order to detect the overlapping. */ 
+  //xxx template <class Event, class Compare>
+  //xxx bool sweeper<Event, Compare>::overlap() const
+  //xxx {
+  //xxx   intvl_set<int> S; // for detecting interval overlapping
+  //xxx 
+  //xxx   for (size_t i=0; i<_point_events.size(); ++i) {
+  //xxx     const point_event& ptE = _point_events[i];
+  //xxx 
+  //xxx     if (ptE._is_start) { // is start point
+  //xxx       const interval<int>& q = ptE._info->_rect->y_bound();
+  //xxx 	const std::pair<intvl_set<int>::const_iterator, bool> p = S.insert(q);
+  //xxx       if (!p.second) return true;
+  //xxx       ptE._info->_it = p.first;
+  //xxx     }
+  //xxx     else { // is end point
+  //xxx       S.erase(ptE._info->_it);
+  //xxx     }
+  //xxx 
+  //xxx   }
+  //xxx 
+  //xxx   return false;
+  //xxx }
+
+
+  // Explicit Instantiation
+  //xxx template class sweeper<point_event>;
+} // namespace

@@ -1,0 +1,43 @@
+#include "matrix2.hpp"
+#include "vector2.hpp"
+#include <complex>
+#include <iostream>
+
+namespace numeric {
+
+/** Return v = inv(m)*w  */
+template <typename _Tp>
+vector2<_Tp> operator/(const vector2<_Tp> &w, const matrix2<_Tp> &m) {
+  vector2<_Tp> v;
+  if (m._a11 != 0.0) {
+    v._a1 = w._a1 / m._a11;
+    const _Tp t = m._a12 / m._a11;
+    const _Tp a = m._a22 - m._a21 * t;
+    v._a2 = (w._a2 - m._a21 * v._a1) / a;
+    v._a1 -= t * v._a2;
+  } else {
+    v._a2 = w._a2 / m._a22;
+    const _Tp t = m._a21 / m._a22;
+    const _Tp a = -m._a12 * t;
+    v._a1 = (w._a1 - m._a12 * v._a2) / a;
+    v._a2 -= t * v._a1;
+  }
+
+  return v;
+};
+
+// Explicit instantiations
+template struct matrix2<int>;
+
+template std::ostream &operator<<(std::ostream &out, const matrix2<int> &m);
+template std::ostream &operator<<(std::ostream &out, const matrix2<double> &m);
+template std::ostream &operator<<(std::ostream &out,
+                                  const matrix2<matrix2<int> > &m);
+
+template vector2<double> operator/(const vector2<double> &w,
+                                   const matrix2<double> &m);
+
+template vector2<std::complex<double> >
+operator/(const vector2<std::complex<double> > &w,
+          const matrix2<std::complex<double> > &m);
+}

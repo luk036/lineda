@@ -1,0 +1,169 @@
+cd aaf && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/aaf'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_aafapprox.o aa_aafapprox.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_aafarithm.o aa_aafarithm.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_aafcommon.o aa_aafcommon.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_aaftrigo.o aa_aaftrigo.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_interval.o aa_interval.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -o aa_rounding.o aa_rounding.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f libaaf.a
+ar cqs libaaf.a aa_aafapprox.o aa_aafarithm.o aa_aafcommon.o aa_aaftrigo.o aa_interval.o aa_rounding.o 
+rm -f ../lib/libaaf.a
+mv -f libaaf.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/aaf'
+cd utility && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/utility'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o concept_test.o concept_test.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o utility.o utility.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o svgstream.o svgstream.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o dotstream.o dotstream.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f libutility.a
+ar cqs libutility.a concept_test.o utility.o svgstream.o dotstream.o 
+rm -f ../lib/libutility.a
+mv -f libutility.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/utility'
+cd dsl && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/dsl'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o sclist.o sclist.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o snode.o snode.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o sl_base.o sl_base.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o slist.o slist.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o stree.o stree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o dnode.o dnode.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o dl_base.o dl_base.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o dclist.o dclist.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o bt_node.o bt_node.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o bin_tree.o bin_tree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o tt_node.o tt_node.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o tri_tree.o tri_tree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I. -I../utility -o slicing_flrpln.o slicing_flrpln.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f libdsl.a
+ar cqs libdsl.a sclist.o snode.o sl_base.o slist.o stree.o dnode.o dl_base.o dclist.o bt_node.o bin_tree.o tt_node.o tri_tree.o slicing_flrpln.o 
+rm -f ../lib/libdsl.a
+mv -f libdsl.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/dsl'
+cd numeric && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/numeric'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o interval.o interval.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o matrix2.o matrix2.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o newton.o newton.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o polynomial.o polynomial.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o vector2.o vector2.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o triple.o triple.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -o interval_t.o interval_t.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f libnumeric.a
+ar cqs libnumeric.a interval.o matrix2.o newton.o polynomial.o vector2.o triple.o interval_t.o 
+rm -f ../lib/libnumeric.a
+mv -f libnumeric.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/numeric'
+cd recti && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/recti'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o checker.o checker.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o coord_sys.o coord_sys.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o geo_iter.o geo_iter.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o gpolygon.o gpolygon.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o grpolygon.o grpolygon.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o orient.o orient.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o rectlink.o rectlink.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o path.o path.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o point.o point.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o pointer.o pointer.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o point_set.o point_set.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o polygon.o polygon.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o poly_rand.o poly_rand.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o polygonn.o polygonn.cpp
+polygonn.cpp: In member function `void recti::Polygonn<_Tp>::cut(recti::Pointer<_Tp>*) [with _Tp = int]':
+polygonn.cpp:348:   instantiated from here
+polygonn.cpp:192: warning: unused variable 'A1'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o rectangle.o rectangle.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o rpolygon.o rpolygon.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o segment.o segment.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o seg_overlap.o seg_overlap.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../dsl -I../numeric -I../utility -I../aaf -o zonotope.o zonotope.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f librecti.a
+ar cqs librecti.a checker.o coord_sys.o geo_iter.o gpolygon.o grpolygon.o orient.o rectlink.o path.o point.o pointer.o point_set.o polygon.o poly_rand.o polygonn.o rectangle.o rpolygon.o segment.o seg_overlap.o zonotope.o 
+rm -f ../lib/librecti.a
+mv -f librecti.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/recti'
+cd cgl && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/cgl'
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o sweeper.o sweeper.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o pt_stree.o pt_stree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o pt_bin_tree.o pt_bin_tree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o pt_tri_tree.o pt_tri_tree.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o intvl_set.o intvl_set.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o overlap.o overlap.cpp
+g++ -c -pipe -DNDEBUG -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../recti -I../dsl -I../numeric -I../utility -I/usr/include/c++ -o kd_tree.o kd_tree.cpp
+test -d ../lib/ || mkdir -p ../lib/
+rm -f libcgl.a
+ar cqs libcgl.a sweeper.o pt_stree.o pt_bin_tree.o pt_tri_tree.o intvl_set.o overlap.o kd_tree.o 
+rm -f ../lib/libcgl.a
+mv -f libcgl.a ../lib/
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/cgl'
+cd cppunit && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/cppunit'
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o kt_rectangle_t.o kt_rectangle_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o kd_tree_t.o kd_tree_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o interval_t.o interval_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o vector2_t.o vector2_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o matrix2_t.o matrix2_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o polynomial_t.o polynomial_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o triple_t.o triple_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o point_t.o point_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o path_t.o path_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o rectangle_t.o rectangle_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o rpolygon_t.o rpolygon_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o segment_t.o segment_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o orient_t.o orient_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o zonotope_t.o zonotope_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o bin_tree_t.o bin_tree_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o sclist_t.o sclist_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o slist_t.o slist_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o snode_t.o snode_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o dnode_t.o dnode_t.cpp
+g++ -c -pipe -Wall -W -g -D_REENTRANT   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I.. -I../numeric -I../recti -I../dsl -I../utility -I../cgl -I../aaf -o Main.o Main.cpp
+g++  -o cppunit kt_rectangle_t.o kd_tree_t.o interval_t.o vector2_t.o matrix2_t.o polynomial_t.o triple_t.o point_t.o path_t.o rectangle_t.o rpolygon_t.o segment_t.o orient_t.o zonotope_t.o bin_tree_t.o sclist_t.o slist_t.o snode_t.o dnode_t.o Main.o     -lcppunit -ldl -L../lib -lcgl -lrecti -lnumeric -ldsl -lutility -laaf -lpthread
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/cppunit'
+cd testing && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/testing'
+cd slicing_flrpln && make -f Makefile
+make[2]: Entering directory `/export/home/luk/svnroot/lineda/testing/slicing_flrpln'
+g++ -c -pipe -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/default -I. -I../../dsl -I../../utility -o Main.o Main.cpp
+g++  -o slicing_flrpln Main.o     -L../../lib -ldsl
+make[2]: Leaving directory `/export/home/luk/svnroot/lineda/testing/slicing_flrpln'
+cd polygon && make -f Makefile
+make[2]: Entering directory `/export/home/luk/svnroot/lineda/testing/polygon'
+g++ -c -pipe -Wall -W -O2 -g -pipe -m64   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I../../../lineda/recti -I../../../lineda/numeric -I../../../lineda/dsl -I../../../lineda/utility -o Main.o Main.cpp
+g++  -o polygon Main.o     -L../../../lineda/lib -lrecti -lnumeric -ldsl
+make[2]: Leaving directory `/export/home/luk/svnroot/lineda/testing/polygon'
+cd gpolygon && make -f Makefile
+make[2]: Entering directory `/export/home/luk/svnroot/lineda/testing/gpolygon'
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I../../../lineda/recti -I../../../lineda/numeric -I../../../lineda/dsl -I../../../lineda/utility -o Main.o Main.cpp
+g++  -o gpolygon Main.o     -L../../../lineda/lib -lrecti -lnumeric -ldsl
+make[2]: Leaving directory `/export/home/luk/svnroot/lineda/testing/gpolygon'
+cd segment && make -f Makefile
+make[2]: Entering directory `/export/home/luk/svnroot/lineda/testing/segment'
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I../../../lineda/recti -I../../../lineda/numeric -I../../../lineda/utility -o Main.o Main.cpp
+g++  -o segment Main.o     -L../../../lineda/lib -lrecti -lnumeric
+make[2]: Leaving directory `/export/home/luk/svnroot/lineda/testing/segment'
+cd zonotope && make -f Makefile
+make[2]: Entering directory `/export/home/luk/svnroot/lineda/testing/zonotope'
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I../../../lineda/recti -I../../../lineda/numeric -I../../../lineda/dsl -I../../../lineda/utility -I../../../lineda/aaf -o Main.o Main.cpp
+g++  -o zonotope Main.o     -L../../../lineda/lib -lrecti -lnumeric -ldsl -laaf
+make[2]: Leaving directory `/export/home/luk/svnroot/lineda/testing/zonotope'
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/testing'
+cd ellipsoid && make -f Makefile
+make[1]: Entering directory `/export/home/luk/svnroot/lineda/ellipsoid'
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o testopamp4.o testopamp4.cpp
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o robust_GP.o robust_GP.cpp
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o ex_opamp4.o ex_opamp4.cpp
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o ex_opamp2.o ex_opamp2.cpp
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o posynomial.o posynomial.cpp
+g++ -c -pipe -Wall -W -g   -I/usr/lib64/qt-3.3/mkspecs/linux-g++ -I. -I. -I../aaf -o monomial.o monomial.cpp
+g++  -o ellipsoid testopamp4.o robust_GP.o ex_opamp4.o ex_opamp2.o posynomial.o monomial.o     -L../lib -laaf
+make[1]: Leaving directory `/export/home/luk/svnroot/lineda/ellipsoid'

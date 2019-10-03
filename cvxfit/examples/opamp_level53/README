@@ -1,0 +1,12 @@
+two stage op amp example
+
+To change a process library, modify the .lib line in opamp.sp
+
+There are totally three sizing emphasis, either on bandwidth,
+phase margin, or open loop gain. But all begin with the starting
+point obtained by transistor's level one operation rules,
+i.e., Id = (1/2)u*Cox(W/L)(Vgs-Vth)^2.
+
+Need to addpath ggplab.
+
+The main file is opamp.m --> 
